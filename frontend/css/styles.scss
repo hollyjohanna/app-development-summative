@@ -5,20 +5,11 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // --------------------- Masonry Grid (Desktop) ---------------------
+
+h1 {
+    @include Header;
+}
 
 .feed-grid-section {
 
