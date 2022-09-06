@@ -11,9 +11,9 @@ const bcrypt = require("bcryptjs");
 const config = require("./config.json");
 
 // -------------------------------------Schemas-----------------------------------
-const wildlife_post = require("./models/wildlife-post.js");
-const user = require("./models/user.js");
-const comments = require("./models/comments.js");
+const WildlifePost = require("./models/wildlife-post.js");
+const User = require("./models/user.js");
+const Comment = require("./models/comment.js");
 
 // ----------------------------------Start Dependencies---------------------------
 app.use(bodyParser.json());
@@ -28,7 +28,7 @@ app.listen(port, () => {
 // ---------------------------------Connect to MongoDB----------------------------
 mongoose
   .connect(
-    `mongodb+srv://${config.username}:${config.password}@sum3db.cx7l0zw.mongodb.net/?retryWrites=true&w=majority`
+    `mongodb+srv://${config.username}:${config.password}@sum3db.cx7l0zw.mongodb.net/Wētāverse?retryWrites=true&w=majority`
   )
   .then(() => {
     console.log(`You've connected to MongoDB!`);

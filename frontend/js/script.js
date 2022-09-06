@@ -3,11 +3,12 @@ console.log("hello");
 // ===============================================================================
 //                               SHOW ALL POSTS & RENDER
 // ===============================================================================
+const result = document.getElementById("result");
 
 let showAllPosts = () => {
   $.ajax({
     type: "GET",
-    url: "http://localhost:3000/allWilflifePosts",
+    url: "http://localhost:3000/allWildlifePosts",
     success: (posts) => {
       console.log(posts);
       renderPosts(posts);
@@ -19,7 +20,7 @@ let showAllPosts = () => {
 };
 
 let renderPosts = (wildlifePosts) => {
-  console.log("The render project function is running");
+  console.log("The render post function is running");
   result.innerHTML = "";
   wildlifePosts.forEach((item, index) => {
     result.innerHTML += `
