@@ -11,21 +11,29 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!-- Custom stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
-    <title>Summative</title>
+    <title>Wētāverse</title>
 </head>
 
-<body>
-    <h1>HELLO THIS IS A TEST</h1>
-
-    <section class="feed-grid-section">
-        <div class="feed-grid-cont">
-            <div class="grid-item item-1"></div>
-            <div class="grid-item item-3"></div>
-            <div class="grid-item item-2"></div>
+<body id="login-body">
+    <div class="login-container">
+        <div id="img-container">
+            <img id="login-img" src="img/bird.jpg" alt="A waxeye bird">
         </div>
-    </section>
-    
-    <div id="result"></div>
+        <div class="login-content-container">
+            <h2>Welcome to the</h2>
+            <h1>Wētāverse</h1>
+            <p id="tagline">Photos of local wildlife from all over Aotearoa</p>
+            <form id="login-form" action="javascript:void(0);">
+                <input id="username-input" name="username-input" type="text" placeholder="Username...">
+                <input id="password-input" name="password-input" type="password" placeholder="Password...">
+                <button id="login-button">Login</button>
+                <hr>
+                <button id="signup-button">Signup</button>
+                <a href="#!"><p id="guest-link">Continue as a guest</p></a>
+            </form>
+        </div>
+    </div>
+
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

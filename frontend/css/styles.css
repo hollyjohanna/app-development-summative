@@ -28,6 +28,204 @@
   src: url("fonts/PPRadioGrotesk-Regular.ttf") format("truetype"), url("fonts/PPRadioGrotesk-Regular.otf") format("opentype");
 }
 
+#login-body {
+  background-color: #ECE9E2;
+}
+
+#login-body #login-img {
+  width: 100%;
+  height: 174px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#login-body h1, #login-body h2 {
+  font-family: 'PP Radio Grotesk Bold';
+  color: #393633;
+  text-align: center;
+}
+
+#login-body h2 {
+  margin-top: 38px;
+  margin-bottom: 0;
+  font-size: 31px;
+}
+
+#login-body h1 {
+  font-size: 72px;
+  margin-top: -13px;
+  margin-bottom: 50px;
+}
+
+#login-body #tagline {
+  display: none;
+}
+
+#login-body #login-form {
+  text-align: center;
+  padding: 0 50px;
+}
+
+#login-body #login-form input {
+  width: 100%;
+  padding: 20px;
+  font-family: 'PP Neue Montreal Light';
+  font-size: 26px;
+  border-radius: 0;
+  border: 1px solid #393633;
+  color: #524F42;
+  background-color: #ECE9E2;
+  margin-bottom: 16px;
+}
+
+#login-body #login-form #login-button {
+  border: none;
+  background-color: #8C946F;
+  color: white;
+  font-family: 'PP Neue Montreal Bold';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  font-size: 24px;
+}
+
+#login-body #login-form #login-button:hover {
+  background-color: #524F42;
+}
+
+#login-body #login-form hr {
+  margin: 25px 0;
+  border: 1px solid black;
+}
+
+#login-body #login-form #signup-button {
+  border: none;
+  background-color: #5B7053;
+  color: white;
+  font-family: 'PP Neue Montreal Bold';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#login-body #login-form #signup-button:hover {
+  background-color: #524F42;
+}
+
+#login-body #login-form a {
+  text-decoration: none;
+}
+
+#login-body #login-form #guest-link {
+  color: #5B7053;
+  font-family: 'PP Neue Montreal Light';
+  font-size: 19px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#login-body #login-form #guest-link:hover {
+  color: #393633;
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 600px) {
+  #login-body #login-img {
+    height: 270px;
+  }
+  #login-body #login-form {
+    padding: 0 80px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #login-body #login-img {
+    height: 338px;
+  }
+  #login-body #login-form {
+    padding: 0 130px;
+  }
+  #login-body h1 {
+    margin-bottom: 0;
+  }
+  #login-body #tagline {
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: 'PP Neue Montreal Light';
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #login-body .login-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    height: 100vh;
+  }
+  #login-body .login-container #img-container {
+    width: 48%;
+  }
+  #login-body .login-container #img-container #login-img {
+    width: 100%;
+    height: 100%;
+    -o-object-position: 35%;
+       object-position: 35%;
+  }
+  #login-body .login-container .login-content-container {
+    padding: 0 50px;
+    width: 52%;
+    margin: 100px 0;
+  }
+  #login-body .login-container .login-content-container h1, #login-body .login-container .login-content-container h2 {
+    text-align: left;
+  }
+  #login-body .login-container .login-content-container h1 {
+    font-size: 80px;
+  }
+  #login-body .login-container .login-content-container #tagline {
+    text-align: left;
+  }
+  #login-body .login-container .login-content-container #login-form {
+    padding: 0 100px 0 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #login-body .login-container .login-content-container {
+    padding: 0 85px;
+  }
+  #login-body .login-container .login-content-container h1 {
+    font-size: 120px;
+  }
+  #login-body .login-container .login-content-container h2 {
+    font-size: 40px;
+  }
+  #login-body .login-container .login-content-container #login-form {
+    padding: 0 200px 0 0;
+  }
+  #login-body .login-container .login-content-container #login-form #huest-link {
+    margin-top: 10px;
+  }
+}
+
 body {
   background: #393633;
 }
@@ -106,4 +304,3 @@ h1 {
 .feed-grid-section .feed-grid-cont .item-4 {
   background: green;
 }
-
