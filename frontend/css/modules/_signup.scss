@@ -1,4 +1,4 @@
-#login-body {
+#signup-body {
     background-color: $White;
     #login-img {
         width: 100%;
@@ -18,17 +18,17 @@
     h1 {
        font-size: 72px; 
        margin-top: -13px;
-       margin-bottom: 50px;
+       margin-bottom: 20px;
     }
     #tagline {
         display: none;
     }
-    #login-form {
+    #signup-form {
         text-align: center;
         padding: 0 50px;
         input {
             width: 100%;
-            padding: 20px;
+            padding: 10px 20px;
             font-family: 'PP Neue Montreal Light'; 
             font-size: 26px;
             border-radius: 0;
@@ -37,25 +37,25 @@
             background-color: $White;
             margin-bottom: 16px;
         }
-        #login-button-login-page {
+        #login-button-signup-page {
             @include button-main;
-            width: 100%;
-            font-size: 24px;
-        }
-        #login-button-login-page:hover {
-            background-color: $Brown;
-        }
-        hr {
-            margin: 25px 0;
-            border: 1px solid black
-        }
-        #signup-button-login-page {
-            @include button-second;
             width: 100%;
             font-size: 24px;
             margin-bottom: 10px;
         }
-        #signup-button-login-page:hover {
+        #login-button-signup-page:hover {
+            background-color: $Brown;
+        }
+        hr {
+            margin: 20px 0;
+            border: 1px solid black
+        }
+        #signup-button-signup-page {
+            @include button-second;
+            width: 100%;
+            font-size: 24px;
+        }
+        #signup-button-signup-page:hover {
             background-color: $Brown;
         }
         a {
@@ -77,21 +77,21 @@
 }
 
 @media only screen and (min-width: 600px) {
-    #login-body {
+    #signup-body {
         #login-img {
             height: 270px;
         }
-        #login-form {
+        #signup-form {
             padding: 0 80px;
         }
     }
 }
 @media only screen and (min-width: 768px) {
-    #login-body {
+    #signup-body {
         #login-img {
             height: 338px;
         }
-        #login-form {
+        #signup-form {
             padding: 0 130px;
         }
         h1 {
@@ -107,8 +107,8 @@
     }
 }
 @media only screen and (min-width: 1024px) {
-    #login-body {
-        .login-container {
+    #signup-body {
+        .signup-container {
             display: flex;
             flex-direction: row-reverse;
             height: 100vh;
@@ -120,10 +120,10 @@
                     object-position: 35%;
                 }
             }
-            .login-content-container {
+            .signup-content-container {
                 padding: 0 50px;
                 width: 52%;
-                margin: 100px 0;
+                margin: 60px 0 100px;
                 h1, h2 {
                     text-align: left;
                 }
@@ -133,7 +133,7 @@
                 #tagline {
                     text-align: left;
                 }
-                #login-form {
+                #signup-form {
                     padding: 0 100px 0 0;
                 }
             }
@@ -142,17 +142,18 @@
 }
 
 @media only screen and (min-width: 1440px) {
-    #login-body {
-        .login-container {
-            .login-content-container {
+    #signup-body {
+        .signup-container {
+            .signup-content-container {
                 padding: 0 85px;
+                margin: 100px 0;
                 h1 {
                     font-size: 120px;
                 }
                 h2 {
                     font-size: 40px;
                 }
-                #login-form {
+                #signup-form {
                     padding: 0 200px 0 0;
                     #guest-link {
                         margin-top: 10px;
