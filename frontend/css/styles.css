@@ -116,6 +116,7 @@
   width: 100%;
   font-size: 24px;
   margin-bottom: 10px;
+  display: inline-block;
 }
 
 #login-body #login-form #signup-button-login-page:hover {
@@ -290,6 +291,7 @@
   width: 100%;
   font-size: 24px;
   margin-bottom: 10px;
+  display: inline-block;
 }
 
 #signup-body #signup-form #login-button-signup-page:hover {
