@@ -48,3 +48,30 @@ $TertiaryGreen: #A2A288;
     font-family: 'PP Neue Montreal Bold';
     color: red;
 }
+
+//----------------------------------------------------------------------------
+//                               Button Styles
+//----------------------------------------------------------------------------
+@mixin button-main {
+    border: none;
+    background-color: $SecondaryGreen;
+    color: white;
+    font-family: 'PP Neue Montreal Bold';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+@mixin button-second {
+    border: none;
+    background-color: $PrimaryGreen;
+    color: white;
+    font-family: 'PP Neue Montreal Bold';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
