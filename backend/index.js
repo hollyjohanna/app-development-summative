@@ -46,6 +46,33 @@ app.get("/allWildlifePosts", (req, res) => {
   });
 });
 
+//===============================================================================
+//                                  ADD METHOD
+//===============================================================================
+
+app.post(`/addWildlifePost`, (req, res) => {
+  // create a new instance of the student schema
+  const newWildlifePost = new WildlifePost({
+    // give our new student the details we sent from the frontend
+    _id: new mongoose.Types.ObjectId(),
+    image_url: req.body.image_url,
+    title: req.body.title,
+    location: req.body.location,
+    caption: req.body.caption,
+  });
+  // to save the newstudent to the database
+  // use the variable declared above
+  newWildlifePost
+    .save()
+    .then((result) => {
+      console.log(`Added a new post successfully!`);
+      // return back to the frontend what just happened
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(`Error: ${err.message}`);
+    });
+});
 // ==============================================================================
 //                                 SIGN UP USERS
 // ==============================================================================

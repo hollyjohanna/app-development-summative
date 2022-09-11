@@ -1,3 +1,127 @@
+
+footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #524F42;
+  width: 100%;
+  color: white;
+}
+
+#footer-container {
+  width: 70%;
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 0.5fr 0.5fr;
+  margin-top: 30px;
+}
+
+.footer-section {
+  width: 100%;
+  grid-column: span 4;
+  margin-bottom: 20px;
+}
+.footer-section h2 {
+  font-size: 1.25em;
+}
+.footer-section p {
+  font-size: 0.75em;
+  margin-bottom: 0.2rem;
+}
+
+#subscribe-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  width: 100%;
+  grid-column: span 4;
+}
+
+#subscribe-section {
+  width: 100%;
+}
+#subscribe-section h2 {
+  font-size: 1em;
+}
+#subscribe-section input {
+  width: 70%;
+  height: 4vh;
+}
+#subscribe-section button {
+  width: 28%;
+  border: none;
+  background: #8C946F;
+  color: white;
+  height: 4vh;
+}
+
+#icon-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#icon-section i {
+  font-size: 2em;
+  margin: 0.5em;
+}
+
+#copyright-banner {
+  grid-column: span 4;
+  background: #393633;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  #footer-container {
+    width: 70%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr 0.5fr 0.25fr;
+    gap: 0.5em;
+  }
+  .footer-section {
+    grid-column: span 1;
+  }
+  #subscribe-container {
+    grid-column: span 4;
+  }
+  #icon-section {
+    grid-column: span 4;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  #footer-container {
+    grid-template-columns: 1fr 1fr 1fr 3fr;
+    grid-template-rows: 1fr 0.5fr;
+  }
+  .footer-section {
+    grid-column: span 1;
+  }
+  #subscribe-container {
+    width: 100%;
+    grid-column: span 1;
+  }
+  #icon-section {
+    grid-column: span 4;
+  }
+}
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aqua;
+}
+
+#result {
+  width: 50%;
+}
+#result img {
+  width: 100px;
+}
+=======
 @font-face {
   font-family: 'PP Neue Montreal Bold';
   src: url("fonts/PPNeueMontreal-Bold.ttf") format("truetype"), url("fonts/PPNeueMontreal-Bold.otf") format("opentype");
