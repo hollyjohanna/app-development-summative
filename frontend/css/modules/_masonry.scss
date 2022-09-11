@@ -20,6 +20,7 @@
             @include CreatePost;
             margin-bottom: 0;
             font-size: 22px;
+            color: white;
         }
 
         i {
@@ -27,9 +28,6 @@
         }
     }
 }
-
-
-
 
 .feed-grid-section {
     width: 100%;
@@ -45,7 +43,6 @@
         .grid-item:last-child {
             margin-bottom: 0;
         }
-
 
         .grid-item {
             display: inline-block;
