@@ -1,3 +1,4 @@
+
 footer {
   display: flex;
   justify-content: center;
@@ -119,4 +120,1055 @@ body {
 }
 #result img {
   width: 100px;
+}
+=======
+@font-face {
+  font-family: 'PP Neue Montreal Bold';
+  src: url("fonts/PPNeueMontreal-Bold.ttf") format("truetype"), url("fonts/PPNeueMontreal-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal Book';
+  src: url("fonts/PPNeueMontreal-Book.ttf") format("truetype"), url("fonts/PPNeueMontreal-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal Regular';
+  src: url("fonts/PPNeueMontreal-Regular.ttf") format("truetype"), url("fonts/PPNeueMontreal-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal Light';
+  src: url("fonts/PPNeueMontreal-Light.ttf") format("truetype"), url("fonts/PPNeueMontreal-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'PP Radio Grotesk Bold';
+  src: url("fonts/PPRadioGrotesk-Bold.ttf") format("truetype"), url("fonts/PPRadioGrotesk-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'PP Radio Grotesk Regular';
+  src: url("fonts/PPRadioGrotesk-Regular.ttf") format("truetype"), url("fonts/PPRadioGrotesk-Regular.otf") format("opentype");
+}
+
+nav {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+nav .main-nav {
+  width: 100%;
+  background: #524F42;
+  z-index: 10;
+}
+
+nav .main-nav .main-nav-cont {
+  width: 100%;
+  max-width: 1440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  padding: 3px 12px;
+}
+
+nav .main-nav .main-nav-cont .logo {
+  font-family: 'PP Radio Grotesk Bold';
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 38px;
+  text-decoration: none;
+  color: #ECE9E2;
+}
+
+nav .secondary-nav {
+  width: 100%;
+  background: #393633;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  max-height: 60px;
+  -webkit-transition: max-height 0.45s ease;
+  transition: max-height 0.45s ease;
+}
+
+nav .secondary-nav .secondary-nav-cont {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  max-height: 60px;
+  padding: 13px 15px;
+  gap: 15px;
+  z-index: 10;
+}
+
+nav .secondary-nav .secondary-nav-cont .menu-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 32px;
+  width: 32px;
+  overflow: hidden;
+}
+
+nav .secondary-nav .secondary-nav-cont .menu-btn #nav-open {
+  font-size: 28px;
+  color: #ECE9E2;
+  -webkit-text-stroke: 1px #ECE9E2;
+  display: block;
+}
+
+nav .secondary-nav .secondary-nav-cont .menu-btn #nav-close {
+  font-size: 36px;
+  color: #ECE9E2;
+  -webkit-text-stroke: 1px #ECE9E2;
+  display: none;
+}
+
+nav .secondary-nav .secondary-nav-cont .nav-list {
+  position: relative;
+  display: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+  -webkit-transform: translateZ(-10px);
+          transform: translateZ(-10px);
+  background: #393633;
+}
+
+nav .secondary-nav .secondary-nav-cont .nav-list a {
+  font-size: 22px;
+  text-align: center;
+  font-family: 'PP Neue Montreal Bold';
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: #ECE9E2;
+}
+
+nav .secondary-nav .secondary-nav-cont .nav-search {
+  -ms-flex-preferred-size: 1;
+      flex-basis: 1;
+  background: #ECE9E2;
+  height: 32px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+  font-size: 18px;
+  color: #393633;
+  gap: 10px;
+}
+
+nav .secondary-nav .secondary-nav-cont .nav-search input {
+  background: none;
+  border: none;
+  -ms-flex-preferred-size: 1;
+      flex-basis: 1;
+  background: #ECE9E2;
+  height: 100%;
+  width: 100%;
+  font-family: 'PP Neue Montreal Regular';
+  letter-spacing: 0.5px;
+}
+
+nav .secondary-nav .secondary-nav-cont .nav-search input:focus {
+  outline: none;
+}
+
+nav .secondary-nav .secondary-nav-cont .nav-search i {
+  -webkit-text-stroke: 1px #393633;
+}
+
+nav .secondary-nav .nav-list-mobile {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+  -webkit-transform: translateZ(-10px);
+          transform: translateZ(-10px);
+  background: #393633;
+  padding: 20px 0 25px;
+}
+
+nav .secondary-nav .nav-list-mobile a {
+  font-size: 22px;
+  text-align: center;
+  font-family: 'PP Neue Montreal Bold';
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: #ECE9E2;
+}
+
+.nav-display {
+  max-height: 350px !important;
+  -webkit-transition: max-height 0.45s ease;
+  transition: max-height 0.45s ease;
+}
+
+.nav-open-toggle {
+  display: none !important;
+}
+
+.nav-close-toggle {
+  display: block !important;
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+    z-index: 10;
+  }
+  nav .main-nav {
+    width: 100%;
+    background: #524F42;
+    z-index: 10;
+  }
+  nav .main-nav .main-nav-cont {
+    width: 92%;
+    max-width: 1440px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+    padding: 3px 12px;
+  }
+  nav .main-nav .main-nav-cont .logo {
+    font-family: 'PP Radio Grotesk Bold';
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 38px;
+    text-decoration: none;
+    color: #ECE9E2;
+  }
+  nav .secondary-nav {
+    width: 100%;
+    background: #393633;
+    z-index: 10;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: hidden;
+    max-height: 60px;
+    -webkit-transition: max-height 0.45s ease;
+    transition: max-height 0.45s ease;
+  }
+  nav .secondary-nav .secondary-nav-cont {
+    position: relative;
+    width: 92%;
+    max-width: 1440px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+    max-height: 60px;
+    padding: 13px 15px;
+    gap: 50px;
+    z-index: 10;
+  }
+  nav .secondary-nav .secondary-nav-cont .menu-btn {
+    display: none;
+  }
+  nav .secondary-nav .secondary-nav-cont .nav-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 3vw;
+    -webkit-transform: translateZ(-10px);
+            transform: translateZ(-10px);
+    background: #393633;
+  }
+  nav .secondary-nav .secondary-nav-cont .nav-list a {
+    font-size: 22px;
+    text-align: center;
+    font-family: 'PP Neue Montreal Bold';
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: #ECE9E2;
+    padding: 22px 5px 18px;
+  }
+  nav .secondary-nav .nav-list-mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  nav {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+    z-index: 10;
+  }
+  nav .main-nav {
+    width: 100%;
+    background: #524F42;
+    z-index: 10;
+  }
+  nav .main-nav .main-nav-cont {
+    width: 92%;
+    max-width: 1440px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+    padding: 3px 12px;
+  }
+  nav .main-nav .main-nav-cont .logo {
+    font-family: 'PP Radio Grotesk Bold';
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 50px;
+    text-decoration: none;
+    color: #ECE9E2;
+  }
+  nav .secondary-nav {
+    width: 100%;
+    background: #393633;
+    z-index: 10;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: hidden;
+    max-height: 60px;
+    -webkit-transition: max-height 0.45s ease;
+    transition: max-height 0.45s ease;
+  }
+  nav .secondary-nav .secondary-nav-cont {
+    position: relative;
+    width: 65%;
+    max-width: 1440px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+    max-height: 60px;
+    padding: 13px 15px;
+    gap: 50px;
+    z-index: 10;
+  }
+  nav .secondary-nav .secondary-nav-cont .menu-btn {
+    display: none;
+  }
+  nav .secondary-nav .secondary-nav-cont .nav-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 50px;
+    -webkit-transform: translateZ(-10px);
+            transform: translateZ(-10px);
+    background: #393633;
+  }
+  nav .secondary-nav .secondary-nav-cont .nav-list a {
+    font-size: 22px;
+    text-align: center;
+    font-family: 'PP Neue Montreal Bold';
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: #ECE9E2;
+    padding: 22px 5px 18px;
+  }
+  nav .secondary-nav .secondary-nav-cont .nav-search {
+    -ms-flex-preferred-size: 1;
+        flex-basis: 1;
+    background: #ECE9E2;
+    height: 42px;
+  }
+  nav .secondary-nav .nav-list-mobile {
+    display: none;
+  }
+}
+
+.add-post-cont {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 110px;
+}
+
+.add-post-cont .add-post-btn {
+  padding: 8px 16px;
+  color: #ECE9E2;
+  background: #5B7053;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.add-post-cont .add-post-btn p {
+  font-family: 'PP Radio Grotesk Regular';
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: red;
+  margin-bottom: 0;
+  font-size: 22px;
+  color: white;
+}
+
+.add-post-cont .add-post-btn i {
+  font-size: 26px;
+}
+
+.feed-grid-section {
+  width: 100%;
+  background: #ECE9E2;
+  padding: 10px;
+}
+
+.feed-grid-section .feed-grid-cont {
+  width: 100%;
+  margin: auto;
+  -webkit-column-count: 1;
+          column-count: 1;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+.feed-grid-section .feed-grid-cont .grid-item:last-child {
+  margin-bottom: 0;
+}
+
+.feed-grid-section .feed-grid-cont .grid-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 5px;
+  aspect-ratio: 1/1;
+}
+
+.feed-grid-section .feed-grid-cont .item-1 {
+  background: blue;
+}
+
+.feed-grid-section .feed-grid-cont .item-2 {
+  background: red;
+}
+
+.feed-grid-section .feed-grid-cont .item-3 {
+  background: green;
+}
+
+.feed-grid-section .feed-grid-cont .item-4 {
+  background: green;
+}
+
+img {
+  width: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .feed-grid-section {
+    width: 100%;
+    background: #ECE9E2;
+    padding: 10px;
+  }
+  .feed-grid-section .feed-grid-cont {
+    width: 92%;
+    margin: auto;
+    -webkit-column-count: 2;
+            column-count: 2;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .feed-grid-section {
+    width: 100%;
+    background: #ECE9E2;
+    padding: 10px;
+  }
+  .feed-grid-section .feed-grid-cont {
+    max-width: 1420px;
+    margin: auto;
+    -webkit-column-count: 3;
+            column-count: 3;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+}
+
+#login-body {
+  background-color: #ECE9E2;
+}
+
+#login-body #login-img {
+  width: 100%;
+  height: 174px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#login-body h1, #login-body h2 {
+  font-family: 'PP Radio Grotesk Bold';
+  color: #393633;
+  text-align: center;
+}
+
+#login-body h2 {
+  margin-top: 38px;
+  margin-bottom: 0;
+  font-size: 31px;
+}
+
+#login-body h1 {
+  font-size: 72px;
+  margin-top: -13px;
+  margin-bottom: 50px;
+}
+
+#login-body #tagline {
+  display: none;
+}
+
+#login-body #login-form {
+  text-align: center;
+  padding: 0 50px;
+}
+
+#login-body #login-form input {
+  width: 100%;
+  padding: 20px;
+  font-family: 'PP Neue Montreal Light';
+  font-size: 26px;
+  border-radius: 0;
+  border: 1px solid #393633;
+  color: #524F42;
+  background-color: #ECE9E2;
+  margin-bottom: 16px;
+}
+
+#login-body #login-form #login-button-login-page {
+  border: none;
+  background-color: #8C946F;
+  color: white;
+  font-family: 'PP Neue Montreal Bold';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  font-size: 24px;
+}
+
+#login-body #login-form #login-button-login-page:hover {
+  background-color: #524F42;
+}
+
+#login-body #login-form hr {
+  margin: 25px 0;
+  border: 1px solid black;
+}
+
+#login-body #login-form #signup-button-login-page {
+  border: none;
+  background-color: #5B7053;
+  color: white;
+  font-family: 'PP Neue Montreal Bold';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+#login-body #login-form #signup-button-login-page:hover {
+  background-color: #524F42;
+}
+
+#login-body #login-form a {
+  text-decoration: none;
+}
+
+#login-body #login-form #guest-link {
+  color: #5B7053;
+  font-family: 'PP Neue Montreal Light';
+  font-size: 19px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#login-body #login-form #guest-link:hover {
+  color: #393633;
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 600px) {
+  #login-body #login-img {
+    height: 270px;
+  }
+  #login-body #login-form {
+    padding: 0 80px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #login-body #login-img {
+    height: 338px;
+  }
+  #login-body #login-form {
+    padding: 0 130px;
+  }
+  #login-body h1 {
+    margin-bottom: 0;
+  }
+  #login-body #tagline {
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: 'PP Neue Montreal Light';
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #login-body .login-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    height: 100vh;
+  }
+  #login-body .login-container #img-container {
+    width: 48%;
+  }
+  #login-body .login-container #img-container #login-img {
+    width: 100%;
+    height: 100%;
+    -o-object-position: 35%;
+       object-position: 35%;
+  }
+  #login-body .login-container .login-content-container {
+    padding: 0 50px;
+    width: 52%;
+    margin: 100px 0;
+  }
+  #login-body .login-container .login-content-container h1, #login-body .login-container .login-content-container h2 {
+    text-align: left;
+  }
+  #login-body .login-container .login-content-container h1 {
+    font-size: 80px;
+  }
+  #login-body .login-container .login-content-container #tagline {
+    text-align: left;
+  }
+  #login-body .login-container .login-content-container #login-form {
+    padding: 0 100px 0 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #login-body .login-container .login-content-container {
+    padding: 0 85px;
+  }
+  #login-body .login-container .login-content-container h1 {
+    font-size: 120px;
+  }
+  #login-body .login-container .login-content-container h2 {
+    font-size: 40px;
+  }
+  #login-body .login-container .login-content-container #login-form {
+    padding: 0 200px 0 0;
+  }
+  #login-body .login-container .login-content-container #login-form #guest-link {
+    margin-top: 10px;
+  }
+}
+
+#signup-body {
+  background-color: #ECE9E2;
+}
+
+#signup-body #login-img {
+  width: 100%;
+  height: 174px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#signup-body h1, #signup-body h2 {
+  font-family: 'PP Radio Grotesk Bold';
+  color: #393633;
+  text-align: center;
+}
+
+#signup-body h2 {
+  margin-top: 38px;
+  margin-bottom: 0;
+  font-size: 31px;
+}
+
+#signup-body h1 {
+  font-size: 72px;
+  margin-top: -13px;
+  margin-bottom: 20px;
+}
+
+#signup-body #tagline {
+  display: none;
+}
+
+#signup-body #signup-form {
+  text-align: center;
+  padding: 0 50px;
+}
+
+#signup-body #signup-form input {
+  width: 100%;
+  padding: 10px 20px;
+  font-family: 'PP Neue Montreal Light';
+  font-size: 26px;
+  border-radius: 0;
+  border: 1px solid #393633;
+  color: #524F42;
+  background-color: #ECE9E2;
+  margin-bottom: 16px;
+}
+
+#signup-body #signup-form #login-button-signup-page {
+  border: none;
+  background-color: #8C946F;
+  color: white;
+  font-family: 'PP Neue Montreal Bold';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+#signup-body #signup-form #login-button-signup-page:hover {
+  background-color: #524F42;
+}
+
+#signup-body #signup-form hr {
+  margin: 20px 0;
+  border: 1px solid black;
+}
+
+#signup-body #signup-form #signup-button-signup-page {
+  border: none;
+  background-color: #5B7053;
+  color: white;
+  font-family: 'PP Neue Montreal Bold';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  font-size: 24px;
+}
+
+#signup-body #signup-form #signup-button-signup-page:hover {
+  background-color: #524F42;
+}
+
+#signup-body #signup-form a {
+  text-decoration: none;
+}
+
+#signup-body #signup-form #guest-link {
+  color: #5B7053;
+  font-family: 'PP Neue Montreal Light';
+  font-size: 19px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#signup-body #signup-form #guest-link:hover {
+  color: #393633;
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 600px) {
+  #signup-body #login-img {
+    height: 270px;
+  }
+  #signup-body #signup-form {
+    padding: 0 80px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #signup-body #login-img {
+    height: 338px;
+  }
+  #signup-body #signup-form {
+    padding: 0 130px;
+  }
+  #signup-body h1 {
+    margin-bottom: 0;
+  }
+  #signup-body #tagline {
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: 'PP Neue Montreal Light';
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #signup-body .signup-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    height: 100vh;
+  }
+  #signup-body .signup-container #img-container {
+    width: 48%;
+  }
+  #signup-body .signup-container #img-container #login-img {
+    width: 100%;
+    height: 100%;
+    -o-object-position: 35%;
+       object-position: 35%;
+  }
+  #signup-body .signup-container .signup-content-container {
+    padding: 0 50px;
+    width: 52%;
+    margin: 60px 0 100px;
+  }
+  #signup-body .signup-container .signup-content-container h1, #signup-body .signup-container .signup-content-container h2 {
+    text-align: left;
+  }
+  #signup-body .signup-container .signup-content-container h1 {
+    font-size: 80px;
+  }
+  #signup-body .signup-container .signup-content-container #tagline {
+    text-align: left;
+  }
+  #signup-body .signup-container .signup-content-container #signup-form {
+    padding: 0 100px 0 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #signup-body .signup-container .signup-content-container {
+    padding: 0 85px;
+    margin: 100px 0;
+  }
+  #signup-body .signup-container .signup-content-container h1 {
+    font-size: 120px;
+  }
+  #signup-body .signup-container .signup-content-container h2 {
+    font-size: 40px;
+  }
+  #signup-body .signup-container .signup-content-container #signup-form {
+    padding: 0 200px 0 0;
+  }
+  #signup-body .signup-container .signup-content-container #signup-form #guest-link {
+    margin-top: 10px;
+  }
+}
+
+body {
+  background: #524F42;
+  width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: 'PP Neue Montreal Bold';
+  font-weight: 800;
 }

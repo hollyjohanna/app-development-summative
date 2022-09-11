@@ -14,6 +14,7 @@ const captionInput = document.getElementById("caption-input");
 // ===============================================================================
 //                               SHOW ALL POSTS & RENDER
 // ===============================================================================
+const result = document.getElementById("result");
 
 let showAllPosts = () => {
     $.ajax({
