@@ -1,0 +1,112 @@
+.add-post-cont {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+
+    .add-post-btn {
+        padding: 8px 16px;
+        color: $White;
+        background: $PrimaryGreen;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 8px;
+        margin-bottom: 10px;
+
+        p {
+            @include CreatePost;
+            margin-bottom: 0;
+            font-size: 22px;
+        }
+
+        i {
+            font-size: 26px;
+        }
+    }
+}
+
+
+
+
+.feed-grid-section {
+    width: 100%;
+    background: $White;
+    padding: 10px;
+
+    .feed-grid-cont {
+        width: 100%;
+        margin: auto;
+        column-count: 1;
+        column-gap: 10px;
+
+        .grid-item:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .grid-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 5px;
+            aspect-ratio: 1/1;
+        }
+
+        .item-1 {
+            background: blue;
+        }
+
+        .item-2 {
+            background: red;
+        }
+
+        .item-3 {
+            background: green;
+        }
+
+        .item-4 {
+            background: green;
+        }
+    }
+
+}
+
+img {
+    width: 20px;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+    .feed-grid-section {
+        width: 100%;
+        background: $White;
+        padding: 10px;
+
+        .feed-grid-cont {
+            width: 92%;
+            margin: auto;
+            column-count: 2;
+            column-gap: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .feed-grid-section {
+        width: 100%;
+        background: $White;
+        padding: 10px;
+
+        .feed-grid-cont {
+            // width: 98%;
+            max-width: 1420px;
+            margin: auto;
+            column-count: 3;
+            column-gap: 10px;
+        }
+    }
+}

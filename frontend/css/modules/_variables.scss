@@ -44,11 +44,6 @@ $TertiaryGreen: #A2A288;
 }
 
 
-@mixin Header {
-    font-family: 'PP Neue Montreal Bold';
-    color: red;
-}
-
 //----------------------------------------------------------------------------
 //                               Button Styles
 //----------------------------------------------------------------------------
@@ -74,4 +69,22 @@ $TertiaryGreen: #A2A288;
     padding: 20px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+}
+
+@mixin H1 {
+    font-family: 'PP Neue Montreal Bold';
+    font-weight: 800;
+}
+
+@mixin LogoType {
+    font-family: 'PP Radio Grotesk Bold';
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+@mixin CreatePost {
+    font-family: 'PP Radio Grotesk Regular';
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: red;
 }
