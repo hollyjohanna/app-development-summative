@@ -260,11 +260,30 @@ nav .main-nav .main-nav-cont .logo {
   margin: 0;
 }
 
-nav .main-nav .main-nav-cont a {
+nav .main-nav .main-nav-cont #user-details {
   margin: 0;
 }
 
-nav .main-nav .main-nav-cont a #nav-login-button {
+nav .main-nav .main-nav-cont #user-details #username {
+  color: white;
+  font-family: 'PP Neue Montreal Light';
+  font-size: 15px;
+}
+
+nav .main-nav .main-nav-cont #user-details #dp {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+nav .main-nav .main-nav-cont #user-details a {
+  margin: 0;
+}
+
+nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
   border: none;
   background-color: #8C946F;
   color: white;
@@ -279,7 +298,7 @@ nav .main-nav .main-nav-cont a #nav-login-button {
   font-size: 14px;
 }
 
-nav .main-nav .main-nav-cont a #nav-login-button:hover {
+nav .main-nav .main-nav-cont #user-details a #nav-login-button:hover {
   background-color: #5B7053;
 }
 
@@ -515,7 +534,7 @@ nav .secondary-nav .nav-list-mobile a {
     text-decoration: none;
     color: #ECE9E2;
   }
-  nav .main-nav .main-nav-cont a #nav-login-button {
+  nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
     font-size: 16px;
     padding: 10px 20px;
   }
@@ -640,7 +659,7 @@ nav .secondary-nav .nav-list-mobile a {
     text-decoration: none;
     color: #ECE9E2;
   }
-  nav .main-nav .main-nav-cont a #nav-login-button {
+  nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
     font-size: 20px;
     padding: 13px 20px;
   }
@@ -747,7 +766,7 @@ nav .secondary-nav .nav-list-mobile a {
   background: #ECE9E2;
 }
 
-.add-post-cont .add-post-btn {
+.add-post-cont #add-post-btn {
   padding: 8px 16px;
   color: #ECE9E2;
   background: #5B7053;
@@ -769,7 +788,7 @@ nav .secondary-nav .nav-list-mobile a {
   cursor: pointer;
 }
 
-.add-post-cont .add-post-btn p {
+.add-post-cont #add-post-btn p {
   font-family: 'PP Radio Grotesk Regular';
   font-weight: 700;
   letter-spacing: 1px;
@@ -779,7 +798,7 @@ nav .secondary-nav .nav-list-mobile a {
   color: white;
 }
 
-.add-post-cont .add-post-btn i {
+.add-post-cont #add-post-btn i {
   font-size: 26px;
 }
 
