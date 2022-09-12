@@ -4,7 +4,7 @@ console.log("hello");
 //                   CONST DECLARATIONS
 //=======================================================
 
-const addPostBtn = document.getElementById("add-button");
+const addPostBtn = document.getElementById("add-post-btn");
 const imageURLInput = document.getElementById("image-url-input");
 const titleInput = document.getElementById("title-input");
 const locationInput = document.getElementById("location-input");
