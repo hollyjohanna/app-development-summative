@@ -15,12 +15,12 @@ signupBtn.onclick = function () {
   console.log(username, password, profileImg);
 
   $.ajax({
-    url: `${server}/registeringUser`,
+    url: `${server}/registerUser`,
     type: "POST",
     data: {
       username: username,
       password: password,
-      profile_img_url: profileImg,
+      profile_image_url: profileImg,
     },
     success: function (user) {
       if (user !== "username exists") {
@@ -45,7 +45,7 @@ signupBtn.onclick = function () {
               // set the local storage (cookie) properties equal to the retrieved user data
               sessionStorage.setItem("userID", user._id);
               sessionStorage.setItem("userName", user.username);
-              sessionStorage.setItem("profileImg", user.profile_img_url);
+              sessionStorage.setItem("profileImg", user.profile_image_url);
               // redirect automatically
               document.location.href = "index.html";
             } // end of ifs
