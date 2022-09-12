@@ -1,8 +1,44 @@
+@font-face {
+  font-family: 'PP Neue Montreal Bold';
+  src: url("fonts/PPNeueMontreal-Bold.ttf") format("truetype"), url("fonts/PPNeueMontreal-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal Book';
+  src: url("fonts/PPNeueMontreal-Book.ttf") format("truetype"), url("fonts/PPNeueMontreal-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal Regular';
+  src: url("fonts/PPNeueMontreal-Regular.ttf") format("truetype"), url("fonts/PPNeueMontreal-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'PP Neue Montreal Light';
+  src: url("fonts/PPNeueMontreal-Light.ttf") format("truetype"), url("fonts/PPNeueMontreal-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'PP Radio Grotesk Bold';
+  src: url("fonts/PPRadioGrotesk-Bold.ttf") format("truetype"), url("fonts/PPRadioGrotesk-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'PP Radio Grotesk Regular';
+  src: url("fonts/PPRadioGrotesk-Regular.ttf") format("truetype"), url("fonts/PPRadioGrotesk-Regular.otf") format("opentype");
+}
 
 footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background: #524F42;
   width: 100%;
   color: white;
@@ -11,9 +47,12 @@ footer {
 #footer-container {
   width: 70%;
   max-width: 1440px;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 0.5fr 0.5fr;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 1fr 1fr 0.5fr 0.5fr;
+      grid-template-rows: 1fr 1fr 0.5fr 0.5fr;
   margin-top: 30px;
 }
 
@@ -22,17 +61,21 @@ footer {
   grid-column: span 4;
   margin-bottom: 20px;
 }
+
 .footer-section h2 {
   font-size: 1.25em;
 }
+
 .footer-section p {
   font-size: 0.75em;
   margin-bottom: 0.2rem;
 }
 
 #subscribe-container {
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
   width: 100%;
   grid-column: span 4;
 }
@@ -40,13 +83,16 @@ footer {
 #subscribe-section {
   width: 100%;
 }
+
 #subscribe-section h2 {
   font-size: 1em;
 }
+
 #subscribe-section input {
   width: 70%;
   height: 4vh;
 }
+
 #subscribe-section button {
   width: 28%;
   border: none;
@@ -57,9 +103,14 @@ footer {
 
 #icon-section {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 #icon-section i {
   font-size: 2em;
   margin: 0.5em;
@@ -76,8 +127,10 @@ footer {
 @media only screen and (min-width: 768px) {
   #footer-container {
     width: 70%;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 0.5fr 0.5fr 0.25fr;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 0.5fr 0.5fr 0.25fr;
+        grid-template-rows: 1fr 0.5fr 0.5fr 0.25fr;
     gap: 0.5em;
   }
   .footer-section {
@@ -90,10 +143,13 @@ footer {
     grid-column: span 4;
   }
 }
+
 @media only screen and (min-width: 1440px) {
   #footer-container {
-    grid-template-columns: 1fr 1fr 1fr 3fr;
-    grid-template-rows: 1fr 0.5fr;
+    -ms-grid-columns: 1fr 1fr 1fr 3fr;
+        grid-template-columns: 1fr 1fr 1fr 3fr;
+    -ms-grid-rows: 1fr 0.5fr;
+        grid-template-rows: 1fr 0.5fr;
   }
   .footer-section {
     grid-column: span 1;
@@ -106,9 +162,11 @@ footer {
     grid-column: span 4;
   }
 }
+
 * {
   margin: 0 auto;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -118,10 +176,11 @@ body {
 #result {
   width: 50%;
 }
+
 #result img {
   width: 100px;
 }
-=======
+
 @font-face {
   font-family: 'PP Neue Montreal Bold';
   src: url("fonts/PPNeueMontreal-Bold.ttf") format("truetype"), url("fonts/PPNeueMontreal-Bold.otf") format("opentype");

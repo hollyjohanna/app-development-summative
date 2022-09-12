@@ -89,7 +89,7 @@ app.post("/registerUser", (req, res) => {
         _id: new mongoose.Types.ObjectId(),
         username: req.body.username,
         password: hash,
-        profile_img_url: req.body.profile_img_url,
+        profile_image_url: req.body.profile_image_url,
       });
 
       user
