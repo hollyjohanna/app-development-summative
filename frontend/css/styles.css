@@ -231,6 +231,7 @@ nav .main-nav {
   width: 100%;
   background: #524F42;
   z-index: 10;
+  padding: 10px;
 }
 
 nav .main-nav .main-nav-cont {
@@ -253,9 +254,33 @@ nav .main-nav .main-nav-cont .logo {
   font-family: 'PP Radio Grotesk Bold';
   font-weight: 800;
   letter-spacing: 1px;
-  font-size: 38px;
+  font-size: 30px;
   text-decoration: none;
   color: #ECE9E2;
+  margin: 0;
+}
+
+nav .main-nav .main-nav-cont a {
+  margin: 0;
+}
+
+nav .main-nav .main-nav-cont a #nav-login-button {
+  border: none;
+  background-color: #8C946F;
+  color: white;
+  font-family: 'PP Neue Montreal Bold';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  padding: 5px 12px;
+  font-size: 14px;
+}
+
+nav .main-nav .main-nav-cont a #nav-login-button:hover {
+  background-color: #5B7053;
 }
 
 nav .secondary-nav {
@@ -490,6 +515,10 @@ nav .secondary-nav .nav-list-mobile a {
     text-decoration: none;
     color: #ECE9E2;
   }
+  nav .main-nav .main-nav-cont a #nav-login-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
   nav .secondary-nav {
     width: 100%;
     background: #393633;
@@ -610,6 +639,10 @@ nav .secondary-nav .nav-list-mobile a {
     font-size: 50px;
     text-decoration: none;
     color: #ECE9E2;
+  }
+  nav .main-nav .main-nav-cont a #nav-login-button {
+    font-size: 20px;
+    padding: 13px 20px;
   }
   nav .secondary-nav {
     width: 100%;
