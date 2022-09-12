@@ -3,7 +3,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 110px;
+    height: 130px;
+    position: sticky;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    background: $White;
 
     .add-post-btn {
         padding: 8px 16px;
@@ -15,6 +20,7 @@
         flex-direction: row;
         gap: 8px;
         margin-bottom: 10px;
+        cursor: pointer;
 
         p {
             @include CreatePost;
@@ -37,35 +43,140 @@
     .feed-grid-cont {
         width: 100%;
         margin: auto;
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
         column-count: 1;
+        column-width: 100%;
         column-gap: 10px;
+        column-fill: auto;
+        column-rule: 100%;
+        break-inside: avoid;
 
-        .grid-item:last-child {
-            margin-bottom: 0;
+        .grid-item:hover {
+            cursor: pointer;
+
+            .post-data-cont-top,
+            .post-data-cont-bottom {
+                opacity: 1;
+            }
+
+            .post-hover {
+                opacity: 1;
+                cursor: pointer;
+            }
         }
 
         .grid-item {
-            display: inline-block;
+            display: block;
             width: 100%;
-            margin-bottom: 5px;
-            aspect-ratio: 1/1;
+            max-width: 100%;
+            margin-bottom: 10px;
+            column-span: 1;
+            // aspect-ratio: 1/1;
+            background: $Black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            break-inside: avoid-column;
+            // float: left;
+
+            .post-data-cont-top,
+            .post-data-cont-bottom {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                position: absolute;
+                // background: red;
+                overflow: hidden;
+                z-index: 2;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s ease;
+            }
+
+            .post-data-cont-top {
+                flex-direction: row;
+                justify-content: space-between;
+                // height: 55px;
+                top: 0;
+                left: 0;
+                padding: 15px 18px;
+
+                .post-avatar-cont,
+                .post-like-cont {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .post-avatar-cont {
+                    img {
+                        height: 42px;
+                        width: 42px;
+                        border-radius: 50%;
+                        border: solid 2px $White;
+                        background: $PrimaryGreen;
+                    }
+                }
+
+                .post-like-cont {
+
+                    padding: 0 2px;
+
+                    i {
+                        color: $White;
+                        font-size: 32px;
+                    }
+                }
+
+
+            }
+
+            .post-data-cont-bottom {
+                flex-direction: column;
+                justify-content: center;
+                bottom: 0;
+                right: 0;
+                color: $White;
+
+                i {
+                    font-size: 32px
+                }
+
+                .post-location {
+                    font-size: 30px;
+                    text-transform: capitalize;
+                    margin: 0;
+                    line-height: 28px;
+                }
+
+                .view-more {
+                    font-size: 20px;
+                    text-transform: capitalize;
+                }
+
+
+            }
+
+            .post-hover {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                z-index: 1;
+                background: linear-gradient(0deg, rgba(57, 54, 51, 0.95) 10%, rgba(57, 54, 51, 0.25) 95%);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s ease;
+            }
+
+            .post-img {
+                width: 100%;
+            }
+
         }
 
-        .item-1 {
-            background: blue;
-        }
-
-        .item-2 {
-            background: red;
-        }
-
-        .item-3 {
-            background: green;
-        }
-
-        .item-4 {
-            background: green;
-        }
     }
 
 }

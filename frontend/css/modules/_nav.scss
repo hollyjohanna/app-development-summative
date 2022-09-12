@@ -10,6 +10,7 @@ nav {
         width: 100%;
         background: $Brown;
         z-index: 10;
+        padding: 10px;
 
         .main-nav-cont {
             width: 100%;
@@ -22,9 +23,21 @@ nav {
 
             .logo {
                 @include LogoType;
-                font-size: 38px;
+                font-size: 30px;
                 text-decoration: none;
                 color: $White;
+                margin: 0;
+            }
+            a {
+                margin: 0;
+                #nav-login-button {
+                    @include button-main;
+                    padding: 5px 12px;
+                    font-size: 14px;
+                }
+                #nav-login-button:hover {
+                    background-color: $PrimaryGreen;
+                }
             }
         }
     }
@@ -202,6 +215,12 @@ nav {
                     text-decoration: none;
                     color: $White;
                 }
+                a {
+                    #nav-login-button {
+                        font-size: 16px;
+                        padding: 10px 20px;
+                    }
+                }
             }
         }
 
@@ -291,6 +310,12 @@ nav {
                     font-size: 50px;
                     text-decoration: none;
                     color: $White;
+                }
+                a {
+                    #nav-login-button {
+                        font-size: 20px;
+                        padding: 13px 20px;
+                    }
                 }
             }
         }
