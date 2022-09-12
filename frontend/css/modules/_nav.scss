@@ -28,15 +28,31 @@ nav {
                 color: $White;
                 margin: 0;
             }
-            a {
+            #user-details{
                 margin: 0;
-                #nav-login-button {
-                    @include button-main;
-                    padding: 5px 12px;
-                    font-size: 14px;
+                #username {
+                    color: white;
+                    font-family: 'PP Neue Montreal Light';
+                    font-size: 15px;
                 }
-                #nav-login-button:hover {
-                    background-color: $PrimaryGreen;
+                #dp {
+                    width: 50px;
+                    height: 50px;
+                    display: inline-block;
+                    border-radius: 50%;
+                    background-position: 50% 50%;
+                    background-size: cover;
+                }
+                a {
+                    margin: 0;
+                    #nav-login-button, #nav-logout-button {
+                        @include button-main;
+                        padding: 5px 12px;
+                        font-size: 14px;
+                    }
+                    #nav-login-button:hover {
+                        background-color: $PrimaryGreen;
+                    }
                 }
             }
         }
@@ -215,10 +231,12 @@ nav {
                     text-decoration: none;
                     color: $White;
                 }
-                a {
-                    #nav-login-button {
-                        font-size: 16px;
-                        padding: 10px 20px;
+                #user-details {
+                    a {
+                        #nav-login-button, #nav-logout-button {
+                            font-size: 16px;
+                            padding: 10px 20px;
+                        }
                     }
                 }
             }
@@ -311,10 +329,12 @@ nav {
                     text-decoration: none;
                     color: $White;
                 }
-                a {
-                    #nav-login-button {
-                        font-size: 20px;
-                        padding: 13px 20px;
+                #user-details {
+                    a {
+                        #nav-login-button, #nav-logout-button {
+                            font-size: 20px;
+                            padding: 13px 20px;
+                        }
                     }
                 }
             }
