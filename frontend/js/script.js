@@ -93,7 +93,7 @@ let checkLogin = () => {
   let navContent;
   if (sessionStorage.userID) {
     console.log(sessionStorage.userName);
-    console.log(sessionStorage.profileImg);
+    console.log(sessionStorage);
     navContent = `
     <span id="username">@${sessionStorage.userName}</span>
     <span id="dp" style="background-image: url('${sessionStorage.profileImg}')"></span>
