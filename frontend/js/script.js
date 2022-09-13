@@ -28,10 +28,10 @@ let showAllPosts = () => {
 };
 
 let renderPosts = (wildlifePosts) => {
-    console.log("The render post function is running");
-    grid.innerHTML = "";
-    wildlifePosts.forEach((item, index) => {
-        grid.innerHTML += `
+  console.log("The render post function is running");
+  grid.innerHTML = "";
+  wildlifePosts.forEach((item, index) => {
+    grid.innerHTML += `
       <div class="grid-item post">
         <div class="post-data-cont-top">
           <div class="post-avatar-cont">
@@ -59,22 +59,21 @@ showAllPosts();
 //                         ADD POSTS
 // ==========================================================
 
-
 //===========================================================
 //                   MODAL OPENING AND CLOSING
 //===========================================================
 
-closeCreateModal = document.getElementById("exit-modal-icon")
+closeCreateModal = document.getElementById("exit-modal-icon");
 
 addPostBtn.onclick = () => {
-    console.log("clicked!");
-    $(".create-post-modal").css("display", "flex");
-}
+  console.log("clicked!");
+  $(".create-post-modal").css("display", "flex");
+};
 
 closeCreateModal.onclick = () => {
-    console.log("closing");
-    $(".create-post-modal").css("display", "none");
-}
+  console.log("closing");
+  $(".create-post-modal").css("display", "none");
+};
 
 //===========================================================
 //                   MODAL OPENING AND CLOSING
@@ -83,39 +82,39 @@ closeCreateModal.onclick = () => {
 renderPostBtn = document.getElementById("render-post-btn");
 
 renderPostBtn.onclick = () => {
-    console.log("clicked");
-    if (imageURLInput.value == "") {
-        console.log("Input is empty, please include something.")
-    } else if (locationInput.value == "") {
-        console.log("Input is empty, please include something.")
-    } else if (titleInput.value == "") {
-        console.log("Input is empty, please include something.")
-    } else if (captionInput.value == "") {
-        console.log("Input is empty, please include something.")
-    } else {
-        $.ajax({
-            url: `http://localhost:3000/addWildlifePost`,
-            // use the post type to create data somewhere
-            // requesting to POST our data
-            type: "POST",
-            // we can send objects through to the backend, using the data argument
-            data: {
-                // the first property (i.e. the one on the left) called name has to be spelt exactly as the schema
-                image_url: imageURLInput.value,
-                title: titleInput.value,
-                location: locationInput.value,
-                caption: captionInput.value,
-            },
-            success: () => {
-                console.log("A new student was added.");
-                showAllPosts();
-            },
-            error: () => {
-                console.log("Error: cannot reach the backend");
-            },
-        });
-        $(".create-post-modal").css("display", "none");
-    }
+  console.log("clicked");
+  if (imageURLInput.value == "") {
+    console.log("Input is empty, please include something.");
+  } else if (locationInput.value == "") {
+    console.log("Input is empty, please include something.");
+  } else if (titleInput.value == "") {
+    console.log("Input is empty, please include something.");
+  } else if (captionInput.value == "") {
+    console.log("Input is empty, please include something.");
+  } else {
+    $.ajax({
+      url: `http://localhost:3000/addWildlifePost`,
+      // use the post type to create data somewhere
+      // requesting to POST our data
+      type: "POST",
+      // we can send objects through to the backend, using the data argument
+      data: {
+        // the first property (i.e. the one on the left) called name has to be spelt exactly as the schema
+        image_url: imageURLInput.value,
+        title: titleInput.value,
+        location: locationInput.value,
+        caption: captionInput.value,
+      },
+      success: () => {
+        console.log("A new post was added.");
+        showAllPosts();
+      },
+      error: () => {
+        console.log("Error: cannot reach the backend");
+      },
+    });
+    $(".create-post-modal").css("display", "none");
+  }
   console.log("clicked");
   $.ajax({
     url: `http://localhost:3000/addWildlifePost`,
@@ -131,7 +130,7 @@ renderPostBtn.onclick = () => {
       caption: captionInput.value,
     },
     success: () => {
-      console.log("A new student was added.");
+      console.log("A new post was added.");
       showAllPosts();
     },
     error: () => {
@@ -152,7 +151,7 @@ let checkLogin = () => {
     console.log(sessionStorage);
     navContent = `
     <span id="username">@${sessionStorage.userName}</span>
-    <span id="dp" style="background-image: url('${sessionStorage.profileImg}')"></span>
+    <img id="dp" src="${sessionStorage.profileImg}" alt="">
     <a href="#">
     <button id="nav-logout-button">Sign Out</button>
     </a>
