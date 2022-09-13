@@ -78,6 +78,7 @@ nav {
         overflow: hidden;
         max-height: 60px;
         transition: max-height 0.45s ease;
+        box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
 
         .secondary-nav-cont {
             position: relative;

@@ -104,6 +104,9 @@ renderPostBtn.onclick = () => {
         title: titleInput.value,
         location: locationInput.value,
         caption: captionInput.value,
+        author_name: "Holly",
+        author_image_url: "sessionStorage.profileImg",
+        author_id: "sessionStorage.userID",
       },
       success: () => {
         console.log("A new post was added.");
@@ -115,28 +118,6 @@ renderPostBtn.onclick = () => {
     });
     $(".create-post-modal").css("display", "none");
   }
-  console.log("clicked");
-  $.ajax({
-    url: `http://localhost:3000/addWildlifePost`,
-    // use the post type to create data somewhere
-    // requesting to POST our data
-    type: "POST",
-    // we can send objects through to the backend, using the data argument
-    data: {
-      // the first property (i.e. the one on the left) called name has to be spelt exactly as the schema
-      image_url: imageURLInput.value,
-      title: titleInput.value,
-      location: locationInput.value,
-      caption: captionInput.value,
-    },
-    success: () => {
-      console.log("A new post was added.");
-      showAllPosts();
-    },
-    error: () => {
-      console.log("Error: cannot reach the backend");
-    },
-  });
 };
 
 // ==========================================================================
