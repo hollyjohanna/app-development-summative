@@ -9,6 +9,11 @@ const wildlifePostSchema = new mongoose.Schema(
         _id: mongoose.Schema.Types.ObjectId,
         image_url: String,
         title: String,
+        author: {
+            author_name: String,
+            author_image_url: String,
+            author_id: String
+        },
         location: String,
         caption: String,
         comments: [],
