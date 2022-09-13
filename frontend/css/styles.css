@@ -254,17 +254,49 @@ nav .main-nav .main-nav-cont .logo {
   font-family: 'PP Radio Grotesk Bold';
   font-weight: 800;
   letter-spacing: 1px;
-  font-size: 30px;
+  font-size: 25px;
   text-decoration: none;
   color: #ECE9E2;
   margin: 0;
 }
 
-nav .main-nav .main-nav-cont a {
+nav .main-nav .main-nav-cont #user-details {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav .main-nav .main-nav-cont #user-details #username {
+  display: none;
+  color: white;
+  font-family: 'PP Neue Montreal Light';
+  font-size: 15px;
+}
+
+nav .main-nav .main-nav-cont #user-details #dp {
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-position: 50% 50%;
+  background-size: cover;
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+nav .main-nav .main-nav-cont #user-details #dp:hover {
+  border: 2px solid #393633;
+}
+
+nav .main-nav .main-nav-cont #user-details a {
   margin: 0;
 }
 
-nav .main-nav .main-nav-cont a #nav-login-button {
+nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
   border: none;
   background-color: #8C946F;
   color: white;
@@ -277,9 +309,10 @@ nav .main-nav .main-nav-cont a #nav-login-button {
   transition: all 0.3s ease-in-out;
   padding: 5px 12px;
   font-size: 14px;
+  margin-top: 6px;
 }
 
-nav .main-nav .main-nav-cont a #nav-login-button:hover {
+nav .main-nav .main-nav-cont #user-details a #nav-login-button:hover {
   background-color: #5B7053;
 }
 
@@ -304,6 +337,8 @@ nav .secondary-nav {
   max-height: 60px;
   -webkit-transition: max-height 0.45s ease;
   transition: max-height 0.45s ease;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 nav .secondary-nav .secondary-nav-cont {
@@ -321,8 +356,8 @@ nav .secondary-nav .secondary-nav-cont {
           align-items: center;
   margin: auto;
   max-height: 60px;
-  padding: 13px 15px;
-  gap: 15px;
+  padding: 15px 15px;
+  gap: 40px;
   z-index: 10;
 }
 
@@ -491,9 +526,10 @@ nav .secondary-nav .nav-list-mobile a {
     width: 100%;
     background: #524F42;
     z-index: 10;
+    padding: 17px;
   }
   nav .main-nav .main-nav-cont {
-    width: 92%;
+    width: 95%;
     max-width: 1440px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -511,13 +547,26 @@ nav .secondary-nav .nav-list-mobile a {
     font-family: 'PP Radio Grotesk Bold';
     font-weight: 800;
     letter-spacing: 1px;
-    font-size: 38px;
+    font-size: 30px;
     text-decoration: none;
     color: #ECE9E2;
   }
-  nav .main-nav .main-nav-cont a #nav-login-button {
+  nav .main-nav .main-nav-cont #user-details #username {
+    display: block;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 18px;
+  }
+  nav .main-nav .main-nav-cont #user-details #dp {
+    height: 45px;
+    width: 45px;
+    margin-right: 15px;
+  }
+  nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
     font-size: 16px;
     padding: 10px 20px;
+    margin: 0;
   }
   nav .secondary-nav {
     width: 100%;
@@ -543,7 +592,7 @@ nav .secondary-nav .nav-list-mobile a {
   }
   nav .secondary-nav .secondary-nav-cont {
     position: relative;
-    width: 92%;
+    width: 85%;
     max-width: 1440px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -559,6 +608,9 @@ nav .secondary-nav .nav-list-mobile a {
     padding: 13px 15px;
     gap: 50px;
     z-index: 10;
+  }
+  nav .secondary-nav .secondary-nav-cont .nav-search input {
+    font-size: 13px;
   }
   nav .secondary-nav .secondary-nav-cont .menu-btn {
     display: none;
@@ -583,7 +635,7 @@ nav .secondary-nav .nav-list-mobile a {
     background: #393633;
   }
   nav .secondary-nav .secondary-nav-cont .nav-list a {
-    font-size: 22px;
+    font-size: 18px;
     text-align: center;
     font-family: 'PP Neue Montreal Bold';
     letter-spacing: 0.5px;
@@ -636,11 +688,19 @@ nav .secondary-nav .nav-list-mobile a {
     font-family: 'PP Radio Grotesk Bold';
     font-weight: 800;
     letter-spacing: 1px;
-    font-size: 50px;
+    font-size: 40px;
     text-decoration: none;
     color: #ECE9E2;
   }
-  nav .main-nav .main-nav-cont a #nav-login-button {
+  nav .main-nav .main-nav-cont #user-details #dp {
+    width: 56px;
+    height: 56px;
+    margin-right: 30px;
+  }
+  nav .main-nav .main-nav-cont #user-details #username {
+    font-size: 25px;
+  }
+  nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
     font-size: 20px;
     padding: 13px 20px;
   }
@@ -662,7 +722,7 @@ nav .secondary-nav .nav-list-mobile a {
         -ms-flex-direction: column;
             flex-direction: column;
     overflow: hidden;
-    max-height: 60px;
+    max-height: 70px;
     -webkit-transition: max-height 0.45s ease;
     transition: max-height 0.45s ease;
   }
@@ -681,9 +741,12 @@ nav .secondary-nav .nav-list-mobile a {
             align-items: center;
     margin: auto;
     max-height: 60px;
-    padding: 13px 15px;
+    padding: 35px 15px;
     gap: 50px;
     z-index: 10;
+  }
+  nav .secondary-nav .secondary-nav-cont .nav-search input {
+    font-size: 17px;
   }
   nav .secondary-nav .secondary-nav-cont .menu-btn {
     display: none;
@@ -747,7 +810,7 @@ nav .secondary-nav .nav-list-mobile a {
   background: #ECE9E2;
 }
 
-.add-post-cont .add-post-btn {
+.add-post-cont #add-post-btn {
   padding: 8px 16px;
   color: #ECE9E2;
   background: #5B7053;
@@ -769,7 +832,7 @@ nav .secondary-nav .nav-list-mobile a {
   cursor: pointer;
 }
 
-.add-post-cont .add-post-btn p {
+.add-post-cont #add-post-btn p {
   font-family: 'PP Radio Grotesk Regular';
   font-weight: 700;
   letter-spacing: 1px;
@@ -779,7 +842,7 @@ nav .secondary-nav .nav-list-mobile a {
   color: white;
 }
 
-.add-post-cont .add-post-btn i {
+.add-post-cont #add-post-btn i {
   font-size: 26px;
 }
 
@@ -955,6 +1018,66 @@ nav .secondary-nav .nav-list-mobile a {
 
 img {
   width: 20px;
+}
+
+.create-post-modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 25;
+  background: rgba(57, 54, 51, 0.75);
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 80px 200px;
+}
+
+.create-post-modal .create-exit-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px;
+}
+
+.create-post-modal .create-exit-modal .exit-modal-icon {
+  font-size: 30px;
+}
+
+.create-post-modal .create-post-modal-cont {
+  width: 50vw;
+  padding: 30px;
+  background: #ECE9E2;
+}
+
+.create-post-modal #add-post-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.create-post-modal #add-post-form input {
+  width: 50%;
+}
+
+.create-post-modal #add-post-form button {
+  margin-top: 2rem;
 }
 
 @media screen and (min-width: 768px) {
