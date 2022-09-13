@@ -1,5 +1,3 @@
-console.log("hello");
-
 //=======================================================
 //                   CONST DECLARATIONS
 //=======================================================
@@ -10,24 +8,23 @@ const titleInput = document.getElementById("title-input");
 const locationInput = document.getElementById("location-input");
 const captionInput = document.getElementById("caption-input");
 
-
 // ===============================================================================
 //                               SHOW ALL POSTS & RENDER
 // ===============================================================================
 const grid = document.getElementById("feed-grid-cont");
 
 let showAllPosts = () => {
-    $.ajax({
-        type: "GET",
-        url: "http://localhost:3000/allWildlifePosts",
-        success: (posts) => {
-            console.log(posts);
-            renderPosts(posts);
-        },
-        error: (error) => {
-            console.log(error);
-        },
-    });
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:3000/allWildlifePosts",
+    success: (posts) => {
+      console.log(posts);
+      renderPosts(posts);
+    },
+    error: (error) => {
+      console.log(error);
+    },
+  });
 };
 
 let renderPosts = (wildlifePosts) => {
@@ -53,7 +50,7 @@ let renderPosts = (wildlifePosts) => {
         <img src="${item.image_url}" alt="${item.name}" class="post-img">
       </div>
         `;
-    });
+  });
 };
 
 showAllPosts();
@@ -119,4 +116,71 @@ renderPostBtn.onclick = () => {
         });
         $(".create-post-modal").css("display", "none");
     }
+  console.log("clicked");
+  $.ajax({
+    url: `http://localhost:3000/addWildlifePost`,
+    // use the post type to create data somewhere
+    // requesting to POST our data
+    type: "POST",
+    // we can send objects through to the backend, using the data argument
+    data: {
+      // the first property (i.e. the one on the left) called name has to be spelt exactly as the schema
+      image_url: imageURLInput.value,
+      title: titleInput.value,
+      location: locationInput.value,
+      caption: captionInput.value,
+    },
+    success: () => {
+      console.log("A new student was added.");
+      showAllPosts();
+    },
+    error: () => {
+      console.log("Error: cannot reach the backend");
+    },
+  });
 };
+
+// ==========================================================================
+//                         CHECK LOGIN CONDITIONS
+// ==========================================================================
+
+let checkLogin = () => {
+  const userDetails = document.getElementById("user-details");
+  let navContent;
+  if (sessionStorage.userID) {
+    console.log(sessionStorage.userName);
+    console.log(sessionStorage);
+    navContent = `
+    <span id="username">@${sessionStorage.userName}</span>
+    <span id="dp" style="background-image: url('${sessionStorage.profileImg}')"></span>
+    <a href="#">
+    <button id="nav-logout-button">Sign Out</button>
+    </a>
+    `;
+  } else {
+    navContent = `
+    <a href="login.html">
+    <button id="nav-login-button">Login/Signup</button>
+    </a>
+    `;
+  }
+  userDetails.innerHTML = navContent;
+};
+
+checkLogin();
+
+//================
+// Log Out Button
+//================
+
+const logoutBtn = document.getElementById("nav-logout-button");
+
+let logOut = () => {
+  console.log("You've logged out");
+  sessionStorage.clear();
+  window.location.reload();
+};
+
+if (sessionStorage.userID) {
+  logoutBtn.onclick = () => logOut();
+}
