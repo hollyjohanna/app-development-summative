@@ -13,14 +13,15 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Summative</title>
 </head>
-  <body>
-     <nav class="" id="">
-            <div class="main-nav">
-                <div class="main-nav-cont">
-                    <a href="#" class="logo">Wētāverse</a>
-                    <a href="login.html"><button id="nav-login-button">Login/Signup</button></a>
-                </div>
+
+<body>
+    <nav class="" id="">
+        <div class="main-nav">
+            <div class="main-nav-cont">
+                <a href="#" class="logo">Wētāverse</a>
+                <a href="login.html"><button id="nav-login-button">Login/Signup</button></a>
             </div>
+        </div>
         <div class="secondary-nav" id="secondary-nav">
             <div class="secondary-nav-cont">
                 <div class="menu-btn" id="menu-btn">
@@ -47,9 +48,78 @@
 
     <section class="feed-grid-section">
         <div class="add-post-cont">
-            <div class="add-post-btn">
+            <div class="add-post-btn" id="add-post-btn">
                 <i class="bi bi-plus-square-fill"></i>
                 <p>Create a post</p>
+            </div>
+        </div>
+        <div class="post-modal">
+            <div class="exit-modal">
+                <i class="bi bi-x-lg  exit-modal-icon"></i>
+            </div>
+            <div class="post-modal-cont">
+                <div class="img-cont">
+                    <img src="https://nzbirdsonline.org.nz/sites/all/files/1200543Tui%20x2800.JPG">
+                </div>
+                <div class="post-modal-content-cont">
+                    <div class="post-user-cont">
+                        <div class="post-user-img"></div>
+                        <div class="post-user-details">
+                            <h5 class="post-user-name">@jaruuude</h5>
+                            <p class="post-location">Newtown, Wellington</p>
+                        </div>
+                        <div class="post-interactions-cont">
+                            <i class="bi bi-pencil-square"></i>
+                            <i class="bi bi-trash3"></i>
+                            <i class="bi bi-heart"></i>
+                        </div>
+                    </div>
+                    <div class="post-comments-cont">
+                        <div class="comment">
+                            <div class="comment-user-img"></div>
+                            <div class="comment-content">
+                                <p><span class="comment-user-name">@hollyholly</span>This is an example of a comment</p>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-user-img"></div>
+                            <div class="comment-content">
+                                <p><span class="comment-user-name">@hollyholly</span>This is an example of a comment but
+                                    slightly longer</p>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-user-img"></div>
+                            <div class="comment-content">
+                                <p><span class="comment-user-name">@hollyholly</span>This is an example of a comment</p>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-user-img"></div>
+                            <div class="comment-content">
+                                <p><span class="comment-user-name">@hollyholly</span>This is an example of a comment but
+                                    even longer than the other long one just to show off how we can deal with long
+                                    comments like this one</p>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-user-img"></div>
+                            <div class="comment-content">
+                                <p><span class="comment-user-name">@hollyholly</span>This is an example of a comment but
+                                    even longer than the other long one just to show off how we can deal with long
+                                    comments like this one and the one before this one. also using this to extend the
+                                    post a bit more</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-add-comment-cont">
+                        <div class="current-user-img">
+                        </div>
+                        <input type="text" placeholder="Leave a comment..." class="comment-input">
+                        <i class="bi bi-send  post-new-comment"></i>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="feed-grid-cont" id="feed-grid-cont">
@@ -63,18 +133,18 @@
             <div class="grid-item item-2"></div>
         </div>
     </section>
-      <div id="result"></div>
-         <form id="add-post-form" action="javascript:void(0)">
-            <label for="image-url-input">Image URL</label>
-            <input id="image-url-input" name="image-url-input" type="text">
-            <label for="title-input">Title</label>
-            <input id="title-input" name="title-input" type="text">
-            <label for="location-input">Location</label>
-            <input id="location-input" name="location-input" type="text">
-            <label for="caption-input">Caption</label>
-            <input id="caption-input" name="image-url-input" type="text">
-        </form>
-      <footer>
+    <div id="result"></div>
+    <form id="add-post-form" action="javascript:void(0)">
+        <label for="image-url-input">Image URL</label>
+        <input id="image-url-input" name="image-url-input" type="text">
+        <label for="title-input">Title</label>
+        <input id="title-input" name="title-input" type="text">
+        <label for="location-input">Location</label>
+        <input id="location-input" name="location-input" type="text">
+        <label for="caption-input">Caption</label>
+        <input id="caption-input" name="image-url-input" type="text">
+    </form>
+    <footer>
         <div id="footer-container">
             <div class="footer-section">
                 <h2>Contact</h2>
@@ -110,17 +180,18 @@
         </div>
         <div id="copyright-banner">Copyright 2022</div>
     </footer>
-        <!-- jquery -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <!-- bootstrap -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-            crossorigin="anonymous"></script>
-        <!-- custom -->
-        <!-- <script src="js/login.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <!-- custom -->
+    <!-- <script src="js/login.js"></script>
         <script src="js/signup.js"></script> -->
-        <script src="js/nav.js"></script>
-        <script src="js/script.js"></script>
-    </body>
+    <script src="js/nav.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
 </html>
