@@ -260,18 +260,21 @@ nav .main-nav .main-nav-cont .logo {
   color: #ECE9E2;
   margin: 0;
 }
+
 nav .main-nav .main-nav-cont #user-details {
   margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
+
 nav .main-nav .main-nav-cont #user-details #username {
   display: none;
   color: white;
-  font-family: "PP Neue Montreal Light";
+  font-family: 'PP Neue Montreal Light';
   font-size: 15px;
 }
+
 nav .main-nav .main-nav-cont #user-details #dp {
   margin-right: 10px;
   width: 40px;
@@ -291,9 +294,11 @@ nav .main-nav .main-nav-cont #user-details #dp {
 nav .main-nav .main-nav-cont #user-details #dp:hover {
   border: 2px solid #393633;
 }
+
 nav .main-nav .main-nav-cont #user-details a {
   margin: 0;
 }
+
 nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
   border: none;
   background-color: #8C946F;
@@ -309,6 +314,7 @@ nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .m
   font-size: 14px;
   margin-top: 6px;
 }
+
 nav .main-nav .main-nav-cont #user-details a #nav-login-button:hover {
   background-color: #5B7053;
 }
@@ -806,6 +812,7 @@ nav .secondary-nav .nav-list-mobile a {
   bottom: 0;
   background: #ECE9E2;
 }
+
 .add-post-cont #add-post-btn {
   padding: 8px 16px;
   color: #ECE9E2;
@@ -827,8 +834,9 @@ nav .secondary-nav .nav-list-mobile a {
   margin-bottom: 10px;
   cursor: pointer;
 }
+
 .add-post-cont #add-post-btn p {
-  font-family: "PP Radio Grotesk Regular";
+  font-family: 'PP Radio Grotesk Regular';
   font-weight: 700;
   letter-spacing: 1px;
   color: red;
@@ -836,6 +844,7 @@ nav .secondary-nav .nav-list-mobile a {
   font-size: 22px;
   color: white;
 }
+
 .add-post-cont #add-post-btn i {
   font-size: 26px;
 }
@@ -1343,66 +1352,6 @@ nav .secondary-nav .nav-list-mobile a {
   padding: 3px;
 }
 
-.create-post-modal {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  z-index: 25;
-  background: rgba(57, 54, 51, 0.75);
-  display: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 80px 200px;
-}
-
-.create-post-modal .create-exit-modal {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 5px;
-}
-
-.create-post-modal .create-exit-modal .exit-modal-icon {
-  font-size: 30px;
-}
-
-.create-post-modal .create-post-modal-cont {
-  width: 50vw;
-  padding: 30px;
-  background: #ECE9E2;
-}
-
-.create-post-modal #add-post-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.create-post-modal #add-post-form input {
-  width: 50%;
-}
-
-.create-post-modal #add-post-form button {
-  margin-top: 2rem;
-}
-
 @media screen and (min-width: 768px) {
   .feed-grid-section {
     width: 100%;
@@ -1875,20 +1824,26 @@ nav .secondary-nav .nav-list-mobile a {
 
 @-webkit-keyframes pop {
   0% {
-    transform: scale(0);
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
   100% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
+
 @keyframes pop {
   0% {
-    transform: scale(0);
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
   100% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
+
 .create-post-modal {
   width: 100%;
   height: 100vh;
@@ -1899,24 +1854,33 @@ nav .secondary-nav .nav-list-mobile a {
   z-index: 25;
   background: rgba(57, 54, 51, 0.75);
   display: none;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .create-post-modal .create-exit-modal {
   position: absolute;
   top: 20px;
   right: 20px;
   padding: 5px;
 }
+
 .create-post-modal .create-exit-modal .exit-modal-icon {
   font-size: 30px;
   color: #ECE9E2;
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
+
 .create-post-modal .create-exit-modal .exit-modal-icon:hover {
   font-size: 30px;
   color: #8C946F;
 }
+
 .create-post-modal .create-post-modal-cont {
   -webkit-animation: pop 0.3s ease forwards;
   width: 90%;
@@ -1924,46 +1888,55 @@ nav .secondary-nav .nav-list-mobile a {
   background: #ECE9E2;
   border: 5px solid #8C946F;
 }
+
 .create-post-modal #add-post-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .create-post-modal #add-post-form input {
   width: 90%;
   border: none;
   height: 3rem;
-  font-family: "PP Neue Montreal Bold";
-  font-weight: 800;
+  font-family: 'PP Neue Montreal Light', sans-serif;
   margin-bottom: 1rem;
-  border: 2px solid black;
+  border: 1px solid black;
 }
+
 .create-post-modal #add-post-form label {
-  font-family: "PP Neue Montreal Bold";
-  font-weight: 800;
   font-size: 1.25rem;
-  font-family: "PP Neue Montreal Book", sans-serif;
+  font-family: 'PP Neue Montreal Light', sans-serif;
   width: 85%;
 }
+
 .create-post-modal #add-post-form button {
   width: 100%;
   margin-top: 2rem;
   border: none;
   background-color: #8C946F;
   color: white;
-  font-family: "PP Neue Montreal Bold";
+  font-family: 'PP Neue Montreal Bold';
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 20px;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+
 .create-post-modal #add-post-form button:hover {
-  background: #ECE9E2;
-  color: #8C946F;
-  font-size: 1.2rem;
-  border: 5px solid #8C946F;
+  background: #5B7053;
 }
 
 .parsley-errors-list {
@@ -1972,7 +1945,7 @@ nav .secondary-nav .nav-list-mobile a {
 }
 
 .parsley-required {
-  color: rgb(177, 0, 0);
+  color: #b10000;
   list-style: none;
   font-weight: 500;
 }
@@ -1986,6 +1959,7 @@ nav .secondary-nav .nav-list-mobile a {
     max-width: 100%;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .create-post-modal-cont {
     max-width: 30%;

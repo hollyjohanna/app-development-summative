@@ -60,15 +60,14 @@
             width: 90%;
             border: none;
             height: 3rem;
-            @include H1;
+            font-family: 'PP Neue Montreal Light', sans-serif;
             margin-bottom: 1rem;
-            border: 2px solid black;
+            border: 1px solid black;
         }
 
         label {
-            @include H1;
             font-size: 1.25rem;
-            font-family: 'PP Neue Montreal Book', sans-serif;
+            font-family: 'PP Neue Montreal Light', sans-serif;
             width: 85%;
         }
 
@@ -79,10 +78,7 @@
         }
 
         button:hover {
-            background: $White;
-            color: $SecondaryGreen;
-            font-size: 1.2rem;
-            border: 5px solid $SecondaryGreen;
+            background: $PrimaryGreen;
         }
     }
 }
