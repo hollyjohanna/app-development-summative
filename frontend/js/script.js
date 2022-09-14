@@ -70,7 +70,6 @@ addPostBtn.onclick = () => {
   $(".create-post-modal").css("display", "flex");
 };
 
-
 closeCreateModal.onclick = () => {
   console.log("closing");
   $(".create-post-modal").css("display", "none");
