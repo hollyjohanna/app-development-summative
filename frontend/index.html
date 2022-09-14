@@ -14,12 +14,17 @@
     <title>Summative</title>
 </head>
 
-<body>
-    <nav class="" id="">
-        <div class="main-nav">
-            <div class="main-nav-cont">
-                <a href="#" class="logo">Wētāverse</a>
-                <a href="login.html"><button id="nav-login-button">Login/Signup</button></a>
+  <body>
+     <nav class="" id="">
+            <div class="main-nav">
+                <div class="main-nav-cont">
+                    <a href="#" class="logo">Wētāverse</a>
+                    <div id="user-details">
+                        <!-- <a href="login.html">
+                            <button id="nav-login-button">Login/Signup</button>
+                        </a> -->
+                    </div>
+                </div>
             </div>
         </div>
         <div class="secondary-nav" id="secondary-nav">
@@ -134,16 +139,26 @@
         </div>
     </section>
     <div id="result"></div>
-    <form id="add-post-form" action="javascript:void(0)">
-        <label for="image-url-input">Image URL</label>
-        <input id="image-url-input" name="image-url-input" type="text">
-        <label for="title-input">Title</label>
-        <input id="title-input" name="title-input" type="text">
-        <label for="location-input">Location</label>
-        <input id="location-input" name="location-input" type="text">
-        <label for="caption-input">Caption</label>
-        <input id="caption-input" name="image-url-input" type="text">
-    </form>
+
+    <!-- <button id="add-post-btn">Create a post</button> -->
+    <div class="create-post-modal">
+        <div class="create-exit-modal">
+            <i id="exit-modal-icon" class="bi bi-x-lg  exit-modal-icon"></i>
+        </div>
+        <div class="create-post-modal-cont">
+            <form id="add-post-form" action="javascript:void(0)">
+                <label for="image-url-input">Image URL</label>
+                <input id="image-url-input" name="image-url-input" type="text">
+                <label for="title-input">Title</label>
+                <input id="title-input" name="title-input" type="text">
+                <label for="location-input">Location</label>
+                <input id="location-input" name="location-input" type="text">
+                <label for="caption-input">Caption</label>
+                <input id="caption-input" name="image-url-input" type="text">
+                <button id="render-post-btn">Create Post</button>
+            </form>
+        </div>
+    </div>
     <footer>
         <div id="footer-container">
             <div class="footer-section">
