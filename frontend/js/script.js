@@ -70,6 +70,7 @@ addPostBtn.onclick = () => {
   $(".create-post-modal").css("display", "flex");
 };
 
+
 closeCreateModal.onclick = () => {
   console.log("closing");
   $(".create-post-modal").css("display", "none");
@@ -165,3 +166,31 @@ let logOut = () => {
 if (sessionStorage.userID) {
   logoutBtn.onclick = () => logOut();
 }
+
+//==========================================================
+//                        COMMENTS
+//==========================================================
+
+let addComment = (wildlifePostId) => {
+  // const reviewBtn = document.getElementById("submitReview");
+  //add a click listener
+  reviewBtn.onclick = () => {
+    console.log(wildlifePostId);
+    $.ajax({
+      url: `http://localhost:3000/postComment`,
+      type: "POST",
+      data: {
+        text: document.getElementById("productReview").value,
+        coffee_id: coffeeId,
+      },
+      success: () => {
+        console.log("review placed successfully");
+        showAllPosts();
+        $("#reviewModal").modal("hide");
+      },
+      error: () => {
+        console.log("error cannot call API");
+      },
+    });
+  };
+};
