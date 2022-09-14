@@ -23,25 +23,34 @@ nav {
 
             .logo {
                 @include LogoType;
-                font-size: 30px;
+                font-size: 25px;
                 text-decoration: none;
                 color: $White;
                 margin: 0;
             }
             #user-details{
                 margin: 0;
+                display: flex;
                 #username {
+                    display: none;
                     color: white;
                     font-family: 'PP Neue Montreal Light';
                     font-size: 15px;
                 }
                 #dp {
-                    width: 50px;
-                    height: 50px;
-                    display: inline-block;
+                    margin-right: 10px;
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
                     border-radius: 50%;
                     background-position: 50% 50%;
                     background-size: cover;
+                    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+                }
+                #dp:hover {
+                    border: 2px solid $Black;
                 }
                 a {
                     margin: 0;
@@ -49,6 +58,7 @@ nav {
                         @include button-main;
                         padding: 5px 12px;
                         font-size: 14px;
+                        margin-top: 6px;
                     }
                     #nav-login-button:hover {
                         background-color: $PrimaryGreen;
@@ -69,6 +79,7 @@ nav {
         overflow: hidden;
         max-height: 60px;
         transition: max-height 0.45s ease;
+        box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
 
         .secondary-nav-cont {
             position: relative;
@@ -79,8 +90,8 @@ nav {
             align-items: center;
             margin: auto;
             max-height: 60px;
-            padding: 13px 15px;
-            gap: 15px;
+            padding: 15px 15px;
+            gap: 40px;
             z-index: 10;
 
             .menu-btn {
@@ -215,9 +226,10 @@ nav {
             width: 100%;
             background: $Brown;
             z-index: 10;
+            padding: 17px;
 
             .main-nav-cont {
-                width: 92%;
+                width: 95%;
                 max-width: 1440px;
                 display: flex;
                 justify-content: space-between;
@@ -227,15 +239,28 @@ nav {
 
                 .logo {
                     @include LogoType;
-                    font-size: 38px;
+                    font-size: 30px;
                     text-decoration: none;
                     color: $White;
                 }
                 #user-details {
+                    #username {
+                        display: block;
+                        margin-right: 10px;
+                        margin-top: auto;
+                        margin-bottom: auto;
+                        font-size: 18px;
+                    }
+                    #dp {
+                        height: 45px;
+                        width: 45px;
+                        margin-right: 15px;
+                    }
                     a {
                         #nav-login-button, #nav-logout-button {
                             font-size: 16px;
                             padding: 10px 20px;
+                            margin: 0;
                         }
                     }
                 }
@@ -256,7 +281,7 @@ nav {
 
             .secondary-nav-cont {
                 position: relative;
-                width: 92%;
+                width: 85%;
                 max-width: 1440px;
                 display: flex;
                 justify-content: flex-start;
@@ -266,6 +291,12 @@ nav {
                 padding: 13px 15px;
                 gap: 50px;
                 z-index: 10;
+
+                .nav-search {
+                    input {
+                        font-size: 13px;
+                    }
+                }
 
                 .menu-btn {
                     display: none;
@@ -282,7 +313,7 @@ nav {
                     background: $Black;
 
                     a {
-                        font-size: 22px;
+                        font-size: 18px;
                         text-align: center;
                         font-family: 'PP Neue Montreal Bold';
                         letter-spacing: 0.5px;
@@ -325,11 +356,19 @@ nav {
 
                 .logo {
                     @include LogoType;
-                    font-size: 50px;
+                    font-size: 40px;
                     text-decoration: none;
                     color: $White;
                 }
                 #user-details {
+                    #dp {
+                        width: 56px;
+                        height: 56px;
+                        margin-right: 30px;
+                    }
+                    #username {
+                        font-size: 25px;
+                    }
                     a {
                         #nav-login-button, #nav-logout-button {
                             font-size: 20px;
@@ -349,7 +388,7 @@ nav {
             align-items: center;
             flex-direction: column;
             overflow: hidden;
-            max-height: 60px;
+            max-height: 70px;
             transition: max-height 0.45s ease;
 
             .secondary-nav-cont {
@@ -361,9 +400,15 @@ nav {
                 align-items: center;
                 margin: auto;
                 max-height: 60px;
-                padding: 13px 15px;
+                padding: 35px 15px;
                 gap: 50px;
                 z-index: 10;
+
+                .nav-search {
+                    input {
+                        font-size: 17px;
+                    }
+                }
 
                 .menu-btn {
                     display: none;

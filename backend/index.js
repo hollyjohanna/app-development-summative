@@ -59,6 +59,9 @@ app.post(`/addWildlifePost`, (req, res) => {
     title: req.body.title,
     location: req.body.location,
     caption: req.body.caption,
+    author_name: req.body.author_name,
+    author_image_url: req.body.author_image_url,
+    author_id: req.body.author_id,
   });
   // to save the newstudent to the database
   // use the variable declared above
