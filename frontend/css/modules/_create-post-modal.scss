@@ -1,0 +1,125 @@
+@keyframes pop {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.create-post-modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 25;
+    background: rgba(57, 54, 51, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    // padding: 80px 200px;
+
+    .create-exit-modal {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 5px;
+        // width: 1%;
+
+
+        .exit-modal-icon {
+            font-size: 30px;
+            color: $White;
+            transition: all 0.3s ease;
+        }
+
+        .exit-modal-icon:hover {
+            font-size: 30px;
+            color: $SecondaryGreen;
+        }
+    }
+
+    .create-post-modal-cont {
+        -webkit-animation: pop 0.3s ease forwards;
+        width: 90%;
+        padding: 30px;
+        background: $White;
+        border: 5px solid $SecondaryGreen;
+    }
+
+    #add-post-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        input {
+            width: 90%;
+            border: none;
+            height: 3rem;
+            @include H1;
+            margin-bottom: 1rem;
+            border: 2px solid black;
+        }
+
+        label {
+            @include H1;
+            font-size: 1.25rem;
+            font-family: 'PP Neue Montreal Book', sans-serif;
+            width: 85%;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 2rem;
+            @include button-main;
+        }
+
+        button:hover {
+            background: $White;
+            color: $SecondaryGreen;
+            font-size: 1.2rem;
+            border: 5px solid $SecondaryGreen;
+        }
+    }
+}
+
+.parsley-errors-list {
+    margin: 0;
+    padding: 0;
+}
+
+.parsley-required {
+    color: rgb(177, 0, 0);
+    list-style: none;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+    .create-post-modal-cont {
+        max-width: 50%;
+        background: red;
+    }
+
+    #add-post-form {
+        input {
+            max-width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .create-post-modal-cont {
+        max-width: 30%;
+        background: red;
+    }
+
+    #add-post-form {
+        input {
+            max-width: 100%;
+        }
+    }
+}
