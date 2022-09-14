@@ -104,9 +104,9 @@ renderPostBtn.onclick = () => {
         title: titleInput.value,
         location: locationInput.value,
         caption: captionInput.value,
-        author_name: "Holly",
-        author_image_url: "sessionStorage.profileImg",
-        author_id: "sessionStorage.userID",
+        author_name: sessionStorage.userName,
+        author_image_url: sessionStorage.profileImg,
+        author_id: sessionStorage.userID,
       },
       success: () => {
         console.log("A new post was added.");
@@ -123,9 +123,9 @@ renderPostBtn.onclick = () => {
 // ==========================================================================
 //                         CHECK LOGIN CONDITIONS
 // ==========================================================================
-
 let checkLogin = () => {
   const userDetails = document.getElementById("user-details");
+  let newPostBtn = document.getElementById("add-post-cont");
   let navContent;
   if (sessionStorage.userID) {
     console.log(sessionStorage.userName);
@@ -143,6 +143,7 @@ let checkLogin = () => {
     <button id="nav-login-button">Login/Signup</button>
     </a>
     `;
+    newPostBtn.style.display = "none";
   }
   userDetails.innerHTML = navContent;
 };

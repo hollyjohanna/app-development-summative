@@ -279,6 +279,8 @@ nav .main-nav .main-nav-cont #user-details #dp {
   margin-right: 10px;
   width: 40px;
   height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
   background-position: 50% 50%;
   background-size: cover;
@@ -850,7 +852,7 @@ nav .secondary-nav .nav-list-mobile a {
 .feed-grid-section {
   width: 100%;
   background: #ECE9E2;
-  padding: 10px;
+  padding: 30px 20px;
 }
 
 .feed-grid-section .feed-grid-cont {
@@ -1414,7 +1416,7 @@ nav .secondary-nav .nav-list-mobile a {
   .feed-grid-section {
     width: 100%;
     background: #ECE9E2;
-    padding: 10px;
+    padding: 40px 20px;
   }
   .feed-grid-section .feed-grid-cont {
     width: 92%;
@@ -1469,7 +1471,7 @@ nav .secondary-nav .nav-list-mobile a {
   .feed-grid-section {
     width: 100%;
     background: #ECE9E2;
-    padding: 10px;
+    padding: 50px 20px;
   }
   .feed-grid-section .feed-grid-cont {
     max-width: 1420px;
@@ -1521,9 +1523,9 @@ nav .secondary-nav .nav-list-mobile a {
 
 #login-body #login-form input {
   width: 100%;
-  padding: 20px;
+  padding: 10px;
   font-family: 'PP Neue Montreal Light';
-  font-size: 26px;
+  font-size: 24px;
   border-radius: 0;
   border: 1px solid #393633;
   color: #524F42;
@@ -1597,7 +1599,7 @@ nav .secondary-nav .nav-list-mobile a {
 
 @media only screen and (min-width: 600px) {
   #login-body #login-img {
-    height: 270px;
+    height: 220px;
   }
   #login-body #login-form {
     padding: 0 80px;
