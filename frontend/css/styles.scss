@@ -7,21 +7,10 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: $black;
-}
-
-#result {
-    width: 50%;
-
-    img {
-        width: 100px;
-    }
-}
-
 @import 'modules/variables.scss';
 @import 'modules/nav.scss';
 @import 'modules/masonry.scss';
+@import 'modules/footer.scss';
 @import 'modules/login.scss';
 @import 'modules/signup.scss';
 @import 'modules/create-post-modal.scss';
@@ -36,10 +25,6 @@ body {
 h1 {
     @include H1;
 }
-
-
-
-
 
 
 // mobile 425px 

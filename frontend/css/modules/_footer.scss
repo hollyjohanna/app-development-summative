@@ -5,7 +5,6 @@ footer {
     background: $nav-secondary;
     width: 100%;
     color: white;
-    margin-top: 50px;
 }
 
 #footer-container {
@@ -59,7 +58,6 @@ footer {
         @include button-main;
         width: 28%;
         padding: 10px 10px;
-
     }
 }
 
