@@ -15,7 +15,7 @@ footer {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 0.5fr 0.5fr;
     // justify-items: center;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .footer-section {
@@ -51,15 +51,13 @@ footer {
 
     input {
         width: 70%;
-        height: 4vh;
+        height: 5.3vh;
     }
 
     button {
+        @include button-main;
         width: 28%;
-        border: none;
-        background: $secondary-accent;
-        color: white;
-        height: 4vh;
+        padding: 10px 10px;
     }
 }
 

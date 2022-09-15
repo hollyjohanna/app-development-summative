@@ -9,7 +9,7 @@ const commentSchema = new mongoose.Schema({
     },
     wildlife_post_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Wildlife Post"
+        ref: "WildlifePost"
     },
 });
 
