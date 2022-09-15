@@ -57,13 +57,21 @@
 
             .post-data-cont-top,
             .post-data-cont-bottom {
-                opacity: 1;
+                opacity: 0;
+                // pointer-events: none;
             }
 
             .post-hover {
-                opacity: 1;
+                opacity: 0;
                 cursor: pointer;
+                // pointer-events: none;
             }
+
+            // .post-hover-click {
+            //     cursor: pointer;
+            //     display: block;
+            //     pointer-events: all;
+            // }
         }
 
         .grid-item {
@@ -94,7 +102,6 @@
                 opacity: 0;
                 // pointer-events: none;
                 transition: opacity 0.2s ease;
-
                 // background: green;
             }
 
@@ -117,7 +124,6 @@
                 }
 
                 .post-avatar-cont {
-
                     margin-left: 0;
 
                     img {
@@ -180,6 +186,7 @@
                 transition: opacity 0.2s ease;
             }
 
+
             .post-img {
                 width: 100%;
             }
@@ -190,22 +197,34 @@
 
 }
 
+.page-disable {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
 
+.active-post-modal {
+    transform: translateX(0vw) !important;
+    // visibility: visible !important;
+    transition: transform 0.25s ease-in-out !important;
+}
 
 .post-modal {
-    min-width: 300px;
+    // min-width: 300px;
     width: 100vw;
     height: 100vh;
-    position: absolute;
-    // overflow: hidden;
+    position: fixed;
+    // overflow: scroll;
     top: 0;
     left: 0;
     z-index: 25;
     background: rgba(57, 54, 51, 1);
-    display: none;
+    // visibility: hidden;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    transition: transform 0.25s ease-in-out;
+    transform: translateX(100vw);
 
     .exit-modal {
         width: 100%;
@@ -228,9 +247,13 @@
         }
     }
 
+    .post-modal-cont::-webkit-scrollbar {
+        display: none;
+    }
+
     .post-modal-cont {
         position: relative;
-        top: 50px;
+        // top: 50px;
         width: 100%;
         min-height: calc(100vh - 50px);
         height: auto;
@@ -240,6 +263,10 @@
         align-items: center;
         justify-content: flex-start;
         flex-direction: column;
+        overflow: scroll;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
 
         .img-cont {
             width: 100%;
@@ -257,8 +284,9 @@
 
         .post-modal-content-cont {
             width: 100%;
-            min-height: 55vh;
+            min-height: 54.5vh;
             flex: 1;
+            top: 0;
             // background: green;
             display: flex;
             align-items: center;
@@ -290,6 +318,7 @@
                     border-radius: 50%;
                     border: solid 2px $Black;
                     display: inline-block;
+                    object-fit: cover;
                     // background-color: orange;
                     margin: 0;
                     // margin-right: 6px;
@@ -349,6 +378,7 @@
             .post-comments-cont {
                 // min-height: 1700px;
                 width: 100%;
+                padding-bottom: 75px;
                 flex: 1;
                 background: $White;
                 font-family: 'PP Neue Montreal Regular';
@@ -356,10 +386,11 @@
                 // align-items: center;
                 justify-content: flex-start;
                 flex-direction: column;
+                // background: blue;
 
                 .comment {
                     width: 100%;
-                    // background: blue;
+                    // background: pink;
                     display: flex;
                     height: auto;
                     // align-items: center;
@@ -377,6 +408,7 @@
                         border: solid 2px $Black;
                         display: inline-block;
                         margin: 0;
+                        object-fit: cover;
                     }
 
                     .comment-content {
@@ -421,6 +453,7 @@
                     display: inline-block;
                     // background-color: orange;
                     margin: 0;
+                    object-fit: cover;
                     // margin-right: 6px;
                 }
 

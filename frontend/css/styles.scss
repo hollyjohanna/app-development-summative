@@ -1,12 +1,11 @@
-@import "./modules/variables.scss";
-@import "./modules/footer.scss";
+// @import "./modules/variables.scss";
+// @import "./modules/footer.scss";
 
 * {
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 body {
     background-color: $black;
@@ -33,9 +32,6 @@ body {
     height: 100%;
     overflow-x: hidden;
 }
-
-
-// --------------------- Masonry Grid (Desktop) ---------------------
 
 h1 {
     @include H1;
