@@ -20,6 +20,7 @@ let showAllPosts = () => {
     success: (posts) => {
       console.log(posts);
       renderPosts(posts);
+      runOpenPosts(posts)
     },
     error: (error) => {
       console.log(error);
@@ -92,6 +93,9 @@ renderPostBtn.onclick = () => {
   } else if (captionInput.value == "") {
     console.log("Input is empty, please include something.");
   } else {
+    // let authorName = sessionStorage.userName
+    // let authorImageURL = sessionStorage.profile_image_url
+    // let authorID = sessionStorage.userID
     $.ajax({
       url: `http://localhost:3000/addWildlifePost`,
       // use the post type to create data somewhere
@@ -104,9 +108,9 @@ renderPostBtn.onclick = () => {
         title: titleInput.value,
         location: locationInput.value,
         caption: captionInput.value,
-        author_name: "Holly",
-        author_image_url: "sessionStorage.profileImg",
-        author_id: "sessionStorage.userID",
+        author_name: sessionStorage.userName,
+        author_image_url: sessionStorage.profile_image_url,
+        author_id: sessionStorage.userID,
       },
       success: () => {
         console.log("A new post was added.");
@@ -164,3 +168,107 @@ let logOut = () => {
 if (sessionStorage.userID) {
   logoutBtn.onclick = () => logOut();
 }
+
+
+
+
+
+//===========================
+// Post Modals — Open & Close
+//===========================
+
+
+
+const appBody = document.querySelector('body')
+const postModal = document.getElementById('post-modal')
+
+let runOpenPosts = (posts) => {
+  let currentPosts = document.getElementsByClassName('post')
+  for (let x = 0; x < currentPosts.length; x++) {
+    currentPosts[x].onclick = () => {
+      let postModalCont = document.getElementById('post-modal-cont')
+      postModalCont.innerHTML = ""
+      console.log(posts[x]._id)
+      appBody.classList.add('page-disable')
+      postModal.classList.add('active-post-modal')
+
+
+      // let connectComents = () => {
+      //   post[x].comment.forEach(() => {
+      //     return ``
+      //   })
+      // }
+
+
+
+
+
+
+      let checkPermission = (y) => {
+        if (y.author_id == sessionStorage.userID) {
+          return `
+          <i class="bi bi-pencil-square"></i>
+          <i class="bi bi-trash3"></i>
+          `
+        } else {
+          return ""
+        }
+      }
+      postModalCont.innerHTML = `
+      <div class="img-cont">
+        <img src="${posts[x].image_url}" alt="${posts[x].title}">
+      </div>
+      <div class="post-modal-content-cont">
+        <div class="post-user-cont">
+            <img class="post-user-img" src="${posts[x].author_image_url}">
+            <div class="post-user-details">
+              <h5 class="post-user-name">@${posts[x].author_name}</h5>
+              <p class="post-location">${posts[x].location}</p>
+            </div>
+            <div class="post-interactions-cont">
+              ${checkPermission(posts[x])}
+              <i class="bi bi-heart"></i>
+            </div>
+            </div>
+            <div class="post-comments-cont">
+              
+            </div>
+            <div class="post-add-comment-cont">
+              <img class="current-user-img" src="${sessionStorage.profileImg}">
+              <input type="text" placeholder="Leave a comment..." class="comment-input">
+              <i class="bi bi-send  post-new-comment"></i>
+        </div>
+      </div>
+      `
+
+
+    }
+  }
+}
+
+let closePostModal = () => {
+  let closePostBtn = document.getElementById('exit-modal')
+  closePostBtn.onclick = () => {
+    appBody.classList.remove('page-disable')
+    postModal.classList.remove('active-post-modal')
+  }
+}
+
+closePostModal()
+
+
+
+
+
+
+
+
+
+{/* <div class="comment">
+<div class="comment-user-img"></div>
+<div class="comment-content">
+    <p><span class="comment-user-name">@hollyholly</span>This is an example of a comment</p>
+</div>
+</div> */}
+
+// ${connectComents()}
