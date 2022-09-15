@@ -38,7 +38,7 @@
 .feed-grid-section {
     width: 100%;
     background: $White;
-    padding: 10px;
+    padding: 30px 20px;
 
     .feed-grid-cont {
         width: 100%;
@@ -487,64 +487,11 @@
     }
 }
 
-.create-post-modal {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    z-index: 25;
-    background: rgba(57, 54, 51, 0.75);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 200px;
-
-    .create-exit-modal {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        padding: 5px;
-        // width: 95%;
-
-
-        .exit-modal-icon {
-            font-size: 30px;
-
-        }
-    }
-
-    .create-post-modal-cont {
-        width: 50vw;
-        padding: 30px;
-        background: $White;
-    }
-
-    #add-post-form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        input {
-            width: 50%;
-        }
-
-        button {
-            margin-top: 2rem;
-        }
-    }
-}
-
-
-
-
 @media screen and (min-width: 768px) {
     .feed-grid-section {
         width: 100%;
         background: $White;
-        padding: 10px;
+        padding: 40px 20px;
 
         .feed-grid-cont {
             width: 92%;
@@ -598,7 +545,7 @@
     .feed-grid-section {
         width: 100%;
         background: $White;
-        padding: 10px;
+        padding: 50px 20px;
 
         .feed-grid-cont {
             // width: 98%;

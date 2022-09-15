@@ -122,3 +122,30 @@ app.post("/loginUser", (req, res) => {
     } // outer if
   }); // Find one ends
 }); // end of post login
+
+//==========================================================
+//                         COMMENTS
+//==========================================================
+
+//add a new review
+app.post("/postComment", (req, res) => {
+  const newComment = new Comment({
+    _id: new mongoose.Types.ObjectId(),
+    text: req.body.text,
+    wildlife_post_id: req.body.wildlife_post_id,
+  });
+  // save (or post) this review to the mongo database
+  newComment.save().then((result) => {
+    WildlifePost.findByIdAndUpdate(
+      // first parameter is the id of the coffee you want to find
+      newComment.wildlife_post_id,
+      { $push: { comments: newComment } }
+    )
+      .then((result) => {
+        res.send(newComment);
+      })
+      .catch((error) => {
+        res.send(error);
+      });
+  });
+});

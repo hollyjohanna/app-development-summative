@@ -127,9 +127,9 @@ renderPostBtn.onclick = () => {
 // ==========================================================================
 //                         CHECK LOGIN CONDITIONS
 // ==========================================================================
-
 let checkLogin = () => {
   const userDetails = document.getElementById("user-details");
+  let newPostBtn = document.getElementById("add-post-cont");
   let navContent;
   if (sessionStorage.userID) {
     console.log(sessionStorage.userName);
@@ -147,6 +147,7 @@ let checkLogin = () => {
     <button id="nav-login-button">Login/Signup</button>
     </a>
     `;
+    newPostBtn.style.display = "none";
   }
   userDetails.innerHTML = navContent;
 };
@@ -168,6 +169,7 @@ let logOut = () => {
 if (sessionStorage.userID) {
   logoutBtn.onclick = () => logOut();
 }
+
 
 
 
@@ -272,3 +274,31 @@ closePostModal()
 </div> */}
 
 // ${connectComents()}
+
+//==========================================================
+//                        COMMENTS
+//==========================================================
+
+let addComment = (wildlifePostId) => {
+  // const reviewBtn = document.getElementById("submitReview");
+  //add a click listener
+  reviewBtn.onclick = () => {
+    console.log(wildlifePostId);
+    $.ajax({
+      url: `http://localhost:3000/postComment`,
+      type: "POST",
+      data: {
+        text: document.getElementById("productReview").value,
+        coffee_id: coffeeId,
+      },
+      success: () => {
+        console.log("review placed successfully");
+        showAllPosts();
+        $("#reviewModal").modal("hide");
+      },
+      error: () => {
+        console.log("error cannot call API");
+      },
+    });
+  };
+};
