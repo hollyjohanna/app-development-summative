@@ -1307,7 +1307,7 @@ footer {
       grid-template-columns: 1fr;
   -ms-grid-rows: 1fr 1fr 0.5fr 0.5fr;
       grid-template-rows: 1fr 1fr 0.5fr 0.5fr;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .footer-section {
