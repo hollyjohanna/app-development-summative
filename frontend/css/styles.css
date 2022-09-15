@@ -90,15 +90,22 @@ footer {
 
 #subscribe-section input {
   width: 70%;
-  height: 4vh;
+  height: 5.3vh;
 }
 
 #subscribe-section button {
-  width: 28%;
   border: none;
-  background: #8C946F;
+  background-color: #8C946F;
   color: white;
-  height: 4vh;
+  font-family: 'PP Neue Montreal Bold';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 28%;
+  padding: 10px 10px;
 }
 
 #icon-section {
