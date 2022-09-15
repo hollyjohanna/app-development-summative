@@ -132,6 +132,8 @@ app.post("/postComment", (req, res) => {
   const newComment = new Comment({
     _id: new mongoose.Types.ObjectId(),
     text: req.body.text,
+    comment_id: req.body.comment_id,
+    comment_author_id: req.body.comment_author_id,
     wildlife_post_id: req.body.wildlife_post_id,
   });
   // save (or post) this review to the mongo database

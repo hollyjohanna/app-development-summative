@@ -280,7 +280,7 @@ closePostModal()
 //==========================================================
 
 let addComment = (wildlifePostId) => {
-  // const reviewBtn = document.getElementById("submitReview");
+  const reviewBtn = document.getElementById("submitReview");
   //add a click listener
   reviewBtn.onclick = () => {
     console.log(wildlifePostId);
@@ -288,10 +288,13 @@ let addComment = (wildlifePostId) => {
       url: `http://localhost:3000/postComment`,
       type: "POST",
       data: {
-        text: document.getElementById("productReview").value,
-        coffee_id: coffeeId,
+        // comment_id: sessionStorage.userID,
+        text: document.getElementById("comment-input").value,
+        comment_author_id: sessionStorage.userID,
+        wildlife_post_id: wildlifePostId,
       },
-      success: () => {
+      success: (data) => {
+        console.log(data)
         console.log("review placed successfully");
         showAllPosts();
         $("#reviewModal").modal("hide");
@@ -302,3 +305,5 @@ let addComment = (wildlifePostId) => {
     });
   };
 };
+
+addComment();
