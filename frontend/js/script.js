@@ -171,11 +171,6 @@ if (sessionStorage.userID) {
   logoutBtn.onclick = () => logOut();
 }
 
-
-
-
-
-
 //===========================
 // Post Modals — Open & Close
 //===========================
@@ -198,6 +193,14 @@ let runOpenPosts = (posts) => {
 }
 
 let openPost = (posts, x) => {
+
+
+  let postModalCont = document.getElementById('post-modal-cont')
+  postModalCont.innerHTML = ""
+  console.log(posts[x]._id)
+  let thisPostId;
+
+let openPost = (posts, x) => {
   let postModalCont = document.getElementById('post-modal-cont')
   postModalCont.innerHTML = ""
   console.log(posts[x]._id)
@@ -206,6 +209,8 @@ let openPost = (posts, x) => {
   let checkPermission = (y) => {
     if (y.author_id == sessionStorage.userID) {
       return `
+          <i id="edit-post" class="bi bi-pencil-square"></i>
+          <i id="delete-post" class="bi bi-trash3"></i>
           <i class="bi bi-pencil-square" id="edit-post"></i>
           <i class="bi bi-trash3" id="delete-post"></i>
           `
@@ -230,17 +235,105 @@ let openPost = (posts, x) => {
               <i class="bi bi-heart"></i>
             </div>
             </div>
-            <div class="post-comments-cont">
-              
+            <div id="post-comments-cont" class="post-comments-cont">
             </div>
             <div class="post-add-comment-cont">
               <img class="current-user-img" src="${sessionStorage.profileImg}">
-              <input type="text" placeholder="Leave a comment..." class="comment-input">
-              <i class="bi bi-send  post-new-comment"></i>
+              <input type="text" placeholder="Leave a comment..." id="comment-input" class="comment-input">
+              <i id="post-new-comment" class="bi bi-send  post-new-comment"></i>
         </div>
       </div>
-      `
+      `;
 
+  // thisPostId = posts[x]._id;
+
+  // let deletePost = (thisPostId) => {
+  //   // use ajax and go to the delete route
+  //   $.ajax({
+  //     // Let's go to our route
+  //     url: `http://localhost:3000/deleteWildlifePost/${thisPostId}`,
+  //     type: "DELETE",
+  //     success: () => {
+  //       // at this point, we can assume that the delete was successful
+  //       showAllPosts();
+  //     },
+  //     error: () => {
+  //       console.log("Cannot call API");
+  //     },
+  //   });
+  // };
+
+  // if (posts[x].author_id == sessionStorage.userID) {
+  //   let deletePostBtn = document.getElementById('delete-post')
+  //   console.log(deletePostBtn)
+  //   deletePostBtn.onclick = () => {
+  //     deletePost();
+  //   }
+  //   let editPostBtn = document.getElementById('edit-post')
+  //   console.log(editPostBtn)
+  //   editPostBtn.onclick = () => {
+  //     // deleteCoffee();
+  //   }
+  // }
+
+
+  const sendCommentBtn = document.getElementById("post-new-comment");
+  //add a click listener
+  const commentInput = document.getElementById("comment-input");
+
+  sendCommentBtn.onclick = () => {
+    console.log("clicked!");
+    // console.log(wildlifePostId);
+    $.ajax({
+      url: `http://localhost:3000/postComment`,
+      type: "POST",
+      data: {
+        // comment_id: sessionStorage.userID,
+        text: commentInput.value,
+        comment_author_id: sessionStorage.userID,
+        comment_author_name: sessionStorage.userName,
+        comment_author_image_url: sessionStorage.profileImg,
+        wildlife_post_id: posts[x]._id,
+
+      },
+      success: (data) => {
+        console.log(data)
+        console.log("comment placed successfully");
+        showAllPosts();
+        runOpenPosts()
+        postNewComment(data);
+        commentInput.value = "";
+      },
+      error: () => {
+        console.log("error cannot call API");
+      },
+    });
+  };
+
+  let postNewComment = (data) => {
+    let postComments = document.getElementById("post-comments-cont")
+    postComments.innerHTML += `
+    <div class="comment">
+    <img class="comment-user-img" src="${data.comment_author_image_url}">
+    <div class="comment-content">
+    <p><span class="comment-user-name">@${data.comment_author_name}</span>${data.text}</p>
+    </div>
+    </div>
+  `;
+  }
+
+  let connectComments = (z) => {
+    let postComments = document.getElementById("post-comments-cont")
+    postComments.innerHTML = "";
+    for (i = 0; i < z.comments.length; i++) {
+      postComments.innerHTML += `
+            <div class="comment">
+            <img class="comment-user-img" src="${z.comments[i].comment_author_image_url}">
+            <div class="comment-content">
+            <p><span class="comment-user-name">@${z.comments[i].comment_author_name}</span>${z.comments[i].text}</p>
+            </div>
+            </div>
+          `;
   if (posts[x].author_id == sessionStorage.userID) {
     let editPostBtn = document.getElementById('edit-post')
     let deletePostBtn = document.getElementById('delete-post')
@@ -251,6 +344,8 @@ let openPost = (posts, x) => {
       console.log("DELETED!")
     }
   }
+  connectComments(posts[x]);
+
 }
 
 let closePostModal = () => {
@@ -283,32 +378,3 @@ closePostModal()
 //==========================================================
 //                        COMMENTS
 //==========================================================
-
-let addComment = (wildlifePostId) => {
-  const reviewBtn = document.getElementById("submitReview");
-  //add a click listener
-  reviewBtn.onclick = () => {
-    console.log(wildlifePostId);
-    $.ajax({
-      url: `http://localhost:3000/postComment`,
-      type: "POST",
-      data: {
-        // comment_id: sessionStorage.userID,
-        text: document.getElementById("comment-input").value,
-        comment_author_id: sessionStorage.userID,
-        wildlife_post_id: wildlifePostId,
-      },
-      success: (data) => {
-        console.log(data)
-        console.log("review placed successfully");
-        showAllPosts();
-        $("#reviewModal").modal("hide");
-      },
-      error: () => {
-        console.log("error cannot call API");
-      },
-    });
-  };
-};
-
-addComment();
