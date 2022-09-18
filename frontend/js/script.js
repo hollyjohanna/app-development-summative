@@ -109,12 +109,13 @@ renderPostBtn.onclick = () => {
         location: locationInput.value,
         caption: captionInput.value,
         author_name: sessionStorage.userName,
-        author_image_url: sessionStorage.profile_image_url,
+        author_image_url: sessionStorage.profileImg,
         author_id: sessionStorage.userID,
       },
       success: () => {
         console.log("A new post was added.");
         showAllPosts();
+        runOpenPosts(posts)
       },
       error: () => {
         console.log("Error: cannot reach the backend");
