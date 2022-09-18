@@ -115,7 +115,7 @@ renderPostBtn.onclick = () => {
       success: () => {
         console.log("A new post was added.");
         showAllPosts();
-        runOpenPosts(posts)
+        runOpenPosts()
       },
       error: () => {
         console.log("Error: cannot reach the backend");
@@ -188,36 +188,33 @@ const postModal = document.getElementById('post-modal')
 let runOpenPosts = (posts) => {
   let currentPosts = document.getElementsByClassName('post')
   for (let x = 0; x < currentPosts.length; x++) {
+
     currentPosts[x].onclick = () => {
-      let postModalCont = document.getElementById('post-modal-cont')
-      postModalCont.innerHTML = ""
-      console.log(posts[x]._id)
       appBody.classList.add('page-disable')
       postModal.classList.add('active-post-modal')
+      openPost(posts, x)
+    }
+  }
+}
+
+let openPost = (posts, x) => {
+  let postModalCont = document.getElementById('post-modal-cont')
+  postModalCont.innerHTML = ""
+  console.log(posts[x]._id)
 
 
-      // let connectComents = () => {
-      //   post[x].comment.forEach(() => {
-      //     return ``
-      //   })
-      // }
-
-
-
-
-
-
-      let checkPermission = (y) => {
-        if (y.author_id == sessionStorage.userID) {
-          return `
-          <i class="bi bi-pencil-square"></i>
-          <i class="bi bi-trash3"></i>
+  let checkPermission = (y) => {
+    if (y.author_id == sessionStorage.userID) {
+      return `
+          <i class="bi bi-pencil-square" id="edit-post"></i>
+          <i class="bi bi-trash3" id="delete-post"></i>
           `
-        } else {
-          return ""
-        }
-      }
-      postModalCont.innerHTML = `
+    } else {
+      return ""
+    }
+  }
+
+  postModalCont.innerHTML = `
       <div class="img-cont">
         <img src="${posts[x].image_url}" alt="${posts[x].title}">
       </div>
@@ -244,7 +241,14 @@ let runOpenPosts = (posts) => {
       </div>
       `
 
-
+  if (posts[x].author_id == sessionStorage.userID) {
+    let editPostBtn = document.getElementById('edit-post')
+    let deletePostBtn = document.getElementById('delete-post')
+    editPostBtn.onclick = () => {
+      console.log("EDITED!")
+    }
+    deletePostBtn.onclick = () => {
+      console.log("DELETED!")
     }
   }
 }
