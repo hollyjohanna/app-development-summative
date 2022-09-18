@@ -20,7 +20,7 @@ let showAllPosts = () => {
     success: (posts) => {
       console.log(posts);
       renderPosts(posts);
-      runOpenPosts(posts)
+      runOpenPosts(posts);
     },
     error: (error) => {
       console.log(error);
@@ -115,7 +115,7 @@ renderPostBtn.onclick = () => {
       success: () => {
         console.log("A new post was added.");
         showAllPosts();
-        runOpenPosts()
+        runOpenPosts();
       },
       error: () => {
         console.log("Error: cannot reach the backend");
@@ -175,51 +175,45 @@ if (sessionStorage.userID) {
 // Post Modals — Open & Close
 //===========================
 
-
-
-const appBody = document.querySelector('body')
-const postModal = document.getElementById('post-modal')
+const appBody = document.querySelector("body");
+const postModal = document.getElementById("post-modal");
 
 let runOpenPosts = (posts) => {
-  let currentPosts = document.getElementsByClassName('post')
+  let currentPosts = document.getElementsByClassName("post");
   for (let x = 0; x < currentPosts.length; x++) {
-
     currentPosts[x].onclick = () => {
-      appBody.classList.add('page-disable')
-      postModal.classList.add('active-post-modal')
-      openPost(posts, x)
-    }
+      appBody.classList.add("page-disable");
+      postModal.classList.add("active-post-modal");
+      openPost(posts, x);
+    };
   }
-}
+};
 
 let openPost = (posts, x) => {
-
-
-  let postModalCont = document.getElementById('post-modal-cont')
-  postModalCont.innerHTML = ""
-  console.log(posts[x]._id)
+  let postModalCont = document.getElementById("post-modal-cont");
+  postModalCont.innerHTML = "";
+  console.log(posts[x]._id);
   let thisPostId;
 
-let openPost = (posts, x) => {
-  let postModalCont = document.getElementById('post-modal-cont')
-  postModalCont.innerHTML = ""
-  console.log(posts[x]._id)
+  let openPost = (posts, x) => {
+    let postModalCont = document.getElementById("post-modal-cont");
+    postModalCont.innerHTML = "";
+    console.log(posts[x]._id);
 
-
-  let checkPermission = (y) => {
-    if (y.author_id == sessionStorage.userID) {
-      return `
+    let checkPermission = (y) => {
+      if (y.author_id == sessionStorage.userID) {
+        return `
           <i id="edit-post" class="bi bi-pencil-square"></i>
           <i id="delete-post" class="bi bi-trash3"></i>
           <i class="bi bi-pencil-square" id="edit-post"></i>
           <i class="bi bi-trash3" id="delete-post"></i>
-          `
-    } else {
-      return ""
-    }
-  }
+          `;
+      } else {
+        return "";
+      }
+    };
 
-  postModalCont.innerHTML = `
+    postModalCont.innerHTML = `
       <div class="img-cont">
         <img src="${posts[x].image_url}" alt="${posts[x].title}">
       </div>
@@ -245,74 +239,72 @@ let openPost = (posts, x) => {
       </div>
       `;
 
-  // thisPostId = posts[x]._id;
+    // thisPostId = posts[x]._id;
 
-  // let deletePost = (thisPostId) => {
-  //   // use ajax and go to the delete route
-  //   $.ajax({
-  //     // Let's go to our route
-  //     url: `http://localhost:3000/deleteWildlifePost/${thisPostId}`,
-  //     type: "DELETE",
-  //     success: () => {
-  //       // at this point, we can assume that the delete was successful
-  //       showAllPosts();
-  //     },
-  //     error: () => {
-  //       console.log("Cannot call API");
-  //     },
-  //   });
-  // };
+    // let deletePost = (thisPostId) => {
+    //   // use ajax and go to the delete route
+    //   $.ajax({
+    //     // Let's go to our route
+    //     url: `http://localhost:3000/deleteWildlifePost/${thisPostId}`,
+    //     type: "DELETE",
+    //     success: () => {
+    //       // at this point, we can assume that the delete was successful
+    //       showAllPosts();
+    //     },
+    //     error: () => {
+    //       console.log("Cannot call API");
+    //     },
+    //   });
+    // };
 
-  // if (posts[x].author_id == sessionStorage.userID) {
-  //   let deletePostBtn = document.getElementById('delete-post')
-  //   console.log(deletePostBtn)
-  //   deletePostBtn.onclick = () => {
-  //     deletePost();
-  //   }
-  //   let editPostBtn = document.getElementById('edit-post')
-  //   console.log(editPostBtn)
-  //   editPostBtn.onclick = () => {
-  //     // deleteCoffee();
-  //   }
-  // }
+    // if (posts[x].author_id == sessionStorage.userID) {
+    //   let deletePostBtn = document.getElementById('delete-post')
+    //   console.log(deletePostBtn)
+    //   deletePostBtn.onclick = () => {
+    //     deletePost();
+    //   }
+    //   let editPostBtn = document.getElementById('edit-post')
+    //   console.log(editPostBtn)
+    //   editPostBtn.onclick = () => {
+    //     // deleteCoffee();
+    //   }
+    // }
 
+    const sendCommentBtn = document.getElementById("post-new-comment");
+    //add a click listener
+    const commentInput = document.getElementById("comment-input");
 
-  const sendCommentBtn = document.getElementById("post-new-comment");
-  //add a click listener
-  const commentInput = document.getElementById("comment-input");
+    sendCommentBtn.onclick = () => {
+      console.log("clicked!");
+      // console.log(wildlifePostId);
+      $.ajax({
+        url: `http://localhost:3000/postComment`,
+        type: "POST",
+        data: {
+          // comment_id: sessionStorage.userID,
+          text: commentInput.value,
+          comment_author_id: sessionStorage.userID,
+          comment_author_name: sessionStorage.userName,
+          comment_author_image_url: sessionStorage.profileImg,
+          wildlife_post_id: posts[x]._id,
+        },
+        success: (data) => {
+          console.log(data);
+          console.log("comment placed successfully");
+          showAllPosts();
+          runOpenPosts();
+          postNewComment(data);
+          commentInput.value = "";
+        },
+        error: () => {
+          console.log("error cannot call API");
+        },
+      });
+    };
 
-  sendCommentBtn.onclick = () => {
-    console.log("clicked!");
-    // console.log(wildlifePostId);
-    $.ajax({
-      url: `http://localhost:3000/postComment`,
-      type: "POST",
-      data: {
-        // comment_id: sessionStorage.userID,
-        text: commentInput.value,
-        comment_author_id: sessionStorage.userID,
-        comment_author_name: sessionStorage.userName,
-        comment_author_image_url: sessionStorage.profileImg,
-        wildlife_post_id: posts[x]._id,
-
-      },
-      success: (data) => {
-        console.log(data)
-        console.log("comment placed successfully");
-        showAllPosts();
-        runOpenPosts()
-        postNewComment(data);
-        commentInput.value = "";
-      },
-      error: () => {
-        console.log("error cannot call API");
-      },
-    });
-  };
-
-  let postNewComment = (data) => {
-    let postComments = document.getElementById("post-comments-cont")
-    postComments.innerHTML += `
+    let postNewComment = (data) => {
+      let postComments = document.getElementById("post-comments-cont");
+      postComments.innerHTML += `
     <div class="comment">
     <img class="comment-user-img" src="${data.comment_author_image_url}">
     <div class="comment-content">
@@ -320,13 +312,13 @@ let openPost = (posts, x) => {
     </div>
     </div>
   `;
-  }
+    };
 
-  let connectComments = (z) => {
-    let postComments = document.getElementById("post-comments-cont")
-    postComments.innerHTML = "";
-    for (i = 0; i < z.comments.length; i++) {
-      postComments.innerHTML += `
+    let connectComments = (z) => {
+      let postComments = document.getElementById("post-comments-cont");
+      postComments.innerHTML = "";
+      for (i = 0; i < z.comments.length; i++) {
+        postComments.innerHTML += `
             <div class="comment">
             <img class="comment-user-img" src="${z.comments[i].comment_author_image_url}">
             <div class="comment-content">
@@ -334,47 +326,28 @@ let openPost = (posts, x) => {
             </div>
             </div>
           `;
-  if (posts[x].author_id == sessionStorage.userID) {
-    let editPostBtn = document.getElementById('edit-post')
-    let deletePostBtn = document.getElementById('delete-post')
-    editPostBtn.onclick = () => {
-      console.log("EDITED!")
-    }
-    deletePostBtn.onclick = () => {
-      console.log("DELETED!")
-    }
-  }
-  connectComments(posts[x]);
+        if (posts[x].author_id == sessionStorage.userID) {
+          let editPostBtn = document.getElementById("edit-post");
+          let deletePostBtn = document.getElementById("delete-post");
+          editPostBtn.onclick = () => {
+            console.log("EDITED!");
+          };
+          deletePostBtn.onclick = () => {
+            console.log("DELETED!");
+          };
+        }
+        connectComments(posts[x]);
+      }
 
-}
+      let closePostModal = () => {
+        let closePostBtn = document.getElementById("exit-modal");
+        closePostBtn.onclick = () => {
+          appBody.classList.remove("page-disable");
+          postModal.classList.remove("active-post-modal");
+        };
+      };
 
-let closePostModal = () => {
-  let closePostBtn = document.getElementById('exit-modal')
-  closePostBtn.onclick = () => {
-    appBody.classList.remove('page-disable')
-    postModal.classList.remove('active-post-modal')
-  }
-}
-
-closePostModal()
-
-
-
-
-
-
-
-
-
-{/* <div class="comment">
-<div class="comment-user-img"></div>
-<div class="comment-content">
-    <p><span class="comment-user-name">@hollyholly</span>This is an example of a comment</p>
-</div>
-</div> */}
-
-// ${connectComents()}
-
-//==========================================================
-//                        COMMENTS
-//==========================================================
+      closePostModal();
+    };
+  };
+};
