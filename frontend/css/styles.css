@@ -853,10 +853,11 @@ nav .secondary-nav .nav-list-mobile a {
 .active-post-modal {
   -webkit-transform: translateX(0vw) !important;
           transform: translateX(0vw) !important;
-  -webkit-transition: -webkit-transform 0.25s ease-in-out !important;
-  transition: -webkit-transform 0.25s ease-in-out !important;
-  transition: transform 0.25s ease-in-out !important;
-  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out !important;
+  visibility: visible !important;
+  -webkit-transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out !important;
+  transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out !important;
+  transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out !important;
+  transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out !important;
 }
 
 .post-modal {
@@ -867,30 +868,28 @@ nav .secondary-nav .nav-list-mobile a {
   left: 0;
   z-index: 25;
   background: #393633;
+  visibility: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: -webkit-transform 0.25s ease-in-out;
-  transition: -webkit-transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  -webkit-transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
   -webkit-transform: translateX(100vw);
           transform: translateX(100vw);
 }
 
 .post-modal .exit-modal {
   width: 100%;
-  height: 50px;
+  height: 45px;
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -908,7 +907,6 @@ nav .secondary-nav .nav-list-mobile a {
   top: 0;
   right: 0px;
   z-index: 75;
-  background: #393633;
 }
 
 .post-modal .exit-modal .exit-modal-icon {
@@ -923,6 +921,7 @@ nav .secondary-nav .nav-list-mobile a {
 
 .post-modal .post-modal-cont {
   position: relative;
+  top: 45px;
   width: 100%;
   min-height: calc(100vh - 50px);
   height: auto;
@@ -1224,6 +1223,327 @@ nav .secondary-nav .nav-list-mobile a {
             column-count: 2;
     -webkit-column-gap: 10px;
             column-gap: 10px;
+  }
+  .post-modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 25;
+    background: #393633;
+    visibility: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+    transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+    transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out;
+    transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+    -webkit-transform: translateX(100vw);
+            transform: translateX(100vw);
+  }
+  .post-modal .exit-modal {
+    width: 100%;
+    height: 45px;
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    top: 0;
+    right: 0px;
+    z-index: 75;
+    background: red;
+  }
+  .post-modal .exit-modal .exit-modal-icon {
+    font-size: 24px;
+    color: #ECE9E2;
+    -webkit-text-stroke: 1px #ECE9E2;
+  }
+  .post-modal .post-modal-cont::-webkit-scrollbar {
+    display: none;
+  }
+  .post-modal .post-modal-cont {
+    position: relative;
+    top: 45px;
+    width: 100%;
+    min-height: calc(100vh - 50px);
+    height: auto;
+    background: red;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+  }
+  .post-modal .post-modal-cont .img-cont {
+    width: 100%;
+    background: #393633;
+    border-bottom: solid 2px #393633;
+  }
+  .post-modal .post-modal-cont .img-cont img {
+    width: 100%;
+    max-height: 45vh;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont {
+    width: 100%;
+    min-height: 54.5vh;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: stretch;
+        -ms-flex-pack: stretch;
+            justify-content: stretch;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont,
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont,
+  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
+    width: 100%;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont {
+    height: 90px;
+    max-height: 90px;
+    border-bottom: solid 2px #393633;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: relative;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-user-img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: solid 2px #393633;
+    display: inline-block;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin: 0;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-user-details {
+    margin-left: 0;
+    position: relative;
+    max-width: 60%;
+    display: inline-block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    font-size: 16px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-user-details .post-user-name {
+    font-weight: 800;
+    margin: 0;
+    display: block;
+    font-family: 'PP Neue Montreal Bold';
+    font-size: 20px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-user-details .post-location {
+    text-align: left;
+    margin: 0;
+    display: block;
+    font-family: 'PP Neue Montreal Regular';
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-interactions-cont {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: relative;
+    margin-right: 0;
+    gap: 10px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-interactions-cont i {
+    font-size: 34px;
+    line-height: 34px;
+    padding: 3px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont {
+    width: 100%;
+    padding-bottom: 75px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    font-family: 'PP Neue Montreal Regular';
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: auto;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 10px 20px;
+    gap: 10px;
+    font-family: 'PP Neue Montreal Regular';
+    min-height: 50px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-user-img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: solid 2px #393633;
+    display: inline-block;
+    margin: 0;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content {
+    width: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: auto;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content p {
+    margin: 10px auto 0px;
+    font-size: 16px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content p .comment-user-name {
+    font-family: 'PP Neue Montreal Bold';
+    margin-right: 5px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
+    min-height: 75px;
+    border-top: solid 2px #393633;
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 10px 20px;
+    gap: 10px;
+    font-family: 'PP Neue Montreal Regular';
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .current-user-img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: solid 2px #393633;
+    display: inline-block;
+    margin: 0;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .comment-input {
+    min-height: 20px;
+    height: 100%;
+    margin-left: 0;
+    position: relative;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    outline: 0;
+    border: none;
+    background: none;
+    height: 48px;
+    padding: 3px 5px;
+    color: #393633;
+    resize: none;
+    font-size: 18px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .post-new-comment {
+    font-size: 34px;
+    line-height: 34px;
+    padding: 3px;
   }
 }
 
