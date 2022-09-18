@@ -199,8 +199,6 @@ let openPost = (posts, x) => {
   let checkPermission = (y) => {
     if (y.author_id == sessionStorage.userID) {
       return `
-          <i id="edit-post" class="bi bi-pencil-square"></i>
-          <i id="delete-post" class="bi bi-trash3"></i>
           <i class="bi bi-pencil-square" id="edit-post"></i>
           <i class="bi bi-trash3" id="delete-post"></i>
           `;
@@ -334,15 +332,15 @@ let openPost = (posts, x) => {
       }
       connectComments(posts[x]);
     }
-
-    let closePostModal = () => {
-      let closePostBtn = document.getElementById("exit-modal");
-      closePostBtn.onclick = () => {
-        appBody.classList.remove("page-disable");
-        postModal.classList.remove("active-post-modal");
-      };
-    };
-
-    closePostModal();
   };
+
+  let closePostModal = () => {
+    let closePostBtn = document.getElementById("exit-modal");
+    closePostBtn.onclick = () => {
+      appBody.classList.remove("page-disable");
+      postModal.classList.remove("active-post-modal");
+    };
+  };
+
+  closePostModal();
 };
