@@ -132,8 +132,9 @@ app.post("/postComment", (req, res) => {
   const newComment = new Comment({
     _id: new mongoose.Types.ObjectId(),
     text: req.body.text,
-    comment_id: req.body.comment_id,
     comment_author_id: req.body.comment_author_id,
+    comment_author_name: req.body.comment_author_name,
+    comment_author_image_url: req.body.comment_author_image_url,
     wildlife_post_id: req.body.wildlife_post_id,
   });
   // save (or post) this review to the mongo database
@@ -149,5 +150,40 @@ app.post("/postComment", (req, res) => {
       .catch((error) => {
         res.send(error);
       });
+  });
+});
+
+
+// =====================
+//     DELETE Method
+// ====================
+
+// set up the delete route
+// This route will only be actived if someone goes to it
+// you can go to it using AJAX
+app.delete("/deleteWildlifePost/:id", (req, res) => {
+  // the request varible here (req) contains the ID, and you can access it using req.param.id
+  const thisPostId = req.params.id;
+  console.log("The following wildlife post was deleted:");
+  console.log(thisPostId);
+  // findById() looks up a piece of data based on the id aurgument which we give it first
+  // we're giving it the coffee ID vairiblew
+  //  if it successful it will run a function
+  // then function will provide us the details on that coffee or an error if it doesn't work
+  WildlifePost.findById(thisPostId, (err, wildlifePost) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(wildlifePost);
+      WildlifePost.deleteOne({ _id: thisPostId })
+        .then(() => {
+          console.log("Success! Actually deleted from mongoDB");
+          // res.send will end the process
+          res.send(wildlifePost);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   });
 });
