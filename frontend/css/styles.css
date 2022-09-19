@@ -606,13 +606,8 @@ nav .secondary-nav .nav-list-mobile a {
 
 .active-post-modal {
   transform: translateX(0vw) !important;
-  -webkit-transform: translateX(0vw) !important;
-          transform: translateX(0vw) !important;
   visibility: visible !important;
-  -webkit-transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out !important;
-  transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out !important;
   transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out !important;
-  transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out !important;
 }
 
 .post-modal {
@@ -623,30 +618,12 @@ nav .secondary-nav .nav-list-mobile a {
   left: 0;
   z-index: 25;
   background: rgb(57, 54, 51);
+  visibility: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
-  transition: transform 0.25s ease-in-out;
-  transform: translateX(100vw);
-  background: #393633;
-  visibility: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
-  transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
   transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
+  transform: translateX(100vw);
 }
 .post-modal .exit-modal {
   width: 100%;
@@ -884,42 +861,22 @@ nav .secondary-nav .nav-list-mobile a {
     top: 0;
     left: 0;
     z-index: 25;
-    background: #393633;
+    background: rgb(57, 54, 51);
     visibility: hidden;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
-    transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+    align-items: center;
+    flex-direction: column;
     transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out;
-    transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
-    -webkit-transform: translateX(100vw);
-            transform: translateX(100vw);
+    transform: translateX(100vw);
   }
   .post-modal .exit-modal {
     width: 100%;
     height: 45px;
     position: fixed;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     top: 0;
     right: 0px;
     z-index: 75;
@@ -940,19 +897,10 @@ nav .secondary-nav .nav-list-mobile a {
     min-height: calc(100vh - 50px);
     height: auto;
     background: red;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
     overflow: scroll;
     -ms-overflow-style: none;
     /* IE and Edge */
@@ -972,46 +920,26 @@ nav .secondary-nav .nav-list-mobile a {
   .post-modal .post-modal-cont .post-modal-content-cont {
     width: 100%;
     min-height: 54.5vh;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
     top: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: stretch;
-        -ms-flex-pack: stretch;
-            justify-content: stretch;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    flex-direction: column;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont,
-  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont,
-  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
+.post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont,
+.post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
     width: 100%;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont {
     height: 90px;
     max-height: 90px;
     border-bottom: solid 2px #393633;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
     position: relative;
     padding: 10px 20px;
     gap: 10px;
@@ -1031,48 +959,31 @@ nav .secondary-nav .nav-list-mobile a {
     position: relative;
     max-width: 60%;
     display: inline-block;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
-    -ms-flex-negative: 1;
-        flex-shrink: 1;
+    flex-shrink: 1;
     font-size: 16px;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-user-details .post-user-name {
     font-weight: 800;
     margin: 0;
     display: block;
-    font-family: 'PP Neue Montreal Bold';
+    font-family: "PP Neue Montreal Bold";
     font-size: 20px;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-user-details .post-location {
     text-align: left;
     margin: 0;
     display: block;
-    font-family: 'PP Neue Montreal Regular';
+    font-family: "PP Neue Montreal Regular";
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-interactions-cont {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
     position: relative;
     margin-right: 0;
     gap: 10px;
@@ -1085,37 +996,21 @@ nav .secondary-nav .nav-list-mobile a {
   .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont {
     width: 100%;
     padding-bottom: 75px;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    font-family: 'PP Neue Montreal Regular';
-    display: -webkit-box;
-    display: -ms-flexbox;
+    flex: 1;
+    font-family: "PP Neue Montreal Regular";
     display: flex;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    justify-content: flex-start;
+    flex-direction: column;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment {
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     height: auto;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    justify-content: space-between;
+    flex-direction: row;
     padding: 10px 20px;
     gap: 10px;
-    font-family: 'PP Neue Montreal Regular';
+    font-family: "PP Neue Montreal Regular";
     min-height: 50px;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-user-img {
@@ -1130,9 +1025,7 @@ nav .secondary-nav .nav-list-mobile a {
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content {
     width: 100%;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
     height: auto;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content p {
@@ -1140,7 +1033,7 @@ nav .secondary-nav .nav-list-mobile a {
     font-size: 16px;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content p .comment-user-name {
-    font-family: 'PP Neue Montreal Bold';
+    font-family: "PP Neue Montreal Bold";
     margin-right: 5px;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
@@ -1149,22 +1042,13 @@ nav .secondary-nav .nav-list-mobile a {
     position: fixed;
     bottom: 0;
     z-index: 100;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
     padding: 10px 20px;
     gap: 10px;
-    font-family: 'PP Neue Montreal Regular';
+    font-family: "PP Neue Montreal Regular";
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .current-user-img {
     height: 48px;
@@ -1181,9 +1065,7 @@ nav .secondary-nav .nav-list-mobile a {
     height: 100%;
     margin-left: 0;
     position: relative;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
     outline: 0;
     border: none;
     background: none;

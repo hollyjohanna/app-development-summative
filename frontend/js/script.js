@@ -199,8 +199,8 @@ let openPost = (posts, x) => {
   let checkPermission = (y) => {
     if (y.author_id == sessionStorage.userID) {
       return `
-          <i class="bi bi-pencil-square" id="edit-post"></i>
-          <i class="bi bi-trash3" id="delete-post"></i>
+          <i class="edit-post bi bi-pencil-square" id="${y._id}" data-bs-toggle="modal" data-bs-target="#editModal"></i>
+          <i class="delete-post bi bi-trash3" id="${y._id}"></i>
           `;
     } else {
       return "";
@@ -233,36 +233,79 @@ let openPost = (posts, x) => {
       </div>
       `;
 
-  // thisPostId = posts[x]._id;
+  //===========================================================================
+  //                              EDIT POSTS
+  //===========================================================================
 
-  // let deletePost = (thisPostId) => {
-  //   // use ajax and go to the delete route
-  //   $.ajax({
-  //     // Let's go to our route
-  //     url: `http://localhost:3000/deleteWildlifePost/${thisPostId}`,
-  //     type: "DELETE",
-  //     success: () => {
-  //       // at this point, we can assume that the delete was successful
-  //       showAllPosts();
-  //     },
-  //     error: () => {
-  //       console.log("Cannot call API");
-  //     },
-  //   });
-  // };
+  let handleEditFunctionality = (wildlifePost, id) => {
+    console.log(id)
+    let postTitle = document.getElementById("postTitle");
+    let postLocation = document.getElementById("postLocation");
+    let postCaption = document.getElementById("postCaption");
+    let imagePreview = document.getElementById("image-preview");
+    postTitle.value = wildlifePost.title;
+    postLocation.value = wildlifePost.location;
+    postCaption.value = wildlifePost.caption;
+    imagePreview.innerHTML = `
+    <img src="${wildlifePost.image_url}" alt="${postTitle}">
+    `;
+    console.log(`The ID was passed in ${id}`)
+    // ===============================
+    //        EDIT CLICK LISTENER
+    // ===============================
 
-  // if (posts[x].author_id == sessionStorage.userID) {
-  //   let deletePostBtn = document.getElementById('delete-post')
-  //   console.log(deletePostBtn)
-  //   deletePostBtn.onclick = () => {
-  //     deletePost();
-  //   }
-  //   let editPostBtn = document.getElementById('edit-post')
-  //   console.log(editPostBtn)
-  //   editPostBtn.onclick = () => {
-  //     // deleteCoffee();
-  //   }
-  // }
+    $("#updatePost").click(function () {
+      console.log("clicked")
+      event.preventDefault();
+      let postId = id;
+      let postTitle = document.getElementById("postTitle").value;
+      let postLocation = document.getElementById("postLocation").value;
+      let postCaption = document.getElementById("postCaption").value;
+      console.log(postId, postTitle, postLocation, postCaption);
+      $.ajax({
+        url: `http://localhost:3000/updatePost/${postId}`,
+        type: "PATCH",
+        data: {
+          title: postTitle,
+          location: postLocation,
+          caption: postCaption,
+        },
+        success: (data) => {
+          console.log(data);
+          showAllPosts();
+          $("#editModal").modal("hide");
+          $("#updatePost").off("click");
+          openPost();
+        },
+        error: () => {
+          console.log("error: cannot update");
+        },
+      });
+    });
+  };
+
+  // ===========================
+  //         EDIT MODAL
+  // ===========================
+
+  populateEditModal = (selectedPostId) => {
+    console.log(selectedPostId);
+    $.ajax({
+      url: `http://localhost:3000/wildlifePost/${selectedPostId}`,
+      type: "GET",
+      success: (wildlifePostData) => {
+        // console.log('student was found');
+        // console.log(student);
+        handleEditFunctionality(wildlifePostData, selectedPostId);
+
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  };
+
+
 
   const sendCommentBtn = document.getElementById("post-new-comment");
   //add a click listener
@@ -320,19 +363,29 @@ let openPost = (posts, x) => {
             </div>
             </div>
           `;
-      if (posts[x].author_id == sessionStorage.userID) {
-        let editPostBtn = document.getElementById("edit-post");
-        let deletePostBtn = document.getElementById("delete-post");
-        editPostBtn.onclick = () => {
-          console.log("EDITED!");
-        };
-        deletePostBtn.onclick = () => {
-          console.log("DELETED!");
-        };
-      }
       connectComments(posts[x]);
     }
   };
+
+  if (posts[x].author_id == sessionStorage.userID) {
+    let editPostBtn = document.getElementsByClassName("edit-post");
+    let deletePostBtn = document.getElementsByClassName("delete-post");
+    for (let e = 0; e < editPostBtn.length; e++) {
+      editPostBtn[e].onclick = () => {
+        console.log("EDITED!");
+        populateEditModal(posts[x]._id);
+      };
+    }
+    for (let d = 0; d < deletePostBtn.length; d++) {
+      deletePostBtn[d].onclick = () => {
+        console.log("DELETED!");
+        let currentPostId = deletePostBtn[d].id;
+        deletePost(currentPostId);
+        appBody.classList.remove("page-disable");
+        postModal.classList.remove("active-post-modal");
+      };
+    }
+  }
 
   let closePostModal = () => {
     let closePostBtn = document.getElementById("exit-modal");
