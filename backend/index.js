@@ -37,6 +37,14 @@ mongoose
     console.log(`DB connection error ${err.message}`);
   });
 
+
+
+var moment = require('moment'); // require
+moment().format();
+
+
+
+
 // ==============================================================================
 //                                  GET METHOD
 // ==============================================================================
@@ -62,6 +70,7 @@ app.post(`/addWildlifePost`, (req, res) => {
     author_name: req.body.author_name,
     author_image_url: req.body.author_image_url,
     author_id: req.body.author_id,
+    // created: req.body.created
   });
   // to save the newstudent to the database
   // use the variable declared above
@@ -76,6 +85,7 @@ app.post(`/addWildlifePost`, (req, res) => {
       console.log(`Error: ${err.message}`);
     });
 });
+
 // ==============================================================================
 //                                 SIGN UP USERS
 // ==============================================================================
@@ -161,21 +171,21 @@ app.post("/postComment", (req, res) => {
 // set up the delete route
 // This route will only be actived if someone goes to it
 // you can go to it using AJAX
-app.delete("/deleteWildlifePost/:id", (req, res) => {
+app.delete('/deleteWildlifePost/:id', (req, res) => {
   // the request varible here (req) contains the ID, and you can access it using req.param.id
-  const thisPostId = req.params.id;
+  const selectedPostId = req.params.id;
   console.log("The following wildlife post was deleted:");
-  console.log(thisPostId);
+  console.log(selectedPostId);
   // findById() looks up a piece of data based on the id aurgument which we give it first
   // we're giving it the coffee ID vairiblew
   //  if it successful it will run a function
   // then function will provide us the details on that coffee or an error if it doesn't work
-  WildlifePost.findById(thisPostId, (err, wildlifePost) => {
+  WildlifePost.findById(selectedPostId, (err, wildlifePost) => {
     if (err) {
       console.log(err);
     } else {
       console.log(wildlifePost);
-      WildlifePost.deleteOne({ _id: thisPostId })
+      WildlifePost.deleteOne({ _id: selectedPostId })
         .then(() => {
           console.log("Success! Actually deleted from mongoDB");
           // res.send will end the process

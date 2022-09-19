@@ -15,6 +15,7 @@ const wildlifePostSchema = new mongoose.Schema(
     author_name: String,
     author_image_url: String,
     author_id: String,
+    created: String
 
   },
   {

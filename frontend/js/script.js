@@ -2,11 +2,14 @@
 //                   CONST DECLARATIONS
 //=======================================================
 
+// const { get } = require("express/lib/response");
+
 const addPostBtn = document.getElementById("add-post-btn");
 const imageURLInput = document.getElementById("image-url-input");
 const titleInput = document.getElementById("title-input");
 const locationInput = document.getElementById("location-input");
 const captionInput = document.getElementById("caption-input");
+
 
 // ===============================================================================
 //                               SHOW ALL POSTS & RENDER
@@ -29,7 +32,7 @@ let showAllPosts = () => {
 };
 
 let renderPosts = (wildlifePosts) => {
-  console.log("The render post function is running");
+  // console.log("The render post function is running");
   grid.innerHTML = "";
   wildlifePosts.forEach((item, index) => {
     grid.innerHTML += `
@@ -111,6 +114,7 @@ renderPostBtn.onclick = () => {
         author_name: sessionStorage.userName,
         author_image_url: sessionStorage.profileImg,
         author_id: sessionStorage.userID,
+        // created: moment().format()
       },
       success: () => {
         console.log("A new post was added.");
@@ -189,8 +193,6 @@ let runOpenPosts = (posts) => {
   }
 };
 
-let thisPostId;
-
 let openPost = (posts, x) => {
   let postModalCont = document.getElementById("post-modal-cont");
   postModalCont.innerHTML = "";
@@ -199,8 +201,8 @@ let openPost = (posts, x) => {
   let checkPermission = (y) => {
     if (y.author_id == sessionStorage.userID) {
       return `
-          <i class="bi bi-pencil-square" id="edit-post"></i>
-          <i class="bi bi-trash3" id="delete-post"></i>
+          <i class="edit-post bi bi-pencil-square" id="${y._id}"></i>
+          <i class="delete-post bi bi-trash3" id="${y._id}"></i>
           `;
     } else {
       return "";
@@ -223,53 +225,86 @@ let openPost = (posts, x) => {
               <i class="bi bi-heart"></i>
             </div>
             </div>
+            <div id="post-caption-cont" class="post-caption-cont">
+              <p class="caption">${posts[x].caption}</p>
+              <p class="created-text"></p>
+            </div>
             <div id="post-comments-cont" class="post-comments-cont">
             </div>
             <div class="post-add-comment-cont">
               <img class="current-user-img" src="${sessionStorage.profileImg}">
               <input type="text" placeholder="Leave a comment..." id="comment-input" class="comment-input">
-              <i id="post-new-comment" class="bi bi-send  post-new-comment"></i>
+              <i id="post-new-comment" class="bi bi-send post-new-comment"></i>
         </div>
       </div>
       `;
 
+  let connectComments = (z) => {
+    let postComments = document.getElementById("post-comments-cont");
+    postComments.innerHTML = "";
+    for (let i = 0; i < z.comments.length; i++) {
+      postComments.innerHTML += `
+            <div class="comment">
+            <img class="comment-user-img" src="${z.comments[i].comment_author_image_url}">
+            <div class="comment-content">
+            <p><span class="comment-user-name">@${z.comments[i].comment_author_name}</span>${z.comments[i].text}</p>
+            </div>
+            </div>
+      `;
+    }
+  }
+
+
   // thisPostId = posts[x]._id;
 
-  // let deletePost = (thisPostId) => {
-  //   // use ajax and go to the delete route
-  //   $.ajax({
-  //     // Let's go to our route
-  //     url: `http://localhost:3000/deleteWildlifePost/${thisPostId}`,
-  //     type: "DELETE",
-  //     success: () => {
-  //       // at this point, we can assume that the delete was successful
-  //       showAllPosts();
-  //     },
-  //     error: () => {
-  //       console.log("Cannot call API");
-  //     },
-  //   });
-  // };
+  let deletePost = (postId) => {
+    // use ajax and go to the delete route
+    $.ajax({
+      // Let's go to our route
+      url: `http://localhost:3000/deleteWildlifePost/${postId}`,
+      type: "DELETE",
+      success: () => {
+        console.log("HELLO THERE")
+        // at this point, we can assume that the delete was successful
+        showAllPosts();
+      },
+      error: () => {
+        console.log("Cannot call API");
+      },
+    });
+  };
 
-  // if (posts[x].author_id == sessionStorage.userID) {
-  //   let deletePostBtn = document.getElementById('delete-post')
-  //   console.log(deletePostBtn)
-  //   deletePostBtn.onclick = () => {
-  //     deletePost();
-  //   }
-  //   let editPostBtn = document.getElementById('edit-post')
-  //   console.log(editPostBtn)
-  //   editPostBtn.onclick = () => {
-  //     // deleteCoffee();
-  //   }
-  // }
+  if (posts[x].author_id == sessionStorage.userID) {
+    let editPostBtn = document.getElementsByClassName("edit-post");
+    let deletePostBtn = document.getElementsByClassName("delete-post");
+    for (let e = 0; e < editPostBtn.length; e++) {
+      editPostBtn[e].onclick = () => {
+        console.log("EDITED!");
+      };
+    }
+    for (let d = 0; d < deletePostBtn.length; d++) {
+      deletePostBtn[d].onclick = () => {
+        console.log("DELETED!");
+        let currentPostId = deletePostBtn[d].id;
+        deletePost(currentPostId);
+        appBody.classList.remove("page-disable");
+        postModal.classList.remove("active-post-modal");
+      };
+    }
+  }
+  // connectComments(posts[x]);
+
 
   const sendCommentBtn = document.getElementById("post-new-comment");
   //add a click listener
   const commentInput = document.getElementById("comment-input");
 
+  const postComments = document.getElementById("post-comments-cont");
+
   sendCommentBtn.onclick = () => {
     console.log("clicked!");
+    let postModalCont = document.getElementById("post-modal-cont");
+
     // console.log(wildlifePostId);
     $.ajax({
       url: `http://localhost:3000/postComment`,
@@ -289,6 +324,10 @@ let openPost = (posts, x) => {
         runOpenPosts();
         postNewComment(data);
         commentInput.value = "";
+        function scrollBottom(element) {
+          element.scroll({ top: element.scrollHeight, behavior: "smooth" })
+        }
+        scrollBottom(postModalCont);
       },
       error: () => {
         console.log("error cannot call API");
@@ -299,7 +338,7 @@ let openPost = (posts, x) => {
   let postNewComment = (data) => {
     let postComments = document.getElementById("post-comments-cont");
     postComments.innerHTML += `
-    <div class="comment">
+    <div class="comment new-comment">
     <img class="comment-user-img" src="${data.comment_author_image_url}">
     <div class="comment-content">
     <p><span class="comment-user-name">@${data.comment_author_name}</span>${data.text}</p>
@@ -333,8 +372,6 @@ let openPost = (posts, x) => {
     }
   };
 
-  connectComments(posts[x]);
-
   let closePostModal = () => {
     let closePostBtn = document.getElementById("exit-modal");
     closePostBtn.onclick = () => {
@@ -343,5 +380,9 @@ let openPost = (posts, x) => {
     };
   };
 
+
+  connectComments(posts[x]);
+
   closePostModal();
 };
+
