@@ -52,7 +52,7 @@
         column-rule: 100%;
         break-inside: avoid;
 
-        .grid-item:hover {
+        .grid-item :hover {
             cursor: pointer;
 
             .post-data-cont-top,
@@ -66,16 +66,9 @@
                 cursor: pointer;
                 // pointer-events: none;
             }
-
-            // .post-hover-click {
-            //     cursor: pointer;
-            //     display: block;
-            //     pointer-events: all;
-            // }
         }
 
         .grid-item {
-            display: block;
             width: 100%;
             max-width: 100%;
             margin-bottom: 10px;
@@ -101,7 +94,7 @@
                 z-index: 2;
                 opacity: 0;
                 // pointer-events: none;
-                transition: opacity 0.2s ease;
+                transition: opacity .2s ease;
                 // background: green;
             }
 
@@ -138,15 +131,13 @@
                 .post-like-cont {
 
                     margin-right: 0;
-                    padding: 0px 2px;
+                    padding: 0 2px;
 
                     i {
                         color: $White;
                         font-size: 32px;
                     }
                 }
-
-
             }
 
             .post-data-cont-bottom {
@@ -157,7 +148,7 @@
                 color: $White;
 
                 i {
-                    font-size: 32px
+                    font-size: 32px;
                 }
 
                 .post-location {
@@ -180,10 +171,10 @@
                 width: 100%;
                 position: absolute;
                 z-index: 1;
-                background: linear-gradient(0deg, rgba(57, 54, 51, 0.95) 10%, rgba(57, 54, 51, 0.25) 95%);
+                background: linear-gradient(0deg, rgba(57, 54, 51, .95) 10%, rgba(57, 54, 51, .25) 95%);
                 opacity: 0;
                 pointer-events: none;
-                transition: opacity 0.2s ease;
+                transition: opacity .2s ease;
             }
 
 
@@ -203,9 +194,9 @@
 }
 
 .active-post-modal {
-    transform: translateX(0vw) !important;
+    transform: translateX(0) !important;
     visibility: visible !important;
-    transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out !important;
+    transition: transform .25s ease-in-out, visibility .25s ease-in-out !important;
 }
 
 .post-modal {
@@ -223,7 +214,7 @@
     align-items: center;
     // justify-content: center;
     flex-direction: column;
-    transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out;
+    transition: transform .25s ease-in-out, visibility .25s ease-in-out;
     transform: translateX(100vw);
 
     .exit-modal {
@@ -235,7 +226,7 @@
         justify-content: center;
         flex-direction: column;
         top: 0;
-        right: 0px;
+        right: 0;
         // padding: 10px;
         z-index: 75;
         // background: $Black;
@@ -257,7 +248,6 @@
         width: 100%;
         min-height: calc(100vh - 50px);
         height: auto;
-        background: red;
         background: $White;
         display: flex;
         align-items: center;
@@ -417,7 +407,7 @@
                         height: auto;
 
                         p {
-                            margin: 10px auto 0px;
+                            margin: 10px auto 0;
                             font-size: 16px;
 
                             .comment-user-name {
@@ -464,7 +454,7 @@
                     position: relative;
                     flex: 1;
                     outline: 0;
-                    border: none;
+                    border: 0;
                     background: none;
                     height: 48px;
                     padding: 3px 5px;

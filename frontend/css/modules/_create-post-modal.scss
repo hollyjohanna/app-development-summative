@@ -16,7 +16,7 @@
     top: 0;
     left: 0;
     z-index: 25;
-    background: rgba(57, 54, 51, 0.75);
+    background: rgba(57, 54, 51, .75);
     display: none;
     align-items: center;
     justify-content: center;
@@ -33,18 +33,17 @@
         .exit-modal-icon {
             font-size: 30px;
             color: $White;
-            transition: all 0.3s ease;
-        }
+            transition: .3s ease;
 
-        .exit-modal-icon:hover {
-            font-size: 30px;
-            color: $SecondaryGreen;
+            .exit-modal-icon :hover {
+                font-size: 30px;
+                color: $SecondaryGreen;
+            }
         }
     }
 
     .create-post-modal-cont {
-        -webkit-animation: pop 0.3s ease forwards;
-        animation: pop 0.3s ease forwards;
+        animation: pop .3s ease forwards;
         width: 90%;
         padding: 30px;
         background: $White;
@@ -59,7 +58,6 @@
 
         input {
             width: 90%;
-            border: none;
             height: 3rem;
             font-family: 'PP Neue Montreal Light', sans-serif;
             margin-bottom: 1rem;
@@ -73,13 +71,13 @@
         }
 
         button {
+            @include button-main;
             width: 100%;
             margin-top: 2rem;
-            @include button-main;
-        }
 
-        button:hover {
-            background: $PrimaryGreen;
+            button :hover {
+                background: $PrimaryGreen;
+            }
         }
     }
 }

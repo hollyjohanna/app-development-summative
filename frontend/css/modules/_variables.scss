@@ -1,16 +1,16 @@
 // ------------------------------- Colours -------------------------------
 
-$White: #ECE9E2;
+$White: #ece9e2;
 $Black: #393633;
-$Brown: #524F42;
-$PrimaryGreen: #5B7053;
-$SecondaryGreen: #8C946F;
-$TertiaryGreen: #A2A288;
-$background-color: #ECE9E2;
-$tertiary-accent: #A2A288;
-$secondary-accent: #8C946F;
-$primary-accent: #5B7053;
-$nav-secondary: #524F42;
+$Brown: #524f42;
+$PrimaryGreen: #5b7053;
+$SecondaryGreen: #8c946f;
+$TertiaryGreen: #a2a288;
+$background-color: #ece9e2;
+$tertiary-accent: #a2a288;
+$secondary-accent: #8c946f;
+$primary-accent: #5b7053;
+$nav-secondary: #524f42;
 $nav-primary: #393633;
 
 @font-face {
@@ -54,7 +54,7 @@ $nav-primary: #393633;
 //                               Button Styles
 //----------------------------------------------------------------------------
 @mixin button-main {
-    border: none;
+    border: 0;
     background-color: $SecondaryGreen;
     color: white;
     font-family: 'PP Neue Montreal Bold';
@@ -62,11 +62,11 @@ $nav-primary: #393633;
     letter-spacing: 1px;
     padding: 20px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: .3s ease-in-out;
 }
 
 @mixin button-second {
-    border: none;
+    border: 0;
     background-color: $PrimaryGreen;
     color: white;
     font-family: 'PP Neue Montreal Bold';
@@ -74,7 +74,7 @@ $nav-primary: #393633;
     letter-spacing: 1px;
     padding: 20px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: .3s ease-in-out;
 }
 
 @mixin H1 {

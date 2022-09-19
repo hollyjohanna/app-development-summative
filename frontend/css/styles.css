@@ -53,7 +53,7 @@ nav {
 
 nav .main-nav {
   width: 100%;
-  background: #524F42;
+  background: #524f42;
   z-index: 10;
   padding: 10px;
 }
@@ -80,7 +80,7 @@ nav .main-nav .main-nav-cont .logo {
   letter-spacing: 1px;
   font-size: 25px;
   text-decoration: none;
-  color: #ECE9E2;
+  color: #ece9e2;
   margin: 0;
 }
 
@@ -107,14 +107,14 @@ nav .main-nav .main-nav-cont #user-details #dp {
   border-radius: 50%;
   background-position: 50% 50%;
   background-size: cover;
-  -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
-          box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
 }
 
-nav .main-nav .main-nav-cont #user-details #dp:hover {
+nav .main-nav .main-nav-cont #user-details #dp #dp :hover {
   border: 2px solid #393633;
 }
 
@@ -122,24 +122,44 @@ nav .main-nav .main-nav-cont #user-details a {
   margin: 0;
 }
 
-nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
-  border: none;
-  background-color: #8C946F;
+nav .main-nav .main-nav-cont #user-details a #nav-login-button {
+  border: 0;
+  background-color: #8c946f;
   color: white;
   font-family: 'PP Neue Montreal Bold';
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 20px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
   padding: 5px 12px;
   font-size: 14px;
   margin-top: 6px;
 }
 
-nav .main-nav .main-nav-cont #user-details a #nav-login-button:hover {
-  background-color: #5B7053;
+nav .main-nav .main-nav-cont #user-details a #nav-login-button #nav-login-button :hover {
+  background-color: #5b7053;
+}
+
+nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
+  border: 0;
+  background-color: #8c946f;
+  color: white;
+  font-family: 'PP Neue Montreal Bold';
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px;
+  cursor: pointer;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  padding: 5px 12px;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+nav .main-nav .main-nav-cont #user-details a #nav-logout-button #nav-logout-button :hover {
+  background-color: #5b7053;
 }
 
 nav .secondary-nav {
@@ -161,10 +181,10 @@ nav .secondary-nav {
           flex-direction: column;
   overflow: hidden;
   max-height: 60px;
-  -webkit-transition: max-height 0.45s ease;
-  transition: max-height 0.45s ease;
-  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  -webkit-transition: max-height .45s ease;
+  transition: max-height .45s ease;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 nav .secondary-nav .secondary-nav-cont {
@@ -182,8 +202,8 @@ nav .secondary-nav .secondary-nav-cont {
           align-items: center;
   margin: auto;
   max-height: 60px;
-  padding: 15px 15px;
-  gap: 40px;
+  padding: 15px;
+  grid-gap: 40px;
   z-index: 10;
 }
 
@@ -204,15 +224,15 @@ nav .secondary-nav .secondary-nav-cont .menu-btn {
 
 nav .secondary-nav .secondary-nav-cont .menu-btn #nav-open {
   font-size: 28px;
-  color: #ECE9E2;
-  -webkit-text-stroke: 1px #ECE9E2;
+  color: #ece9e2;
+  -webkit-text-stroke: 1px #ece9e2;
   display: block;
 }
 
 nav .secondary-nav .secondary-nav-cont .menu-btn #nav-close {
   font-size: 36px;
-  color: #ECE9E2;
-  -webkit-text-stroke: 1px #ECE9E2;
+  color: #ece9e2;
+  -webkit-text-stroke: 1px #ece9e2;
   display: none;
 }
 
@@ -229,7 +249,7 @@ nav .secondary-nav .secondary-nav-cont .nav-list {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 12px;
+  grid-gap: 12px;
   -webkit-transform: translateZ(-10px);
           transform: translateZ(-10px);
   background: #393633;
@@ -239,15 +259,15 @@ nav .secondary-nav .secondary-nav-cont .nav-list a {
   font-size: 22px;
   text-align: center;
   font-family: 'PP Neue Montreal Bold';
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
   text-decoration: none;
-  color: #ECE9E2;
+  color: #ece9e2;
 }
 
 nav .secondary-nav .secondary-nav-cont .nav-search {
   -ms-flex-preferred-size: 1;
       flex-basis: 1;
-  background: #ECE9E2;
+  background: #ece9e2;
   height: 32px;
   width: 100%;
   display: -webkit-box;
@@ -263,22 +283,21 @@ nav .secondary-nav .secondary-nav-cont .nav-search {
   padding: 0 10px;
   font-size: 18px;
   color: #393633;
-  gap: 10px;
+  grid-gap: 10px;
 }
 
 nav .secondary-nav .secondary-nav-cont .nav-search input {
-  background: none;
-  border: none;
+  border: 0;
   -ms-flex-preferred-size: 1;
       flex-basis: 1;
-  background: #ECE9E2;
+  background: #ece9e2;
   height: 100%;
   width: 100%;
   font-family: 'PP Neue Montreal Regular';
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
 }
 
-nav .secondary-nav .secondary-nav-cont .nav-search input:focus {
+nav .secondary-nav .secondary-nav-cont .nav-search input input :focus {
   outline: none;
 }
 
@@ -302,7 +321,7 @@ nav .secondary-nav .nav-list-mobile {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 12px;
+  grid-gap: 12px;
   -webkit-transform: translateZ(-10px);
           transform: translateZ(-10px);
   background: #393633;
@@ -313,15 +332,15 @@ nav .secondary-nav .nav-list-mobile a {
   font-size: 22px;
   text-align: center;
   font-family: 'PP Neue Montreal Bold';
-  letter-spacing: 0.5px;
+  letter-spacing: .5px;
   text-decoration: none;
-  color: #ECE9E2;
+  color: #ece9e2;
 }
 
 .nav-display {
   max-height: 350px !important;
-  -webkit-transition: max-height 0.45s ease;
-  transition: max-height 0.45s ease;
+  -webkit-transition: max-height .45s ease;
+  transition: max-height .45s ease;
 }
 
 .nav-open-toggle {
@@ -350,7 +369,7 @@ nav .secondary-nav .nav-list-mobile a {
   }
   nav .main-nav {
     width: 100%;
-    background: #524F42;
+    background: #524f42;
     z-index: 10;
     padding: 17px;
   }
@@ -375,7 +394,7 @@ nav .secondary-nav .nav-list-mobile a {
     letter-spacing: 1px;
     font-size: 30px;
     text-decoration: none;
-    color: #ECE9E2;
+    color: #ece9e2;
   }
   nav .main-nav .main-nav-cont #user-details #username {
     display: block;
@@ -389,7 +408,12 @@ nav .secondary-nav .nav-list-mobile a {
     width: 45px;
     margin-right: 15px;
   }
-  nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
+  nav .main-nav .main-nav-cont #user-details a #nav-login-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 0;
+  }
+  nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
     font-size: 16px;
     padding: 10px 20px;
     margin: 0;
@@ -413,8 +437,8 @@ nav .secondary-nav .nav-list-mobile a {
             flex-direction: column;
     overflow: hidden;
     max-height: 60px;
-    -webkit-transition: max-height 0.45s ease;
-    transition: max-height 0.45s ease;
+    -webkit-transition: max-height .45s ease;
+    transition: max-height .45s ease;
   }
   nav .secondary-nav .secondary-nav-cont {
     position: relative;
@@ -432,7 +456,7 @@ nav .secondary-nav .nav-list-mobile a {
     margin: auto;
     max-height: 60px;
     padding: 13px 15px;
-    gap: 50px;
+    grid-gap: 50px;
     z-index: 10;
   }
   nav .secondary-nav .secondary-nav-cont .nav-search input {
@@ -455,7 +479,7 @@ nav .secondary-nav .nav-list-mobile a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    gap: 3vw;
+    grid-gap: 3vw;
     -webkit-transform: translateZ(-10px);
             transform: translateZ(-10px);
     background: #393633;
@@ -464,9 +488,9 @@ nav .secondary-nav .nav-list-mobile a {
     font-size: 18px;
     text-align: center;
     font-family: 'PP Neue Montreal Bold';
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
     text-decoration: none;
-    color: #ECE9E2;
+    color: #ece9e2;
     padding: 22px 5px 18px;
   }
   nav .secondary-nav .nav-list-mobile {
@@ -492,7 +516,7 @@ nav .secondary-nav .nav-list-mobile a {
   }
   nav .main-nav {
     width: 100%;
-    background: #524F42;
+    background: #524f42;
     z-index: 10;
   }
   nav .main-nav .main-nav-cont {
@@ -516,7 +540,7 @@ nav .secondary-nav .nav-list-mobile a {
     letter-spacing: 1px;
     font-size: 40px;
     text-decoration: none;
-    color: #ECE9E2;
+    color: #ece9e2;
   }
   nav .main-nav .main-nav-cont #user-details #dp {
     width: 56px;
@@ -526,7 +550,11 @@ nav .secondary-nav .nav-list-mobile a {
   nav .main-nav .main-nav-cont #user-details #username {
     font-size: 25px;
   }
-  nav .main-nav .main-nav-cont #user-details a #nav-login-button, nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
+  nav .main-nav .main-nav-cont #user-details a #nav-login-button {
+    font-size: 20px;
+    padding: 13px 20px;
+  }
+  nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
     font-size: 20px;
     padding: 13px 20px;
   }
@@ -549,8 +577,8 @@ nav .secondary-nav .nav-list-mobile a {
             flex-direction: column;
     overflow: hidden;
     max-height: 70px;
-    -webkit-transition: max-height 0.45s ease;
-    transition: max-height 0.45s ease;
+    -webkit-transition: max-height .45s ease;
+    transition: max-height .45s ease;
   }
   nav .secondary-nav .secondary-nav-cont {
     position: relative;
@@ -568,11 +596,8 @@ nav .secondary-nav .nav-list-mobile a {
     margin: auto;
     max-height: 60px;
     padding: 35px 15px;
-    gap: 50px;
+    grid-gap: 50px;
     z-index: 10;
-  }
-  nav .secondary-nav .secondary-nav-cont .nav-search input {
-    font-size: 17px;
   }
   nav .secondary-nav .secondary-nav-cont .menu-btn {
     display: none;
@@ -591,7 +616,7 @@ nav .secondary-nav .nav-list-mobile a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    gap: 50px;
+    grid-gap: 50px;
     -webkit-transform: translateZ(-10px);
             transform: translateZ(-10px);
     background: #393633;
@@ -600,16 +625,19 @@ nav .secondary-nav .nav-list-mobile a {
     font-size: 22px;
     text-align: center;
     font-family: 'PP Neue Montreal Bold';
-    letter-spacing: 0.5px;
+    letter-spacing: .5px;
     text-decoration: none;
-    color: #ECE9E2;
+    color: #ece9e2;
     padding: 22px 5px 18px;
   }
   nav .secondary-nav .secondary-nav-cont .nav-search {
     -ms-flex-preferred-size: 1;
         flex-basis: 1;
-    background: #ECE9E2;
+    background: #ece9e2;
     height: 42px;
+  }
+  nav .secondary-nav .secondary-nav-cont .nav-search input {
+    font-size: 17px;
   }
   nav .secondary-nav .nav-list-mobile {
     display: none;
@@ -633,13 +661,13 @@ nav .secondary-nav .nav-list-mobile a {
   z-index: 5;
   top: 0;
   bottom: 0;
-  background: #ECE9E2;
+  background: #ece9e2;
 }
 
 .add-post-cont #add-post-btn {
   padding: 8px 16px;
-  color: #ECE9E2;
-  background: #5B7053;
+  color: #ece9e2;
+  background: #5b7053;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -674,7 +702,7 @@ nav .secondary-nav .nav-list-mobile a {
 
 .feed-grid-section {
   width: 100%;
-  background: #ECE9E2;
+  background: #ece9e2;
   padding: 30px 20px;
 }
 
@@ -695,22 +723,21 @@ nav .secondary-nav .nav-list-mobile a {
           break-inside: avoid;
 }
 
-.feed-grid-section .feed-grid-cont .grid-item:hover {
+.feed-grid-section .feed-grid-cont .grid-item :hover {
   cursor: pointer;
 }
 
-.feed-grid-section .feed-grid-cont .grid-item:hover .post-data-cont-top,
-.feed-grid-section .feed-grid-cont .grid-item:hover .post-data-cont-bottom {
+.feed-grid-section .feed-grid-cont .grid-item :hover .post-data-cont-top,
+.feed-grid-section .feed-grid-cont .grid-item :hover .post-data-cont-bottom {
   opacity: 0;
 }
 
-.feed-grid-section .feed-grid-cont .grid-item:hover .post-hover {
+.feed-grid-section .feed-grid-cont .grid-item :hover .post-hover {
   opacity: 0;
   cursor: pointer;
 }
 
 .feed-grid-section .feed-grid-cont .grid-item {
-  display: block;
   width: 100%;
   max-width: 100%;
   margin-bottom: 10px;
@@ -748,8 +775,8 @@ nav .secondary-nav .nav-list-mobile a {
   overflow: hidden;
   z-index: 2;
   opacity: 0;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity .2s ease;
+  transition: opacity .2s ease;
 }
 
 .feed-grid-section .feed-grid-cont .grid-item .post-data-cont-top {
@@ -785,17 +812,17 @@ nav .secondary-nav .nav-list-mobile a {
   height: 42px;
   width: 42px;
   border-radius: 50%;
-  border: solid 2px #ECE9E2;
-  background: #5B7053;
+  border: solid 2px #ece9e2;
+  background: #5b7053;
 }
 
 .feed-grid-section .feed-grid-cont .grid-item .post-data-cont-top .post-like-cont {
   margin-right: 0;
-  padding: 0px 2px;
+  padding: 0 2px;
 }
 
 .feed-grid-section .feed-grid-cont .grid-item .post-data-cont-top .post-like-cont i {
-  color: #ECE9E2;
+  color: #ece9e2;
   font-size: 32px;
 }
 
@@ -809,7 +836,7 @@ nav .secondary-nav .nav-list-mobile a {
           justify-content: center;
   bottom: 0;
   right: 0;
-  color: #ECE9E2;
+  color: #ece9e2;
 }
 
 .feed-grid-section .feed-grid-cont .grid-item .post-data-cont-bottom i {
@@ -837,8 +864,8 @@ nav .secondary-nav .nav-list-mobile a {
   background: linear-gradient(0deg, rgba(57, 54, 51, 0.95) 10%, rgba(57, 54, 51, 0.25) 95%);
   opacity: 0;
   pointer-events: none;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
+  -webkit-transition: opacity .2s ease;
+  transition: opacity .2s ease;
 }
 
 .feed-grid-section .feed-grid-cont .grid-item .post-img {
@@ -851,13 +878,13 @@ nav .secondary-nav .nav-list-mobile a {
 }
 
 .active-post-modal {
-  -webkit-transform: translateX(0vw) !important;
-          transform: translateX(0vw) !important;
+  -webkit-transform: translateX(0) !important;
+          transform: translateX(0) !important;
   visibility: visible !important;
-  -webkit-transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out !important;
-  transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out !important;
-  transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out !important;
-  transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out !important;
+  -webkit-transition: visibility .25s ease-in-out, -webkit-transform .25s ease-in-out !important;
+  transition: visibility .25s ease-in-out, -webkit-transform .25s ease-in-out !important;
+  transition: transform .25s ease-in-out, visibility .25s ease-in-out !important;
+  transition: transform .25s ease-in-out, visibility .25s ease-in-out, -webkit-transform .25s ease-in-out !important;
 }
 
 .post-modal {
@@ -879,10 +906,10 @@ nav .secondary-nav .nav-list-mobile a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
-  transition: visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  -webkit-transition: visibility .25s ease-in-out, -webkit-transform .25s ease-in-out;
+  transition: visibility .25s ease-in-out, -webkit-transform .25s ease-in-out;
+  transition: transform .25s ease-in-out, visibility .25s ease-in-out;
+  transition: transform .25s ease-in-out, visibility .25s ease-in-out, -webkit-transform .25s ease-in-out;
   -webkit-transform: translateX(100vw);
           transform: translateX(100vw);
 }
@@ -905,14 +932,14 @@ nav .secondary-nav .nav-list-mobile a {
       -ms-flex-direction: column;
           flex-direction: column;
   top: 0;
-  right: 0px;
+  right: 0;
   z-index: 75;
 }
 
 .post-modal .exit-modal .exit-modal-icon {
   font-size: 24px;
-  color: #ECE9E2;
-  -webkit-text-stroke: 1px #ECE9E2;
+  color: #ece9e2;
+  -webkit-text-stroke: 1px #ece9e2;
 }
 
 .post-modal .post-modal-cont::-webkit-scrollbar {
@@ -925,8 +952,7 @@ nav .secondary-nav .nav-list-mobile a {
   width: 100%;
   min-height: calc(100vh - 50px);
   height: auto;
-  background: red;
-  background: #ECE9E2;
+  background: #ece9e2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -990,7 +1016,7 @@ nav .secondary-nav .nav-list-mobile a {
 .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont {
   height: 90px;
   max-height: 90px;
-  background: #ECE9E2;
+  background: #ece9e2;
   border-bottom: solid 2px #393633;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1088,7 +1114,7 @@ nav .secondary-nav .nav-list-mobile a {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  background: #ECE9E2;
+  background: #ece9e2;
   font-family: 'PP Neue Montreal Regular';
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1141,7 +1167,7 @@ nav .secondary-nav .nav-list-mobile a {
 }
 
 .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content p {
-  margin: 10px auto 0px;
+  margin: 10px auto 0;
   font-size: 16px;
 }
 
@@ -1152,7 +1178,7 @@ nav .secondary-nav .nav-list-mobile a {
 
 .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
   min-height: 75px;
-  background: #ECE9E2;
+  background: #ece9e2;
   border-top: solid 2px #393633;
   position: fixed;
   bottom: 0;
@@ -1195,7 +1221,7 @@ nav .secondary-nav .nav-list-mobile a {
       -ms-flex: 1;
           flex: 1;
   outline: 0;
-  border: none;
+  border: 0;
   background: none;
   height: 48px;
   padding: 3px 5px;
@@ -1213,7 +1239,7 @@ nav .secondary-nav .nav-list-mobile a {
 @media screen and (min-width: 768px) {
   .feed-grid-section {
     width: 100%;
-    background: #ECE9E2;
+    background: #ece9e2;
     padding: 40px 20px;
   }
   .feed-grid-section .feed-grid-cont {
@@ -1274,8 +1300,8 @@ nav .secondary-nav .nav-list-mobile a {
   }
   .post-modal .exit-modal .exit-modal-icon {
     font-size: 24px;
-    color: #ECE9E2;
-    -webkit-text-stroke: 1px #ECE9E2;
+    color: #ece9e2;
+    -webkit-text-stroke: 1px #ece9e2;
   }
   .post-modal .post-modal-cont::-webkit-scrollbar {
     display: none;
@@ -1576,8 +1602,8 @@ nav .secondary-nav .nav-list-mobile a {
   }
   .post-modal .exit-modal .exit-modal-icon {
     font-size: 30px;
-    color: #ECE9E2;
-    -webkit-text-stroke: 2px #ECE9E2;
+    color: #ece9e2;
+    -webkit-text-stroke: 2px #ece9e2;
   }
   .post-modal .post-modal-cont {
     width: 1080px;
@@ -1585,11 +1611,11 @@ nav .secondary-nav .nav-list-mobile a {
     min-height: 80vh;
     aspect-ratio: 1/0.75;
     background: red;
-    background: #ECE9E2;
+    background: #ece9e2;
   }
   .feed-grid-section {
     width: 100%;
-    background: #ECE9E2;
+    background: #ece9e2;
     padding: 50px 20px;
   }
   .feed-grid-section .feed-grid-cont {
@@ -1613,9 +1639,9 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: #524F42;
+  background: #524f42;
   width: 100%;
-  color: white;
+  color: #ece9e2;
 }
 
 #footer-container {
@@ -1625,8 +1651,8 @@ footer {
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  -ms-grid-rows: 1fr 1fr 0.5fr 0.5fr;
-      grid-template-rows: 1fr 1fr 0.5fr 0.5fr;
+  -ms-grid-rows: 1fr 1fr .5fr .5fr;
+      grid-template-rows: 1fr 1fr .5fr .5fr;
   margin-top: 50px;
 }
 
@@ -1641,8 +1667,8 @@ footer {
 }
 
 .footer-section p {
-  font-size: 0.75em;
-  margin-bottom: 0.2rem;
+  font-size: .75em;
+  margin-bottom: .2rem;
 }
 
 #subscribe-container {
@@ -1668,23 +1694,23 @@ footer {
 }
 
 #subscribe-section button {
-  border: none;
-  background-color: #8C946F;
+  border: 0;
+  background-color: #8c946f;
   color: white;
   font-family: 'PP Neue Montreal Bold';
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 20px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
   width: 43%;
   margin-top: 10px;
-  padding: 10px 10px;
+  padding: 10px;
 }
 
-#subscribe-section button:hover {
-  background-color: #5B7053;
+#subscribe-section button button :hover {
+  background-color: #5b7053;
 }
 
 #icon-section {
@@ -1700,7 +1726,7 @@ footer {
 
 #icon-section i {
   font-size: 2em;
-  margin: 0.5em;
+  margin: .5em;
 }
 
 #copyright-banner {
@@ -1716,15 +1742,18 @@ footer {
     width: 70%;
     -ms-grid-columns: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
-    -ms-grid-rows: 1fr 0.5fr 0.5fr 0.25fr;
-        grid-template-rows: 1fr 0.5fr 0.5fr 0.25fr;
-    gap: 0.5em;
+    -ms-grid-rows: 1fr .5fr .5fr .25fr;
+        grid-template-rows: 1fr .5fr .5fr .25fr;
+    grid-gap: .5em;
   }
   .footer-section {
     grid-column: span 1;
   }
   #subscribe-container {
     grid-column: span 4;
+  }
+  #subscribe-section button {
+    width: 21%;
   }
   #icon-section {
     grid-column: span 4;
@@ -1735,8 +1764,8 @@ footer {
   #footer-container {
     -ms-grid-columns: 1fr 1fr 1fr 3fr;
         grid-template-columns: 1fr 1fr 1fr 3fr;
-    -ms-grid-rows: 1fr 0.5fr;
-        grid-template-rows: 1fr 0.5fr;
+    -ms-grid-rows: 1fr .5fr;
+        grid-template-rows: 1fr .5fr;
   }
   .footer-section {
     grid-column: span 1;
@@ -1745,13 +1774,16 @@ footer {
     width: 100%;
     grid-column: span 1;
   }
+  #subscribe-section button {
+    width: 21%;
+  }
   #icon-section {
     grid-column: span 4;
   }
 }
 
 #login-body {
-  background-color: #ECE9E2;
+  background-color: #ece9e2;
 }
 
 #login-body #login-img {
@@ -1761,22 +1793,22 @@ footer {
      object-fit: cover;
 }
 
-#login-body h1, #login-body h2 {
+#login-body h1 {
   font-family: 'PP Radio Grotesk Bold';
   color: #393633;
   text-align: center;
+  font-size: 72px;
+  margin-top: -13px;
+  margin-bottom: 50px;
 }
 
 #login-body h2 {
   margin-top: 38px;
   margin-bottom: 0;
   font-size: 31px;
-}
-
-#login-body h1 {
-  font-size: 72px;
-  margin-top: -13px;
-  margin-bottom: 50px;
+  font-family: 'PP Radio Grotesk Bold';
+  color: #393633;
+  text-align: center;
 }
 
 #login-body #tagline {
@@ -1795,28 +1827,28 @@ footer {
   font-size: 24px;
   border-radius: 0;
   border: 1px solid #393633;
-  color: #524F42;
-  background-color: #ECE9E2;
+  color: #524f42;
+  background-color: #ece9e2;
   margin-bottom: 16px;
 }
 
 #login-body #login-form #login-button-login-page {
-  border: none;
-  background-color: #8C946F;
+  border: 0;
+  background-color: #8c946f;
   color: white;
   font-family: 'PP Neue Montreal Bold';
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 20px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
   width: 100%;
   font-size: 24px;
 }
 
-#login-body #login-form #login-button-login-page:hover {
-  background-color: #524F42;
+#login-body #login-form #login-button-login-page #login-button-login-page :hover {
+  background-color: #524f42;
 }
 
 #login-body #login-form hr {
@@ -1825,24 +1857,24 @@ footer {
 }
 
 #login-body #login-form #signup-button-login-page {
-  border: none;
-  background-color: #5B7053;
+  border: 0;
+  background-color: #5b7053;
   color: white;
   font-family: 'PP Neue Montreal Bold';
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 20px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
   width: 100%;
   font-size: 24px;
   margin-bottom: 10px;
   display: inline-block;
 }
 
-#login-body #login-form #signup-button-login-page:hover {
-  background-color: #524F42;
+#login-body #login-form #signup-button-login-page #signup-button-login-page :hover {
+  background-color: #524f42;
 }
 
 #login-body #login-form a {
@@ -1850,16 +1882,16 @@ footer {
 }
 
 #login-body #login-form #guest-link {
-  color: #5B7053;
+  color: #5b7053;
   font-family: 'PP Neue Montreal Light';
   font-size: 19px;
   text-decoration: none;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }
 
-#login-body #login-form #guest-link:hover {
+#login-body #login-form #guest-link #guest-link :hover {
   color: #393633;
   text-decoration: underline;
 }
@@ -1917,11 +1949,12 @@ footer {
     width: 52%;
     margin: 100px 0;
   }
-  #login-body .login-container .login-content-container h1, #login-body .login-container .login-content-container h2 {
+  #login-body .login-container .login-content-container h2 {
     text-align: left;
   }
   #login-body .login-container .login-content-container h1 {
     font-size: 80px;
+    text-align: left;
   }
   #login-body .login-container .login-content-container #tagline {
     text-align: left;
@@ -1950,7 +1983,7 @@ footer {
 }
 
 #signup-body {
-  background-color: #ECE9E2;
+  background-color: #ece9e2;
 }
 
 #signup-body #login-img {
@@ -1960,22 +1993,22 @@ footer {
      object-fit: cover;
 }
 
-#signup-body h1, #signup-body h2 {
-  font-family: 'PP Radio Grotesk Bold';
-  color: #393633;
-  text-align: center;
-}
-
 #signup-body h2 {
   margin-top: 38px;
   margin-bottom: 0;
   font-size: 31px;
+  font-family: 'PP Radio Grotesk Bold';
+  color: #393633;
+  text-align: center;
 }
 
 #signup-body h1 {
   font-size: 72px;
   margin-top: -13px;
   margin-bottom: 20px;
+  font-family: 'PP Radio Grotesk Bold';
+  color: #393633;
+  text-align: center;
 }
 
 #signup-body #tagline {
@@ -1994,30 +2027,30 @@ footer {
   font-size: 26px;
   border-radius: 0;
   border: 1px solid #393633;
-  color: #524F42;
-  background-color: #ECE9E2;
+  color: #524f42;
+  background-color: #ece9e2;
   margin-bottom: 16px;
 }
 
 #signup-body #signup-form #login-button-signup-page {
-  border: none;
-  background-color: #8C946F;
+  border: 0;
+  background-color: #8c946f;
   color: white;
   font-family: 'PP Neue Montreal Bold';
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 20px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
   width: 100%;
   font-size: 24px;
   margin-bottom: 10px;
   display: inline-block;
 }
 
-#signup-body #signup-form #login-button-signup-page:hover {
-  background-color: #524F42;
+#signup-body #signup-form #login-button-signup-page #login-button-signup-page :hover {
+  background-color: #524f42;
 }
 
 #signup-body #signup-form hr {
@@ -2026,22 +2059,22 @@ footer {
 }
 
 #signup-body #signup-form #signup-button-signup-page {
-  border: none;
-  background-color: #5B7053;
+  border: 0;
+  background-color: #5b7053;
   color: white;
   font-family: 'PP Neue Montreal Bold';
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 20px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
   width: 100%;
   font-size: 24px;
 }
 
-#signup-body #signup-form #signup-button-signup-page:hover {
-  background-color: #524F42;
+#signup-body #signup-form #signup-button-signup-page #signup-button-signup-page :hover {
+  background-color: #524f42;
 }
 
 #signup-body #signup-form a {
@@ -2049,16 +2082,16 @@ footer {
 }
 
 #signup-body #signup-form #guest-link {
-  color: #5B7053;
+  color: #5b7053;
   font-family: 'PP Neue Montreal Light';
   font-size: 19px;
   text-decoration: none;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }
 
-#signup-body #signup-form #guest-link:hover {
+#signup-body #signup-form #guest-link #guest-link :hover {
   color: #393633;
   text-decoration: underline;
 }
@@ -2116,11 +2149,12 @@ footer {
     width: 52%;
     margin: 60px 0 100px;
   }
-  #signup-body .signup-container .signup-content-container h1, #signup-body .signup-container .signup-content-container h2 {
+  #signup-body .signup-container .signup-content-container h2 {
     text-align: left;
   }
   #signup-body .signup-container .signup-content-container h1 {
     font-size: 80px;
+    text-align: left;
   }
   #signup-body .signup-container .signup-content-container #tagline {
     text-align: left;
@@ -2198,23 +2232,23 @@ footer {
 
 .create-post-modal .create-exit-modal .exit-modal-icon {
   font-size: 30px;
-  color: #ECE9E2;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  color: #ece9e2;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
 }
 
-.create-post-modal .create-exit-modal .exit-modal-icon:hover {
+.create-post-modal .create-exit-modal .exit-modal-icon .exit-modal-icon :hover {
   font-size: 30px;
-  color: #8C946F;
+  color: #8c946f;
 }
 
 .create-post-modal .create-post-modal-cont {
-  -webkit-animation: pop 0.3s ease forwards;
-  animation: pop 0.3s ease forwards;
+  -webkit-animation: pop .3s ease forwards;
+          animation: pop .3s ease forwards;
   width: 90%;
   padding: 30px;
-  background: #ECE9E2;
-  border: 5px solid #8C946F;
+  background: #ece9e2;
+  border: 5px solid #8c946f;
 }
 
 .create-post-modal #add-post-form {
@@ -2235,7 +2269,6 @@ footer {
 
 .create-post-modal #add-post-form input {
   width: 90%;
-  border: none;
   height: 3rem;
   font-family: 'PP Neue Montreal Light', sans-serif;
   margin-bottom: 1rem;
@@ -2249,22 +2282,22 @@ footer {
 }
 
 .create-post-modal #add-post-form button {
-  width: 100%;
-  margin-top: 2rem;
-  border: none;
-  background-color: #8C946F;
+  border: 0;
+  background-color: #8c946f;
   color: white;
   font-family: 'PP Neue Montreal Bold';
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 20px;
   cursor: pointer;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  width: 100%;
+  margin-top: 2rem;
 }
 
-.create-post-modal #add-post-form button:hover {
-  background: #5B7053;
+.create-post-modal #add-post-form button button :hover {
+  background: #5b7053;
 }
 
 .parsley-errors-list {
@@ -2299,7 +2332,7 @@ footer {
 }
 
 body {
-  background: #524F42;
+  background: #524f42;
   width: 100vw;
   height: 100%;
   overflow-x: hidden;
