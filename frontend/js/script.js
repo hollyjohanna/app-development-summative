@@ -347,9 +347,30 @@ let openPost = (posts, x) => {
   `;
   };
 
-
-
-
+  let connectComments = (z) => {
+    let postComments = document.getElementById("post-comments-cont");
+    postComments.innerHTML = "";
+    for (i = 0; i < z.comments.length; i++) {
+      postComments.innerHTML += `
+            <div class="comment">
+            <img class="comment-user-img" src="${z.comments[i].comment_author_image_url}">
+            <div class="comment-content">
+            <p><span class="comment-user-name">@${z.comments[i].comment_author_name}</span>${z.comments[i].text}</p>
+            </div>
+            </div>
+          `;
+      if (posts[x].author_id == sessionStorage.userID) {
+        let editPostBtn = document.getElementById("edit-post");
+        let deletePostBtn = document.getElementById("delete-post");
+        editPostBtn.onclick = () => {
+          console.log("EDITED!");
+        };
+        deletePostBtn.onclick = () => {
+          console.log("DELETED!");
+        };
+      }
+    }
+  };
 
   let closePostModal = () => {
     let closePostBtn = document.getElementById("exit-modal");
