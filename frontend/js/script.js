@@ -330,9 +330,10 @@ let openPost = (posts, x) => {
           console.log("DELETED!");
         };
       }
-      connectComments(posts[x]);
     }
   };
+
+  connectComments(posts[x]);
 
   let closePostModal = () => {
     let closePostBtn = document.getElementById("exit-modal");
