@@ -200,7 +200,7 @@ let openPost = (posts, x) => {
   let checkPermission = (y) => {
     if (y.author_id == sessionStorage.userID) {
       return `
-          <i class="edit-post bi bi-pencil-square" id="${y._id}"></i>
+          <i class="edit-post bi bi-pencil-square" id="${y._id}" data-bs-toggle="modal" data-bs-target="#editModal"></i>
           <i class="delete-post bi bi-trash3" id="${y._id}"></i>
           `;
     } else {
@@ -238,6 +238,74 @@ let openPost = (posts, x) => {
       </div>
       `;
 
+  //===========================================================================
+  //                              EDIT POSTS
+  //===========================================================================
+
+  let handleEditFunctionality = (wildlifePost, id) => {
+    console.log(id)
+    let postTitle = document.getElementById("postTitle");
+    let postLocation = document.getElementById("postLocation");
+    let postCaption = document.getElementById("postCaption");
+    let imagePreview = document.getElementById("image-preview");
+    postTitle.value = wildlifePost.title;
+    postLocation.value = wildlifePost.location;
+    postCaption.value = wildlifePost.caption;
+    imagePreview.innerHTML = `
+    <img src="${wildlifePost.image_url}" alt="${postTitle}">
+    `;
+    console.log(`The ID was passed in ${id}`)
+    // ===============================
+    //        EDIT CLICK LISTENER
+    // ===============================
+
+    $("#updatePost").click(function () {
+      console.log("clicked")
+      event.preventDefault();
+      let postId = id;
+      let postTitle = document.getElementById("postTitle").value;
+      let postLocation = document.getElementById("postLocation").value;
+      let postCaption = document.getElementById("postCaption").value;
+      console.log(postId, postTitle, postLocation, postCaption);
+      $.ajax({
+        url: `http://localhost:3000/updatePost/${postId}`,
+        type: "PATCH",
+        data: {
+          title: postTitle,
+          location: postLocation,
+          caption: postCaption,
+        },
+        success: (data) => {
+          console.log(data);
+          showAllPosts();
+          $("#editModal").modal("hide");
+          $("#updatePost").off("click");
+          openPost();
+        },
+        error: () => {
+          console.log("error: cannot update");
+        },
+      });
+    });
+  };
+
+  // ===========================
+  //         EDIT MODAL
+  // ===========================
+
+  populateEditModal = (selectedPostId) => {
+    console.log(selectedPostId);
+    $.ajax({
+      url: `http://localhost:3000/wildlifePost/${selectedPostId}`,
+      type: "GET",
+      success: (wildlifePostData) => {
+        // console.log('student was found');
+        // console.log(student);
+        handleEditFunctionality(wildlifePostData, selectedPostId);
+
+      },
+      error: (error) => {
+        console.log(error);
   let connectComments = (z) => {
     let postComments = document.getElementById("post-comments-cont");
     postComments.innerHTML = "";
@@ -278,6 +346,7 @@ let openPost = (posts, x) => {
     for (let e = 0; e < editPostBtn.length; e++) {
       editPostBtn[e].onclick = () => {
         console.log("EDITED!");
+        populateEditModal(posts[x]._id);
       };
     }
     for (let d = 0; d < deletePostBtn.length; d++) {
@@ -290,7 +359,6 @@ let openPost = (posts, x) => {
       };
     }
   }
-  // connectComments(posts[x]);
 
   const sendCommentBtn = document.getElementById("post-new-comment");
   //add a click listener

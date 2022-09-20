@@ -81,6 +81,46 @@ app.post(`/addWildlifePost`, (req, res) => {
     });
 });
 
+//===========================================================================
+//                               EDIT METHOD
+//===========================================================================
+
+app.patch("/updatePost/:id", (req, res) => {
+  const idParam = req.params.id;
+  WildlifePost.findById(idParam, (err, wildlifePost) => {
+    const updatedProduct = {
+      title: req.body.title,
+      location: req.body.location,
+      caption: req.body.caption,
+    };
+    WildlifePost.updateOne(
+      {
+        _id: idParam,
+      },
+      updatedProduct
+    )
+      .then((result) => {
+        res.send(result);
+      })
+      .catch((err) => res.send(err));
+  });
+});
+
+// =======================
+//    GET SINGLE POST
+// =======================
+
+app.get('/wildlifePost/:id', (req, res) => {
+  const selectedPostId = req.params.id
+  WildlifePost.findById(selectedPostId, (err, wildlifePost) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(wildlifePost);
+    }
+  })
+})
+
 // ==============================================================================
 //                                 SIGN UP USERS
 // ==============================================================================

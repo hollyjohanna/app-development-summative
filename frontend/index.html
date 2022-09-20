@@ -159,6 +159,45 @@
             </form>
         </div>
     </div>
+    <!-- EDIT MODAL -->
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="image-preview"></div>
+                    <form id="productForm">
+                        <h1>Update Form</h1>
+                        <!-- <label for="productId">Enter Product Id:</label>
+            <input type="text" name="inputID" id="productId">
+            <br><br> -->
+
+                        <label for="postTitle">Enter title of the post</label>
+                        <input type="text" id="postTitle" name="postTitle">
+                        <br><br>
+
+                        <label for="postLocation">Enter location of the post</label>
+                        <input type="text" id="postLocation" name="postLocation">
+                        <br><br>
+
+                        <label for="postCaption">Enter caption of the post</label>
+                        <input type="text" id="postCaption" name="postCaption">
+                        <br><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="updatePost" name="productButton" type="submit" class="btn btn-primary">Update
+                        Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer>
         <div id="footer-container">
             <div class="footer-section">
