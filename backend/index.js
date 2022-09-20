@@ -37,13 +37,8 @@ mongoose
     console.log(`DB connection error ${err.message}`);
   });
 
-
-
-var moment = require('moment'); // require
-moment().format();
-
-
-
+// var moment = require('moment'); // require
+// moment().format();
 
 // ==============================================================================
 //                                  GET METHOD
@@ -163,7 +158,6 @@ app.post("/postComment", (req, res) => {
   });
 });
 
-
 // =====================
 //     DELETE Method
 // ====================
@@ -171,7 +165,7 @@ app.post("/postComment", (req, res) => {
 // set up the delete route
 // This route will only be actived if someone goes to it
 // you can go to it using AJAX
-app.delete('/deleteWildlifePost/:id', (req, res) => {
+app.delete("/deleteWildlifePost/:id", (req, res) => {
   // the request varible here (req) contains the ID, and you can access it using req.param.id
   const selectedPostId = req.params.id;
   console.log("The following wildlife post was deleted:");
