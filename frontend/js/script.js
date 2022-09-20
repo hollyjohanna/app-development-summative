@@ -10,7 +10,6 @@ const titleInput = document.getElementById("title-input");
 const locationInput = document.getElementById("location-input");
 const captionInput = document.getElementById("caption-input");
 
-
 // ===============================================================================
 //                               SHOW ALL POSTS & RENDER
 // ===============================================================================
@@ -252,8 +251,7 @@ let openPost = (posts, x) => {
             </div>
       `;
     }
-  }
-
+  };
 
   // thisPostId = posts[x]._id;
 
@@ -264,7 +262,7 @@ let openPost = (posts, x) => {
       url: `http://localhost:3000/deleteWildlifePost/${postId}`,
       type: "DELETE",
       success: () => {
-        console.log("HELLO THERE")
+        console.log("HELLO THERE");
         // at this point, we can assume that the delete was successful
         showAllPosts();
       },
@@ -293,7 +291,6 @@ let openPost = (posts, x) => {
     }
   }
   // connectComments(posts[x]);
-
 
   const sendCommentBtn = document.getElementById("post-new-comment");
   //add a click listener
@@ -325,7 +322,7 @@ let openPost = (posts, x) => {
         postNewComment(data);
         commentInput.value = "";
         function scrollBottom(element) {
-          element.scroll({ top: element.scrollHeight, behavior: "smooth" })
+          element.scroll({ top: element.scrollHeight, behavior: "smooth" });
         }
         scrollBottom(postModalCont);
       },
@@ -347,31 +344,6 @@ let openPost = (posts, x) => {
   `;
   };
 
-  let connectComments = (z) => {
-    let postComments = document.getElementById("post-comments-cont");
-    postComments.innerHTML = "";
-    for (i = 0; i < z.comments.length; i++) {
-      postComments.innerHTML += `
-            <div class="comment">
-            <img class="comment-user-img" src="${z.comments[i].comment_author_image_url}">
-            <div class="comment-content">
-            <p><span class="comment-user-name">@${z.comments[i].comment_author_name}</span>${z.comments[i].text}</p>
-            </div>
-            </div>
-          `;
-      if (posts[x].author_id == sessionStorage.userID) {
-        let editPostBtn = document.getElementById("edit-post");
-        let deletePostBtn = document.getElementById("delete-post");
-        editPostBtn.onclick = () => {
-          console.log("EDITED!");
-        };
-        deletePostBtn.onclick = () => {
-          console.log("DELETED!");
-        };
-      }
-    }
-  };
-
   let closePostModal = () => {
     let closePostBtn = document.getElementById("exit-modal");
     closePostBtn.onclick = () => {
@@ -380,9 +352,7 @@ let openPost = (posts, x) => {
     };
   };
 
-
   connectComments(posts[x]);
 
   closePostModal();
 };
-
