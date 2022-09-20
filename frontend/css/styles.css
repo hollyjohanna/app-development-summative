@@ -1219,6 +1219,11 @@ nav .secondary-nav .nav-list-mobile a {
   margin-right: 5px;
 }
 
+.post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content .at-tag {
+  color: #5b7053;
+  font-family: 'PP Neue Montreal Bold';
+}
+
 .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
   min-height: 75px;
   background: #ece9e2;

@@ -136,8 +136,8 @@ let checkLogin = () => {
   let newPostBtn = document.getElementById("add-post-cont");
   let navContent;
   if (sessionStorage.userID) {
-    console.log(sessionStorage.userName);
-    console.log(sessionStorage);
+    // console.log(sessionStorage.userName);
+    // console.log(sessionStorage);
     navContent = `
     <span id="username">@${sessionStorage.userName}</span>
     <img id="dp" src="${sessionStorage.profileImg}" alt="">
@@ -187,15 +187,15 @@ let runOpenPosts = (posts) => {
     currentPosts[x].onclick = () => {
       appBody.classList.add("page-disable");
       postModal.classList.add("active-post-modal");
-      openPost(posts, x);
+      openPost(posts[x]);
     };
   }
 };
 
-let openPost = (posts, x) => {
+let openPost = (thisPost) => {
   let postModalCont = document.getElementById("post-modal-cont");
   postModalCont.innerHTML = "";
-  console.log(posts[x]._id);
+  console.log(thisPost._id);
 
   let checkPermission = (y) => {
     if (y.author_id == sessionStorage.userID) {
@@ -210,22 +210,22 @@ let openPost = (posts, x) => {
 
   postModalCont.innerHTML = `
       <div class="img-cont">
-        <img src="${posts[x].image_url}" alt="${posts[x].title}">
+        <img src="${thisPost.image_url}" alt="${thisPost.title}">
       </div>
       <div class="post-modal-content-cont">
         <div class="post-user-cont">
-            <img class="post-user-img" src="${posts[x].author_image_url}">
+            <img class="post-user-img" src="${thisPost.author_image_url}">
             <div class="post-user-details">
-              <h5 class="post-user-name">@${posts[x].author_name}</h5>
-              <p class="post-location">${posts[x].location}</p>
+              <h5 class="post-user-name">@${thisPost.author_name}</h5>
+              <p class="post-location">${thisPost.location}</p>
             </div>
             <div class="post-interactions-cont">
-              ${checkPermission(posts[x])}
+              ${checkPermission(thisPost)}
               <i class="bi bi-heart"></i>
             </div>
             </div>
             <div id="post-caption-cont" class="post-caption-cont">
-              <p class="caption">${posts[x].caption}</p>
+              <p class="caption">${thisPost.caption}</p>
               <p class="created-text"></p>
             </div>
             <div id="post-comments-cont" class="post-comments-cont">
@@ -238,12 +238,26 @@ let openPost = (posts, x) => {
       </div>
       `;
 
+  let connectComments = (z) => {
+    let postComments = document.getElementById("post-comments-cont");
+    postComments.innerHTML = "";
+    for (let i = 0; i < z.comments.length; i++) {
+      postComments.innerHTML += `
+                <div class="comment">
+                <img class="comment-user-img" src="${z.comments[i].comment_author_image_url}">
+                <div class="comment-content">
+                <p><span class="comment-user-name">@${z.comments[i].comment_author_name}</span>${z.comments[i].text}</p>
+                </div>
+                </div>
+          `;
+    }
+  };
   //===========================================================================
   //                              EDIT POSTS
   //===========================================================================
 
   let handleEditFunctionality = (wildlifePost, id) => {
-    console.log(id)
+    console.log(id);
     let postTitle = document.getElementById("postTitle");
     let postLocation = document.getElementById("postLocation");
     let postCaption = document.getElementById("postCaption");
@@ -254,15 +268,15 @@ let openPost = (posts, x) => {
     imagePreview.innerHTML = `
     <img src="${wildlifePost.image_url}" alt="${postTitle}">
     `;
-    console.log(`The ID was passed in ${id}`)
+    console.log(`The ID was passed in ${id}`);
     // ===============================
     //        EDIT CLICK LISTENER
     // ===============================
 
     $("#updatePost").click(function () {
-      console.log("clicked")
+      console.log("clicked");
       event.preventDefault();
-      let postId = id;
+      let postId = wildlifePost._id;
       let postTitle = document.getElementById("postTitle").value;
       let postLocation = document.getElementById("postLocation").value;
       let postCaption = document.getElementById("postCaption").value;
@@ -276,11 +290,10 @@ let openPost = (posts, x) => {
           caption: postCaption,
         },
         success: (data) => {
-          console.log(data);
-          showAllPosts();
+          console.log();
           $("#editModal").modal("hide");
           $("#updatePost").off("click");
-          openPost();
+          openPost(wildlifePost);
         },
         error: () => {
           console.log("error: cannot update");
@@ -298,30 +311,18 @@ let openPost = (posts, x) => {
     $.ajax({
       url: `http://localhost:3000/wildlifePost/${selectedPostId}`,
       type: "GET",
-      success: (wildlifePostData) => {
+      success: (wildlifePostData, selectedPostId) => {
         // console.log('student was found');
         // console.log(student);
         handleEditFunctionality(wildlifePostData, selectedPostId);
-
       },
       error: (error) => {
         console.log(error);
-  let connectComments = (z) => {
-    let postComments = document.getElementById("post-comments-cont");
-    postComments.innerHTML = "";
-    for (let i = 0; i < z.comments.length; i++) {
-      postComments.innerHTML += `
-            <div class="comment">
-            <img class="comment-user-img" src="${z.comments[i].comment_author_image_url}">
-            <div class="comment-content">
-            <p><span class="comment-user-name">@${z.comments[i].comment_author_name}</span>${z.comments[i].text}</p>
-            </div>
-            </div>
-      `;
-    }
+      },
+    });
   };
 
-  // thisPostId = posts[x]._id;
+  // thisPostId = thisPost._id;
 
   let deletePost = (postId) => {
     // use ajax and go to the delete route
@@ -340,13 +341,13 @@ let openPost = (posts, x) => {
     });
   };
 
-  if (posts[x].author_id == sessionStorage.userID) {
+  if (thisPost.author_id == sessionStorage.userID) {
     let editPostBtn = document.getElementsByClassName("edit-post");
     let deletePostBtn = document.getElementsByClassName("delete-post");
     for (let e = 0; e < editPostBtn.length; e++) {
       editPostBtn[e].onclick = () => {
         console.log("EDITED!");
-        populateEditModal(posts[x]._id);
+        populateEditModal(thisPost._id);
       };
     }
     for (let d = 0; d < deletePostBtn.length; d++) {
@@ -380,7 +381,7 @@ let openPost = (posts, x) => {
         comment_author_id: sessionStorage.userID,
         comment_author_name: sessionStorage.userName,
         comment_author_image_url: sessionStorage.profileImg,
-        wildlife_post_id: posts[x]._id,
+        wildlife_post_id: thisPost._id,
       },
       success: (data) => {
         console.log(data);
@@ -420,7 +421,7 @@ let openPost = (posts, x) => {
     };
   };
 
-  connectComments(posts[x]);
+  connectComments(thisPost);
 
   closePostModal();
 };
