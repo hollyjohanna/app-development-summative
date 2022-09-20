@@ -9,6 +9,7 @@
   "author": "Holliday Robbins",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^4.0.2",
     "gulp-jshint": "^2.1.0",
     "gulp-sass-lint": "^1.4.0",
     "gulp-uglify": "^3.0.2",

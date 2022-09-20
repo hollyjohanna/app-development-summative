@@ -28,15 +28,18 @@ nav {
                 color: $White;
                 margin: 0;
             }
-            #user-details{
+
+            #user-details {
                 margin: 0;
                 display: flex;
+
                 #username {
                     display: none;
                     color: white;
                     font-family: 'PP Neue Montreal Light';
                     font-size: 15px;
                 }
+
                 #dp {
                     margin-right: 10px;
                     width: 40px;
@@ -45,23 +48,38 @@ nav {
                     border-radius: 50%;
                     background-position: 50% 50%;
                     background-size: cover;
-                    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
+                    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .5);
                     cursor: pointer;
-                    transition: all 0.2s ease-in-out;
+                    transition: .2s ease-in-out;
+
+                    #dp :hover {
+                        border: 2px solid $Black;
+                    }
                 }
-                #dp:hover {
-                    border: 2px solid $Black;
-                }
+
                 a {
                     margin: 0;
-                    #nav-login-button, #nav-logout-button {
+
+                    #nav-login-button {
                         @include button-main;
                         padding: 5px 12px;
                         font-size: 14px;
                         margin-top: 6px;
+
+                        #nav-login-button :hover {
+                            background-color: $PrimaryGreen;
+                        }
                     }
-                    #nav-login-button:hover {
-                        background-color: $PrimaryGreen;
+
+                    #nav-logout-button {
+                        @include button-main;
+                        padding: 5px 12px;
+                        font-size: 14px;
+                        margin-top: 6px;
+
+                        #nav-logout-button :hover {
+                            background-color: $PrimaryGreen;
+                        }
                     }
                 }
             }
@@ -78,8 +96,8 @@ nav {
         flex-direction: column;
         overflow: hidden;
         max-height: 60px;
-        transition: max-height 0.45s ease;
-        box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+        transition: max-height .45s ease;
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .3);
 
         .secondary-nav-cont {
             position: relative;
@@ -90,8 +108,8 @@ nav {
             align-items: center;
             margin: auto;
             max-height: 60px;
-            padding: 15px 15px;
-            gap: 40px;
+            padding: 15px;
+            grid-gap: 40px;
             z-index: 10;
 
             .menu-btn {
@@ -123,7 +141,7 @@ nav {
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                gap: 12px;
+                grid-gap: 12px;
                 transform: translateZ(-10px);
                 background: $Black;
 
@@ -131,7 +149,7 @@ nav {
                     font-size: 22px;
                     text-align: center;
                     font-family: 'PP Neue Montreal Bold';
-                    letter-spacing: 0.5px;
+                    letter-spacing: .5px;
                     text-decoration: none;
                     color: $White;
                 }
@@ -148,21 +166,20 @@ nav {
                 padding: 0 10px;
                 font-size: 18px;
                 color: $Black;
-                gap: 10px;
+                grid-gap: 10px;
 
                 input {
-                    background: none;
-                    border: none;
+                    border: 0;
                     flex-basis: 1;
                     background: $White;
                     height: 100%;
                     width: 100%;
                     font-family: 'PP Neue Montreal Regular';
-                    letter-spacing: 0.5px;
-                }
+                    letter-spacing: .5px;
 
-                input:focus {
-                    outline: none;
+                    input :focus {
+                        outline: none;
+                    }
                 }
 
                 i {
@@ -178,7 +195,7 @@ nav {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 12px;
+            grid-gap: 12px;
             transform: translateZ(-10px);
             background: $Black;
             padding: 20px 0 25px;
@@ -187,7 +204,7 @@ nav {
                 font-size: 22px;
                 text-align: center;
                 font-family: 'PP Neue Montreal Bold';
-                letter-spacing: 0.5px;
+                letter-spacing: .5px;
                 text-decoration: none;
                 color: $White;
             }
@@ -199,7 +216,7 @@ nav {
 
 .nav-display {
     max-height: 350px !important;
-    transition: max-height 0.45s ease;
+    transition: max-height .45s ease;
 }
 
 .nav-open-toggle {
@@ -243,7 +260,9 @@ nav {
                     text-decoration: none;
                     color: $White;
                 }
+
                 #user-details {
+
                     #username {
                         display: block;
                         margin-right: 10px;
@@ -251,13 +270,21 @@ nav {
                         margin-bottom: auto;
                         font-size: 18px;
                     }
+
                     #dp {
                         height: 45px;
                         width: 45px;
                         margin-right: 15px;
                     }
+
                     a {
-                        #nav-login-button, #nav-logout-button {
+                        #nav-login-button {
+                            font-size: 16px;
+                            padding: 10px 20px;
+                            margin: 0;
+                        }
+
+                        #nav-logout-button {
                             font-size: 16px;
                             padding: 10px 20px;
                             margin: 0;
@@ -277,7 +304,7 @@ nav {
             flex-direction: column;
             overflow: hidden;
             max-height: 60px;
-            transition: max-height 0.45s ease;
+            transition: max-height .45s ease;
 
             .secondary-nav-cont {
                 position: relative;
@@ -289,7 +316,7 @@ nav {
                 margin: auto;
                 max-height: 60px;
                 padding: 13px 15px;
-                gap: 50px;
+                grid-gap: 50px;
                 z-index: 10;
 
                 .nav-search {
@@ -308,7 +335,7 @@ nav {
                     flex-direction: row;
                     justify-content: center;
                     align-items: center;
-                    gap: 3vw;
+                    grid-gap: 3vw;
                     transform: translateZ(-10px);
                     background: $Black;
 
@@ -316,7 +343,7 @@ nav {
                         font-size: 18px;
                         text-align: center;
                         font-family: 'PP Neue Montreal Bold';
-                        letter-spacing: 0.5px;
+                        letter-spacing: .5px;
                         text-decoration: none;
                         color: $White;
                         padding: 22px 5px 18px;
@@ -360,17 +387,26 @@ nav {
                     text-decoration: none;
                     color: $White;
                 }
+
                 #user-details {
+
                     #dp {
                         width: 56px;
                         height: 56px;
                         margin-right: 30px;
                     }
+
                     #username {
                         font-size: 25px;
                     }
+
                     a {
-                        #nav-login-button, #nav-logout-button {
+                        #nav-login-button {
+                            font-size: 20px;
+                            padding: 13px 20px;
+                        }
+
+                        #nav-logout-button {
                             font-size: 20px;
                             padding: 13px 20px;
                         }
@@ -389,7 +425,7 @@ nav {
             flex-direction: column;
             overflow: hidden;
             max-height: 70px;
-            transition: max-height 0.45s ease;
+            transition: max-height .45s ease;
 
             .secondary-nav-cont {
                 position: relative;
@@ -401,14 +437,8 @@ nav {
                 margin: auto;
                 max-height: 60px;
                 padding: 35px 15px;
-                gap: 50px;
+                grid-gap: 50px;
                 z-index: 10;
-
-                .nav-search {
-                    input {
-                        font-size: 17px;
-                    }
-                }
 
                 .menu-btn {
                     display: none;
@@ -420,7 +450,7 @@ nav {
                     flex-direction: row;
                     justify-content: center;
                     align-items: center;
-                    gap: 50px;
+                    grid-gap: 50px;
                     transform: translateZ(-10px);
                     background: $Black;
 
@@ -428,7 +458,7 @@ nav {
                         font-size: 22px;
                         text-align: center;
                         font-family: 'PP Neue Montreal Bold';
-                        letter-spacing: 0.5px;
+                        letter-spacing: .5px;
                         text-decoration: none;
                         color: $White;
                         padding: 22px 5px 18px;
@@ -439,6 +469,10 @@ nav {
                     flex-basis: 1;
                     background: $White;
                     height: 42px;
+
+                    input {
+                        font-size: 17px;
+                    }
                 }
             }
 
