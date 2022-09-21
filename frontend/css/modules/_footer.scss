@@ -8,7 +8,7 @@ footer {
 }
 
 #footer-container {
-    width: 70%;
+    width: 80%;
     max-width: 1440px;
     // height: auto;
     display: grid;
@@ -49,12 +49,19 @@ footer {
         font-size: 1em;
     }
 
-    input {
-        width: 70%;
-        height: 5.3vh;
-    }
+    #input-div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    button {
+        input {
+            width: 70%;
+            height: 4vh;
+            margin-right: 1vw;
+        }
+
+      button {
         @include button-main;
         width: 43%;
         margin-top: 10px;
