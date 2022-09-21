@@ -59,7 +59,7 @@
         input {
             width: 90%;
             height: 3rem;
-            font-family: 'PP Neue Montreal Bold', sans-serif;
+            font-family: 'PP Neue Montreal Regular', sans-serif;
             margin-bottom: 1rem;
             border: 1px solid black;
         }
@@ -76,12 +76,13 @@
             margin-top: 2rem;
         }
 
-            button:hover {
-                background: $PrimaryGreen;
-            }
+        button:hover {
+            background: $PrimaryGreen;
         }
+
     }
 }
+
 
 .parsley-errors-list {
     margin: 0;
