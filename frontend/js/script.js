@@ -208,7 +208,6 @@ let openPost = (thisPost) => {
     }
   };
 
-
   let populatePostModal = (thisPost) => {
     postModalCont.innerHTML = "";
     postModalCont.innerHTML = `
@@ -234,15 +233,13 @@ let openPost = (thisPost) => {
           <div id="post-comments-cont" class="post-comments-cont">
           </div>
           <div class="post-add-comment-cont">
-            <img class="current-user-img" src="${sessionStorage.profileImg}">
-            <input type="text" placeholder="Leave a comment..." id="comment-input" class="comment-input">
-            <i id="post-new-comment" class="bi bi-send post-new-comment"></i>
+          ${checkLoginComment()}
           </div>
     </div>
     `;
-  }
+  };
 
-  let checkLoginComment = (thisPost) => {
+  let checkLoginComment = () => {
     if (sessionStorage.userID) {
       return `
       <img class="current-user-img" src="${sessionStorage.profileImg}">
@@ -258,7 +255,7 @@ let openPost = (thisPost) => {
     }
   };
 
-  populatePostModal(thisPost)
+  populatePostModal(thisPost);
 
   let connectComments = (z) => {
     let postComments = document.getElementById("post-comments-cont");
@@ -316,28 +313,26 @@ let openPost = (thisPost) => {
         success: (data) => {
           console.log();
           let updatePostInfo = (wildlifePost) => {
-            wildlifePost.title = postTitle
-            wildlifePost.location = postLocation
-            wildlifePost.caption = postCaption
+            wildlifePost.title = postTitle;
+            wildlifePost.location = postLocation;
+            wildlifePost.caption = postCaption;
             $.ajax({
               type: "GET",
               url: "http://localhost:3000/allWildlifePosts",
               success: () => {
-                showAllPosts()
-                openPost(wildlifePost)
+                showAllPosts();
+                openPost(wildlifePost);
                 // populatePostModal(wildlifePost);
                 connectComments(thisPost);
-
               },
               error: (error) => {
                 console.log(error);
               },
             });
-          }
-          updatePostInfo(wildlifePost)
+          };
+          updatePostInfo(wildlifePost);
           $("#editModal").modal("hide");
           $("#updatePost").off("click");
-
         },
         error: () => {
           console.log("error: cannot update");
@@ -415,10 +410,6 @@ let openPost = (thisPost) => {
     sendCommentBtn.onclick = () => {
       console.log("clicked!");
       let postModalCont = document.getElementById("post-modal-cont");
-      ;
-
-
-    if (sessionStorage.userID) {
       // console.log(wildlifePostId);
       $.ajax({
         url: `http://localhost:3000/postComment`,
@@ -440,8 +431,13 @@ let openPost = (thisPost) => {
           commentInput.value = "";
           function scrollBottom(element) {
             element.scroll({ top: element.scrollHeight, behavior: "smooth" });
-            let postModalContCont = document.getElementById("post-modal-content-cont")
-            postModalContCont.scroll({ top: postModalContCont.scrollHeight, behavior: "smooth" });
+            let postModalContCont = document.getElementById(
+              "post-modal-content-cont"
+            );
+            postModalContCont.scroll({
+              top: postModalContCont.scrollHeight,
+              behavior: "smooth",
+            });
           }
           scrollBottom(postModalCont);
         },
@@ -476,9 +472,3 @@ let openPost = (thisPost) => {
 
   closePostModal();
 };
-
-
-
-
-
-// Glad ya'll are liking the post! So cool to see the community engagement!
