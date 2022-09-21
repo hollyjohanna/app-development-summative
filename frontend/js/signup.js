@@ -2,6 +2,7 @@ const signupBtn = document.getElementById("signup-button-signup-page");
 const usernameInput = document.getElementById("username-input-signup");
 const passwordInput = document.getElementById("password-input-signup");
 const profileImgInput = document.getElementById("image-input-signup");
+const validationSignup = document.getElementById("validation-signup");
 
 const server = "http://localhost:3000";
 
@@ -57,6 +58,9 @@ signupBtn.onclick = function () {
         }); // end of inner ajax
       } else {
         console.log("username taken already. Please try another name");
+        validationSignup.innerHTML = `
+        <p>Username already taken. Please try another name</p>
+        `;
       } //end of else, if register is successful - log user in ends
     }, // end of success
     error: function () {

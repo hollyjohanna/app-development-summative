@@ -35,7 +35,7 @@
             color: $White;
             transition: .3s ease;
 
-            .exit-modal-icon :hover {
+            .exit-modal-icon:hover {
                 font-size: 30px;
                 color: $SecondaryGreen;
             }
@@ -75,7 +75,7 @@
             width: 100%;
             margin-top: 2rem;
 
-            button :hover {
+            button:hover {
                 background: $PrimaryGreen;
             }
         }

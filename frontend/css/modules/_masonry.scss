@@ -52,17 +52,17 @@
         column-rule: 100%;
         break-inside: avoid;
 
-        .grid-item :hover {
+        .grid-item:hover {
             cursor: pointer;
 
             .post-data-cont-top,
             .post-data-cont-bottom {
-                opacity: 0;
+                opacity: 1;
                 // pointer-events: none;
             }
 
             .post-hover {
-                opacity: 0;
+                opacity: 1;
                 cursor: pointer;
                 // pointer-events: none;
             }
