@@ -114,7 +114,7 @@ nav .main-nav .main-nav-cont #user-details #dp {
   transition: .2s ease-in-out;
 }
 
-nav .main-nav .main-nav-cont #user-details #dp #dp :hover {
+nav .main-nav .main-nav-cont #user-details #dp #dp:hover {
   border: 2px solid #393633;
 }
 
@@ -138,7 +138,7 @@ nav .main-nav .main-nav-cont #user-details a #nav-login-button {
   margin-top: 6px;
 }
 
-nav .main-nav .main-nav-cont #user-details a #nav-login-button #nav-login-button :hover {
+nav .main-nav .main-nav-cont #user-details a #nav-login-button #nav-login-button:hover {
   background-color: #5b7053;
 }
 
@@ -158,7 +158,7 @@ nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
   margin-top: 6px;
 }
 
-nav .main-nav .main-nav-cont #user-details a #nav-logout-button #nav-logout-button :hover {
+nav .main-nav .main-nav-cont #user-details a #nav-logout-button #nav-logout-button:hover {
   background-color: #5b7053;
 }
 
@@ -2214,7 +2214,7 @@ footer {
   padding: 10px;
 }
 
-#subscribe-section button button :hover {
+#subscribe-section button button:hover {
   background-color: #5b7053;
 }
 
@@ -2258,7 +2258,7 @@ footer {
     grid-column: span 4;
   }
   #subscribe-section button {
-    width: 21%;
+    width: 23%;
   }
   #icon-section {
     grid-column: span 4;
@@ -2337,6 +2337,10 @@ footer {
   margin-bottom: 16px;
 }
 
+#login-body #login-form #validation {
+  font-family: 'PP Neue Montreal Light';
+}
+
 #login-body #login-form #login-button-login-page {
   border: 0;
   background-color: #8c946f;
@@ -2352,7 +2356,7 @@ footer {
   font-size: 24px;
 }
 
-#login-body #login-form #login-button-login-page #login-button-login-page :hover {
+#login-body #login-form #login-button-login-page #login-button-login-page:hover {
   background-color: #524f42;
 }
 
@@ -2378,7 +2382,7 @@ footer {
   display: inline-block;
 }
 
-#login-body #login-form #signup-button-login-page #signup-button-login-page :hover {
+#login-body #login-form #signup-button-login-page #signup-button-login-page:hover {
   background-color: #524f42;
 }
 
@@ -2396,7 +2400,7 @@ footer {
   transition: .3s ease-in-out;
 }
 
-#login-body #login-form #guest-link #guest-link :hover {
+#login-body #login-form #guest-link #guest-link:hover {
   color: #393633;
   text-decoration: underline;
 }
@@ -2416,6 +2420,9 @@ footer {
   }
   #login-body #login-form {
     padding: 0 130px;
+  }
+  #login-body #login-form #validation {
+    font-size: 18px;
   }
   #login-body h1 {
     margin-bottom: 0;
@@ -2466,6 +2473,9 @@ footer {
   }
   #login-body .login-container .login-content-container #login-form {
     padding: 0 100px 0 0;
+  }
+  #login-body .login-container .login-content-container #login-form #validation {
+    font-size: 18px;
   }
 }
 
@@ -2554,7 +2564,7 @@ footer {
   display: inline-block;
 }
 
-#signup-body #signup-form #login-button-signup-page #login-button-signup-page :hover {
+#signup-body #signup-form #login-button-signup-page #login-button-signup-page:hover {
   background-color: #524f42;
 }
 
@@ -2578,7 +2588,7 @@ footer {
   font-size: 24px;
 }
 
-#signup-body #signup-form #signup-button-signup-page #signup-button-signup-page :hover {
+#signup-body #signup-form #signup-button-signup-page #signup-button-signup-page:hover {
   background-color: #524f42;
 }
 
@@ -2596,7 +2606,7 @@ footer {
   transition: .3s ease-in-out;
 }
 
-#signup-body #signup-form #guest-link #guest-link :hover {
+#signup-body #signup-form #guest-link #guest-link:hover {
   color: #393633;
   text-decoration: underline;
 }
@@ -2742,7 +2752,7 @@ footer {
   transition: .3s ease;
 }
 
-.create-post-modal .create-exit-modal .exit-modal-icon .exit-modal-icon :hover {
+.create-post-modal .create-exit-modal .exit-modal-icon .exit-modal-icon:hover {
   font-size: 30px;
   color: #8c946f;
 }
@@ -2801,7 +2811,7 @@ footer {
   margin-top: 2rem;
 }
 
-.create-post-modal #add-post-form button button :hover {
+.create-post-modal #add-post-form button button:hover {
   background: #5b7053;
 }
 

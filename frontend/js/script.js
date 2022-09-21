@@ -208,6 +208,7 @@ let openPost = (thisPost) => {
     }
   };
 
+
   let populatePostModal = (thisPost) => {
     postModalCont.innerHTML = "";
     postModalCont.innerHTML = `
@@ -236,10 +237,26 @@ let openPost = (thisPost) => {
             <img class="current-user-img" src="${sessionStorage.profileImg}">
             <input type="text" placeholder="Leave a comment..." id="comment-input" class="comment-input">
             <i id="post-new-comment" class="bi bi-send post-new-comment"></i>
-      </div>
+          </div>
     </div>
     `;
   }
+
+  let checkLoginComment = (thisPost) => {
+    if (sessionStorage.userID) {
+      return `
+      <img class="current-user-img" src="${sessionStorage.profileImg}">
+      <input type="text" placeholder="Leave a comment..." id="comment-input" class="comment-input">
+      <i id="post-new-comment" class="bi bi-send post-new-comment"></i>
+      `;
+    } else {
+      return `
+      <img class="current-user-img" src="http://www.avalanche.org.nz/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png">
+      <input type="text" placeholder="Login to comment..." id="comment-input" class="comment-input">
+      <i id="post-new-comment" class="bi bi-send post-new-comment"></i>
+      `;
+    }
+  };
 
   populatePostModal(thisPost)
 
@@ -400,6 +417,8 @@ let openPost = (thisPost) => {
       let postModalCont = document.getElementById("post-modal-cont");
       ;
 
+
+    if (sessionStorage.userID) {
       // console.log(wildlifePostId);
       $.ajax({
         url: `http://localhost:3000/postComment`,
