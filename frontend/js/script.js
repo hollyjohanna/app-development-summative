@@ -208,6 +208,22 @@ let openPost = (thisPost) => {
     }
   };
 
+  let checkLoginComment = (thisPost) => {
+    if (sessionStorage.userID) {
+      return `
+      <img class="current-user-img" src="${sessionStorage.profileImg}">
+      <input type="text" placeholder="Leave a comment..." id="comment-input" class="comment-input">
+      <i id="post-new-comment" class="bi bi-send post-new-comment"></i>
+      `;
+    } else {
+      return `
+      <img class="current-user-img" src="http://www.avalanche.org.nz/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png">
+      <input type="text" placeholder="Login to comment..." id="comment-input" class="comment-input">
+      <i id="post-new-comment" class="bi bi-send post-new-comment"></i>
+      `;
+    }
+  };
+
   postModalCont.innerHTML = `
       <div class="img-cont">
         <img src="${thisPost.image_url}" alt="${thisPost.title}">
@@ -231,9 +247,7 @@ let openPost = (thisPost) => {
             <div id="post-comments-cont" class="post-comments-cont">
             </div>
             <div class="post-add-comment-cont">
-              <img class="current-user-img" src="${sessionStorage.profileImg}">
-              <input type="text" placeholder="Leave a comment..." id="comment-input" class="comment-input">
-              <i id="post-new-comment" class="bi bi-send post-new-comment"></i>
+            ${checkLoginComment(thisPost)}
         </div>
       </div>
       `;
@@ -371,34 +385,39 @@ let openPost = (thisPost) => {
     console.log("clicked!");
     let postModalCont = document.getElementById("post-modal-cont");
 
-    // console.log(wildlifePostId);
-    $.ajax({
-      url: `http://localhost:3000/postComment`,
-      type: "POST",
-      data: {
-        // comment_id: sessionStorage.userID,
-        text: commentInput.value,
-        comment_author_id: sessionStorage.userID,
-        comment_author_name: sessionStorage.userName,
-        comment_author_image_url: sessionStorage.profileImg,
-        wildlife_post_id: thisPost._id,
-      },
-      success: (data) => {
-        console.log(data);
-        console.log("comment placed successfully");
-        showAllPosts();
-        runOpenPosts();
-        postNewComment(data);
-        commentInput.value = "";
-        function scrollBottom(element) {
-          element.scroll({ top: element.scrollHeight, behavior: "smooth" });
-        }
-        scrollBottom(postModalCont);
-      },
-      error: () => {
-        console.log("error cannot call API");
-      },
-    });
+    if (sessionStorage.userID) {
+      // console.log(wildlifePostId);
+      $.ajax({
+        url: `http://localhost:3000/postComment`,
+        type: "POST",
+        data: {
+          // comment_id: sessionStorage.userID,
+          text: commentInput.value,
+          comment_author_id: sessionStorage.userID,
+          comment_author_name: sessionStorage.userName,
+          comment_author_image_url: sessionStorage.profileImg,
+          wildlife_post_id: thisPost._id,
+        },
+        success: (data) => {
+          console.log(data);
+          console.log("comment placed successfully");
+          showAllPosts();
+          runOpenPosts();
+          postNewComment(data);
+          commentInput.value = "";
+          function scrollBottom(element) {
+            element.scroll({ top: element.scrollHeight, behavior: "smooth" });
+          }
+          scrollBottom(postModalCont);
+        },
+        error: () => {
+          console.log("error cannot call API");
+        },
+      });
+    } else {
+      alert("cannot post comment if not logged in");
+      window.location.href = "login.html";
+    }
   };
 
   let postNewComment = (data) => {
