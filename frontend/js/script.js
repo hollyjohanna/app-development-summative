@@ -38,7 +38,7 @@ let renderPosts = (wildlifePosts) => {
       <div class="grid-item post">
         <div class="post-data-cont-top">
           <div class="post-avatar-cont">
-            <img alt="">
+            <img src="${item.author_image_url}">
           </div>
           <div class="post-like-cont">
             <i class="bi bi-heart"></i>
@@ -208,6 +208,40 @@ let openPost = (thisPost) => {
     }
   };
 
+
+  let populatePostModal = (thisPost) => {
+    postModalCont.innerHTML = "";
+    postModalCont.innerHTML = `
+    <div class="img-cont">
+      <img src="${thisPost.image_url}" alt="${thisPost.title}">
+    </div>
+    <div class="post-modal-content-cont">
+      <div class="post-user-cont">
+          <img class="post-user-img" src="${thisPost.author_image_url}">
+          <div class="post-user-details">
+            <h5 class="post-user-name">@${thisPost.author_name}</h5>
+            <p class="post-location">${thisPost.location}</p>
+          </div>
+          <div class="post-interactions-cont">
+            ${checkPermission(thisPost)}
+            <i class="bi bi-heart"></i>
+          </div>
+          </div>
+          <div id="post-caption-cont" class="post-caption-cont">
+            <p class="caption">${thisPost.caption}</p>
+            <p class="created-text"></p>
+          </div>
+          <div id="post-comments-cont" class="post-comments-cont">
+          </div>
+          <div class="post-add-comment-cont">
+            <img class="current-user-img" src="${sessionStorage.profileImg}">
+            <input type="text" placeholder="Leave a comment..." id="comment-input" class="comment-input">
+            <i id="post-new-comment" class="bi bi-send post-new-comment"></i>
+          </div>
+    </div>
+    `;
+  }
+
   let checkLoginComment = (thisPost) => {
     if (sessionStorage.userID) {
       return `
@@ -224,33 +258,7 @@ let openPost = (thisPost) => {
     }
   };
 
-  postModalCont.innerHTML = `
-      <div class="img-cont">
-        <img src="${thisPost.image_url}" alt="${thisPost.title}">
-      </div>
-      <div class="post-modal-content-cont">
-        <div class="post-user-cont">
-            <img class="post-user-img" src="${thisPost.author_image_url}">
-            <div class="post-user-details">
-              <h5 class="post-user-name">@${thisPost.author_name}</h5>
-              <p class="post-location">${thisPost.location}</p>
-            </div>
-            <div class="post-interactions-cont">
-              ${checkPermission(thisPost)}
-              <i class="bi bi-heart"></i>
-            </div>
-            </div>
-            <div id="post-caption-cont" class="post-caption-cont">
-              <p class="caption">${thisPost.caption}</p>
-              <p class="created-text"></p>
-            </div>
-            <div id="post-comments-cont" class="post-comments-cont">
-            </div>
-            <div class="post-add-comment-cont">
-            ${checkLoginComment(thisPost)}
-        </div>
-      </div>
-      `;
+  populatePostModal(thisPost)
 
   let connectComments = (z) => {
     let postComments = document.getElementById("post-comments-cont");
@@ -266,6 +274,7 @@ let openPost = (thisPost) => {
           `;
     }
   };
+
   //===========================================================================
   //                              EDIT POSTS
   //===========================================================================
@@ -279,9 +288,9 @@ let openPost = (thisPost) => {
     postTitle.value = wildlifePost.title;
     postLocation.value = wildlifePost.location;
     postCaption.value = wildlifePost.caption;
-    imagePreview.innerHTML = `
-    <img src="${wildlifePost.image_url}" alt="${postTitle}">
-    `;
+    // imagePreview.innerHTML = `
+    // <img src="${wildlifePost.image_url}" alt="${postTitle}">
+    // `;
     console.log(`The ID was passed in ${id}`);
     // ===============================
     //        EDIT CLICK LISTENER
@@ -295,6 +304,7 @@ let openPost = (thisPost) => {
       let postLocation = document.getElementById("postLocation").value;
       let postCaption = document.getElementById("postCaption").value;
       console.log(postId, postTitle, postLocation, postCaption);
+
       $.ajax({
         url: `http://localhost:3000/updatePost/${postId}`,
         type: "PATCH",
@@ -305,9 +315,29 @@ let openPost = (thisPost) => {
         },
         success: (data) => {
           console.log();
+          let updatePostInfo = (wildlifePost) => {
+            wildlifePost.title = postTitle
+            wildlifePost.location = postLocation
+            wildlifePost.caption = postCaption
+            $.ajax({
+              type: "GET",
+              url: "http://localhost:3000/allWildlifePosts",
+              success: () => {
+                showAllPosts()
+                openPost(wildlifePost)
+                // populatePostModal(wildlifePost);
+                connectComments(thisPost);
+
+              },
+              error: (error) => {
+                console.log(error);
+              },
+            });
+          }
+          updatePostInfo(wildlifePost)
           $("#editModal").modal("hide");
           $("#updatePost").off("click");
-          openPost(wildlifePost);
+
         },
         error: () => {
           console.log("error: cannot update");
@@ -381,9 +411,12 @@ let openPost = (thisPost) => {
 
   const postComments = document.getElementById("post-comments-cont");
 
-  sendCommentBtn.onclick = () => {
-    console.log("clicked!");
-    let postModalCont = document.getElementById("post-modal-cont");
+  if (sessionStorage.userID) {
+    sendCommentBtn.onclick = () => {
+      console.log("clicked!");
+      let postModalCont = document.getElementById("post-modal-cont");
+      ;
+
 
     if (sessionStorage.userID) {
       // console.log(wildlifePostId);
@@ -407,6 +440,8 @@ let openPost = (thisPost) => {
           commentInput.value = "";
           function scrollBottom(element) {
             element.scroll({ top: element.scrollHeight, behavior: "smooth" });
+            let postModalContCont = document.getElementById("post-modal-content-cont")
+            postModalContCont.scroll({ top: postModalContCont.scrollHeight, behavior: "smooth" });
           }
           scrollBottom(postModalCont);
         },
@@ -414,11 +449,8 @@ let openPost = (thisPost) => {
           console.log("error cannot call API");
         },
       });
-    } else {
-      alert("cannot post comment if not logged in");
-      window.location.href = "login.html";
-    }
-  };
+    };
+  }
 
   let postNewComment = (data) => {
     let postComments = document.getElementById("post-comments-cont");
@@ -444,3 +476,9 @@ let openPost = (thisPost) => {
 
   closePostModal();
 };
+
+
+
+
+
+// Glad ya'll are liking the post! So cool to see the community engagement!
