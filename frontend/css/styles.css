@@ -1265,6 +1265,11 @@ nav .secondary-nav .nav-list-mobile a {
      object-fit: cover;
 }
 
+.post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .not-logged-in {
+  opacity: .5 !important;
+  pointer-events: none;
+}
+
 .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .comment-input {
   min-height: 20px;
   height: 100%;

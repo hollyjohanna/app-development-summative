@@ -491,6 +491,11 @@
                     // margin-right: 6px;
                 }
 
+                .not-logged-in {
+                    opacity: .5 !important;
+                    pointer-events: none;
+                }
+
                 .comment-input {
                     min-height: 20px;
                     height: 100%;

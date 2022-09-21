@@ -252,8 +252,8 @@ let openPost = (thisPost) => {
     } else {
       return `
       <img class="current-user-img" src="http://www.avalanche.org.nz/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png">
-      <input type="text" placeholder="Login to comment..." id="comment-input" class="comment-input">
-      <i id="post-new-comment" class="bi bi-send post-new-comment"></i>
+      <input type="text" placeholder="Login to comment..." id="comment-input" class="comment-input not-logged-in">
+      <i id="post-new-comment" class="bi bi-send post-new-comment not-logged-in"></i>
       `;
     }
   };
