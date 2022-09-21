@@ -47,7 +47,7 @@
         width: 90%;
         padding: 30px;
         background: $White;
-        border: 5px solid $SecondaryGreen;
+        border: 2px solid $Black;
     }
 
     #add-post-form {
@@ -59,25 +59,25 @@
         input {
             width: 90%;
             height: 3rem;
-            font-family: 'PP Neue Montreal Light', sans-serif;
+            font-family: 'PP Neue Montreal Bold', sans-serif;
             margin-bottom: 1rem;
             border: 1px solid black;
         }
 
         label {
             font-size: 1.25rem;
-            font-family: 'PP Neue Montreal Light', sans-serif;
-            width: 85%;
+            font-family: 'PP Neue Montreal Bold', sans-serif;
+            width: 90%;
         }
 
         button {
             @include button-main;
-            width: 100%;
+            padding: 15px 20px;
             margin-top: 2rem;
+        }
 
-            button :hover {
-                background: $PrimaryGreen;
-            }
+        button:hover {
+            background: $Black;
         }
     }
 }

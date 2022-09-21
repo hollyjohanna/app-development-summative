@@ -147,13 +147,13 @@
         </div>
         <div class="create-post-modal-cont">
             <form id="add-post-form" action="javascript:void(0)" data-parsley-validate>
-                <label for="image-url-input">Image URL</label>
+                <label for="image-url-input">Enter an image URL</label>
                 <input id="image-url-input" name="image-url-input" type="text" required="">
-                <label for="title-input">Title</label>
+                <label for="title-input">Enter a title</label>
                 <input id="title-input" name="title-input" type="text" required="">
-                <label for="location-input">Location</label>
+                <label for="location-input">Enter a location</label>
                 <input id="location-input" name="location-input" type="text" required="">
-                <label for="caption-input">Caption</label>
+                <label for="caption-input">Enter a caption</label>
                 <input id="caption-input" name="image-url-input" type="text" required="">
                 <button id="render-post-btn" type="submit" value="validate">Create Post</button>
             </form>
@@ -173,27 +173,23 @@
                 <div class="modal-body">
                     <div id="image-preview"></div>
                     <form id="productForm">
-                        <h1>Update Form</h1>
                         <!-- <label for="productId">Enter Product Id:</label>
             <input type="text" name="inputID" id="productId">
             <br><br> -->
 
-                        <label for="postTitle">Enter title of the post</label>
+                        <label for="postTitle">Edit title of the post</label>
                         <input type="text" id="postTitle" name="postTitle">
-                        <br><br>
 
-                        <label for="postLocation">Enter location of the post</label>
+                        <label for="postLocation">Edit location of the post</label>
                         <input type="text" id="postLocation" name="postLocation">
-                        <br><br>
 
-                        <label for="postCaption">Enter caption of the post</label>
+                        <label for="postCaption">Edit caption of the post</label>
                         <input type="text" id="postCaption" name="postCaption">
-                        <br><br>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button id="updatePost" name="productButton" type="submit" class="btn btn-primary">Update
-                        Product</button>
+                        Post</button>
                 </div>
             </div>
         </div>
@@ -221,8 +217,10 @@
             <div id="subscribe-container">
                 <div id="subscribe-section">
                     <h2>Subscribe To Our Mailing List</h2>
-                    <input type="text">
-                    <button>Subscribe</button>
+                    <div id="input-div">
+                        <input type="text">
+                        <button>Subscribe</button>
+                    </div>
                 </div>
             </div>
             <div id="icon-section">
