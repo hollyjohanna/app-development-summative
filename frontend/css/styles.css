@@ -83,7 +83,8 @@ nav .main-nav .main-nav-cont #user-details #dp {
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-nav .main-nav .main-nav-cont #user-details #dp #dp :hover {
+
+nav .main-nav .main-nav-cont #user-details #dp #dp:hover {
   border: 2px solid #393633;
 }
 nav .main-nav .main-nav-cont #user-details a {
@@ -103,7 +104,8 @@ nav .main-nav .main-nav-cont #user-details a #nav-login-button {
   font-size: 14px;
   margin-top: 6px;
 }
-nav .main-nav .main-nav-cont #user-details a #nav-login-button #nav-login-button :hover {
+
+nav .main-nav .main-nav-cont #user-details a #nav-login-button #nav-login-button:hover {
   background-color: #5b7053;
 }
 nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
@@ -120,7 +122,8 @@ nav .main-nav .main-nav-cont #user-details a #nav-logout-button {
   font-size: 14px;
   margin-top: 6px;
 }
-nav .main-nav .main-nav-cont #user-details a #nav-logout-button #nav-logout-button :hover {
+
+nav .main-nav .main-nav-cont #user-details a #nav-logout-button #nav-logout-button:hover {
   background-color: #5b7053;
 }
 nav .secondary-nav {
@@ -520,15 +523,18 @@ nav .secondary-nav .nav-list-mobile a {
   -moz-column-break-inside: avoid;
        break-inside: avoid;
 }
-.feed-grid-section .feed-grid-cont .grid-item :hover {
+
+.feed-grid-section .feed-grid-cont .grid-item:hover {
   cursor: pointer;
 }
-.feed-grid-section .feed-grid-cont .grid-item :hover .post-data-cont-top,
-.feed-grid-section .feed-grid-cont .grid-item :hover .post-data-cont-bottom {
-  opacity: 0;
+
+.feed-grid-section .feed-grid-cont .grid-item:hover .post-data-cont-top,
+.feed-grid-section .feed-grid-cont .grid-item:hover .post-data-cont-bottom {
+  opacity: 1 !important;
 }
-.feed-grid-section .feed-grid-cont .grid-item :hover .post-hover {
-  opacity: 0;
+
+.feed-grid-section .feed-grid-cont .grid-item:hover .post-hover {
+  opacity: 1 !important;
   cursor: pointer;
 }
 .feed-grid-section .feed-grid-cont .grid-item {
@@ -580,6 +586,8 @@ nav .secondary-nav .nav-list-mobile a {
   border-radius: 50%;
   border: solid 2px #ece9e2;
   background: #5b7053;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .feed-grid-section .feed-grid-cont .grid-item .post-data-cont-top .post-like-cont {
   margin-right: 0;
@@ -665,6 +673,7 @@ nav .secondary-nav .nav-list-mobile a {
   font-size: 24px;
   color: #ece9e2;
   -webkit-text-stroke: 1px #ece9e2;
+  cursor: pointer;
 }
 .post-modal .post-modal-cont::-webkit-scrollbar {
   display: none;
@@ -689,6 +698,8 @@ nav .secondary-nav .nav-list-mobile a {
   width: 100%;
   background: #393633;
   border-bottom: solid 2px #393633;
+  overflow: hidden;
+  position: relative;
 }
 .post-modal .post-modal-cont .img-cont img {
   width: 100%;
@@ -696,17 +707,7 @@ nav .secondary-nav .nav-list-mobile a {
   -o-object-fit: contain;
      object-fit: contain;
 }
-.post-modal .post-modal-cont .post-caption-cont {
-  width: 100%;
-  background: #ece9e2;
-  border-bottom: solid 2px #393633;
-  padding: 10px 20px;
-}
-.post-modal .post-modal-cont .post-caption-cont p {
-  font-family: "PP Neue Montreal Regular";
-  font-size: 16px;
-  margin: 0;
-}
+
 .post-modal .post-modal-cont .post-modal-content-cont {
   width: 100%;
   min-height: 57.5vh;
@@ -722,6 +723,20 @@ nav .secondary-nav .nav-list-mobile a {
 .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
   width: 100%;
 }
+
+.post-modal .post-modal-cont .post-modal-content-cont .post-caption-cont {
+  width: 100%;
+  background: #ece9e2;
+  border-bottom: solid 2px #393633;
+  padding: 10px 20px;
+}
+
+.post-modal .post-modal-cont .post-modal-content-cont .post-caption-cont p {
+  font-family: 'PP Neue Montreal Regular';
+  font-size: 16px;
+  margin: 0;
+}
+
 .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont {
   height: 90px;
   max-height: 90px;
@@ -884,6 +899,12 @@ nav .secondary-nav .nav-list-mobile a {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+.post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .not-logged-in {
+  opacity: .5 !important;
+  pointer-events: none;
+}
+
 .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .comment-input {
   min-height: 20px;
   height: 100%;
@@ -919,6 +940,11 @@ nav .secondary-nav .nav-list-mobile a {
     -moz-column-gap: 10px;
          column-gap: 10px;
   }
+  .active-post-modal {
+    opacity: 1 !important;
+    -webkit-transition: opacity .25s ease-in-out 0s !important;
+    transition: opacity .25s ease-in-out 0s !important;
+  }
   .post-modal {
     width: 100vw;
     height: 100vh;
@@ -926,18 +952,33 @@ nav .secondary-nav .nav-list-mobile a {
     top: 0;
     left: 0;
     z-index: 25;
-    background: rgb(57, 54, 51);
-    visibility: hidden;
+    background: rgba(57, 54, 51, 0.65);
+    -webkit-backdrop-filter: blur(1px);
+            backdrop-filter: blur(1px);
+    visibility: visible;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out;
-    transform: translateX(100vw);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transition: opacity 2.25s ease-in-out 0s;
+    transition: opacity 2.25s ease-in-out 0s;
+    opacity: 0;
   }
   .post-modal .exit-modal {
     width: 100%;
-    height: 45px;
-    position: fixed;
+    height: 75px;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -945,48 +986,84 @@ nav .secondary-nav .nav-list-mobile a {
     top: 0;
     right: 0px;
     z-index: 75;
-    background: red;
   }
   .post-modal .exit-modal .exit-modal-icon {
     font-size: 24px;
     color: #ece9e2;
     -webkit-text-stroke: 1px #ece9e2;
+    text-shadow: 0px 0px 8px rgba(23, 23, 23, 0.35);
   }
   .post-modal .post-modal-cont::-webkit-scrollbar {
     display: none;
   }
   .post-modal .post-modal-cont {
     position: relative;
-    top: 45px;
-    width: 100%;
-    min-height: calc(100vh - 50px);
-    height: auto;
-    background: red;
+    top: 25px;
+    width: 96%;
+    min-height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
+    height: calc(100vh - 90px);
+    border: solid 2px #393633;
+    margin-top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     overflow: scroll;
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(23, 23, 23, 0.35);
+            box-shadow: 0px 0px 8px 0px rgba(23, 23, 23, 0.35);
   }
   .post-modal .post-modal-cont .img-cont {
-    width: 100%;
+    height: 100%;
+    width: 55%;
     background: #393633;
-    border-bottom: solid 2px #393633;
+    border-right: none;
+    border-right: solid 2px #393633;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow: hidden;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
   }
   .post-modal .post-modal-cont .img-cont img {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    max-width: 100%;
     width: 100%;
-    max-height: 45vh;
+    height: 100%;
+    max-height: 100%;
     -o-object-fit: contain;
        object-fit: contain;
   }
   .post-modal .post-modal-cont .post-modal-content-cont {
-    width: 100%;
-    min-height: 54.5vh;
-    flex: 1;
+    width: 45%;
+    height: 100%;
     top: 0;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
     justify-content: stretch;
@@ -997,9 +1074,21 @@ nav .secondary-nav .nav-list-mobile a {
 .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
     width: 100%;
   }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-caption-cont {
+    width: 100%;
+    background: #ece9e2;
+    border-bottom: solid 2px #393633;
+    padding: 25px 20px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-caption-cont p {
+    font-family: 'PP Neue Montreal Regular';
+    font-size: 16px;
+    margin: 0;
+  }
   .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont {
-    height: 90px;
-    max-height: 90px;
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
     border-bottom: solid 2px #393633;
     display: flex;
     align-items: center;
@@ -1060,23 +1149,72 @@ nav .secondary-nav .nav-list-mobile a {
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont {
     width: 100%;
-    padding-bottom: 75px;
-    flex: 1;
-    font-family: "PP Neue Montreal Regular";
+    padding-top: 0px;
+    padding-bottom: 0px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    background: #ece9e2;
+    font-family: 'PP Neue Montreal Regular';
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
   }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .new-comment:last-child {
+    -webkit-animation: new-comment-highlight 3.25s ease;
+            animation: new-comment-highlight 3.25s ease;
+    bottom: 0;
+  }
+  @-webkit-keyframes new-comment-highlight {
+    0% {
+      background: rgba(57, 54, 51, 0.15);
+    }
+    80% {
+      background: rgba(57, 54, 51, 0.15);
+    }
+    100% {
+      background: rgba(57, 54, 51, 0);
+    }
+  }
+  @keyframes new-comment-highlight {
+    0% {
+      background: rgba(57, 54, 51, 0.15);
+    }
+    80% {
+      background: rgba(57, 54, 51, 0.15);
+    }
+    100% {
+      background: rgba(57, 54, 51, 0);
+    }
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment:hover,
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .new-comment:hover {
+    background: rgba(57, 54, 51, 0.15) !important;
+    -webkit-transition: background 0.15s ease;
+    transition: background 0.15s ease;
+  }
   .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment {
     width: 100%;
+    background: #ece9e2;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: auto;
-    justify-content: space-between;
-    flex-direction: row;
-    padding: 10px 20px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 12px 20px;
     gap: 10px;
     font-family: "PP Neue Montreal Regular";
     min-height: 50px;
+    -webkit-transition: background 0.15s ease;
+    transition: background 0.15s ease;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-user-img {
     height: 48px;
@@ -1102,16 +1240,27 @@ nav .secondary-nav .nav-list-mobile a {
     margin-right: 5px;
   }
   .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
-    min-height: 75px;
+    min-height: 80px;
+    background: #ece9e2;
+    width: 100%;
     border-top: solid 2px #393633;
-    position: fixed;
-    bottom: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0px;
+    right: 100%;
     z-index: 100;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    padding: 10px 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 25px 20px;
     gap: 10px;
     font-family: "PP Neue Montreal Regular";
   }
@@ -1146,6 +1295,430 @@ nav .secondary-nav .nav-list-mobile a {
     padding: 3px;
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .feed-grid-section {
+    width: 100%;
+    background: #ece9e2;
+    padding: 50px 20px;
+  }
+  .feed-grid-section .feed-grid-cont {
+    max-width: 1420px;
+    margin: auto;
+    -webkit-column-count: 3;
+            column-count: 3;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+  .active-post-modal {
+    opacity: 1 !important;
+    -webkit-transition: opacity .25s ease-in-out 0s !important;
+    transition: opacity .25s ease-in-out 0s !important;
+  }
+  .post-modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 25;
+    background: rgba(57, 54, 51, 0.65);
+    -webkit-backdrop-filter: blur(1px);
+            backdrop-filter: blur(1px);
+    visibility: visible;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-transition: opacity 2.25s ease-in-out 0s;
+    transition: opacity 2.25s ease-in-out 0s;
+    opacity: 0;
+  }
+  .post-modal .exit-modal {
+    width: 100%;
+    height: 75px;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    top: 0;
+    right: 0px;
+    z-index: 75;
+  }
+  .post-modal .exit-modal .exit-modal-icon {
+    font-size: 24px;
+    color: #ece9e2;
+    -webkit-text-stroke: 1px #ece9e2;
+    text-shadow: 0px 0px 8px rgba(23, 23, 23, 0.35);
+    margin-right: 25px;
+  }
+  .post-modal .post-modal-cont::-webkit-scrollbar {
+    display: none;
+  }
+  .post-modal .post-modal-cont {
+    position: relative;
+    top: 0px;
+    width: 80%;
+    max-width: 1200px;
+    min-height: calc(100vh - 80px);
+    max-height: calc(100vh - 80px);
+    height: calc(100vh - 80px);
+    border: solid 2px #393633;
+    margin-top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(23, 23, 23, 0.35);
+            box-shadow: 0px 0px 8px 0px rgba(23, 23, 23, 0.35);
+  }
+  .post-modal .post-modal-cont .img-cont {
+    height: 100%;
+    width: 55%;
+    background: #393633;
+    border-right: none;
+    border-right: solid 2px #393633;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow: hidden;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+  .post-modal .post-modal-cont .img-cont img {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont {
+    width: 45%;
+    height: 100%;
+    top: 0;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: stretch;
+        -ms-flex-pack: stretch;
+            justify-content: stretch;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont,
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont,
+  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
+    width: 100%;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-caption-cont {
+    width: 100%;
+    background: #ece9e2;
+    border-bottom: solid 2px #393633;
+    padding: 25px 20px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-caption-cont p {
+    font-family: 'PP Neue Montreal Regular';
+    font-size: 16px;
+    margin: 0;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont {
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
+    border-bottom: solid 2px #393633;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: relative;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-user-img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: solid 2px #393633;
+    display: inline-block;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin: 0;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-user-details {
+    margin-left: 0;
+    position: relative;
+    max-width: 60%;
+    display: inline-block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    font-size: 16px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-user-details .post-user-name {
+    font-weight: 800;
+    margin: 0;
+    display: block;
+    font-family: 'PP Neue Montreal Bold';
+    font-size: 20px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-user-details .post-location {
+    text-align: left;
+    margin: 0;
+    display: block;
+    font-family: 'PP Neue Montreal Regular';
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-interactions-cont {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: relative;
+    margin-right: 0;
+    gap: 10px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-user-cont .post-interactions-cont i {
+    font-size: 34px;
+    line-height: 34px;
+    padding: 3px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont {
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    background: #ece9e2;
+    font-family: 'PP Neue Montreal Regular';
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .new-comment:last-child {
+    -webkit-animation: new-comment-highlight 3.25s ease;
+            animation: new-comment-highlight 3.25s ease;
+    bottom: 0;
+  }
+  @-webkit-keyframes new-comment-highlight {
+    0% {
+      background: rgba(57, 54, 51, 0.15);
+    }
+    80% {
+      background: rgba(57, 54, 51, 0.15);
+    }
+    100% {
+      background: rgba(57, 54, 51, 0);
+    }
+  }
+  @keyframes new-comment-highlight {
+    0% {
+      background: rgba(57, 54, 51, 0.15);
+    }
+    80% {
+      background: rgba(57, 54, 51, 0.15);
+    }
+    100% {
+      background: rgba(57, 54, 51, 0);
+    }
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment:hover,
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .new-comment:hover {
+    background: rgba(57, 54, 51, 0.15) !important;
+    -webkit-transition: background 0.15s ease;
+    transition: background 0.15s ease;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment {
+    width: 100%;
+    background: #ece9e2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: auto;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 12px 20px;
+    gap: 10px;
+    font-family: 'PP Neue Montreal Regular';
+    min-height: 50px;
+    -webkit-transition: background 0.15s ease;
+    transition: background 0.15s ease;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-user-img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: solid 2px #393633;
+    display: inline-block;
+    margin: 0;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content {
+    width: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: auto;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content p {
+    margin: 10px auto 0px;
+    font-size: 16px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-comments-cont .comment .comment-content p .comment-user-name {
+    font-family: 'PP Neue Montreal Bold';
+    margin-right: 5px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont {
+    min-height: 80px;
+    background: #ece9e2;
+    width: 100%;
+    border-top: solid 2px #393633;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0px;
+    right: 100%;
+    z-index: 100;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 25px 20px;
+    gap: 10px;
+    font-family: 'PP Neue Montreal Regular';
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .current-user-img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: solid 2px #393633;
+    display: inline-block;
+    margin: 0;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .comment-input {
+    min-height: 20px;
+    height: 100%;
+    margin-left: 0;
+    position: relative;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    outline: 0;
+    border: none;
+    background: none;
+    height: 48px;
+    padding: 3px 5px;
+    color: #393633;
+    resize: none;
+    font-size: 18px;
+  }
+  .post-modal .post-modal-cont .post-modal-content-cont .post-add-comment-cont .post-new-comment {
+    font-size: 34px;
+    line-height: 34px;
+    padding: 3px;
+  }
+}
+
 footer {
   display: flex;
   justify-content: center;
@@ -1216,7 +1789,8 @@ footer {
   height: 4vh;
   font-size: 12px;
 }
-#subscribe-section #input-div button button :hover {
+
+#subscribe-section button button:hover {
   background-color: #5b7053;
 }
 
@@ -1253,7 +1827,7 @@ footer {
     grid-column: span 4;
   }
   #subscribe-section button {
-    width: 21%;
+    width: 23%;
   }
   #icon-section {
     grid-column: span 4;
@@ -1321,6 +1895,11 @@ footer {
   background-color: #ece9e2;
   margin-bottom: 16px;
 }
+
+#login-body #login-form #validation {
+  font-family: 'PP Neue Montreal Light';
+}
+
 #login-body #login-form #login-button-login-page {
   border: 0;
   background-color: #8c946f;
@@ -1334,7 +1913,8 @@ footer {
   width: 100%;
   font-size: 24px;
 }
-#login-body #login-form #login-button-login-page #login-button-login-page :hover {
+
+#login-body #login-form #login-button-login-page #login-button-login-page:hover {
   background-color: #524f42;
 }
 #login-body #login-form hr {
@@ -1356,7 +1936,8 @@ footer {
   margin-bottom: 10px;
   display: inline-block;
 }
-#login-body #login-form #signup-button-login-page #signup-button-login-page :hover {
+
+#login-body #login-form #signup-button-login-page #signup-button-login-page:hover {
   background-color: #524f42;
 }
 #login-body #login-form a {
@@ -1370,7 +1951,8 @@ footer {
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
-#login-body #login-form #guest-link #guest-link :hover {
+
+#login-body #login-form #guest-link #guest-link:hover {
   color: #393633;
   text-decoration: underline;
 }
@@ -1389,6 +1971,9 @@ footer {
   }
   #login-body #login-form {
     padding: 0 130px;
+  }
+  #login-body #login-form #validation {
+    font-size: 18px;
   }
   #login-body h1 {
     margin-bottom: 0;
@@ -1433,6 +2018,9 @@ footer {
   }
   #login-body .login-container .login-content-container #login-form {
     padding: 0 100px 0 0;
+  }
+  #login-body .login-container .login-content-container #login-form #validation {
+    font-size: 18px;
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -1510,7 +2098,8 @@ footer {
   margin-bottom: 10px;
   display: inline-block;
 }
-#signup-body #signup-form #login-button-signup-page #login-button-signup-page :hover {
+
+#signup-body #signup-form #login-button-signup-page #login-button-signup-page:hover {
   background-color: #524f42;
 }
 #signup-body #signup-form hr {
@@ -1530,7 +2119,8 @@ footer {
   width: 100%;
   font-size: 24px;
 }
-#signup-body #signup-form #signup-button-signup-page #signup-button-signup-page :hover {
+
+#signup-body #signup-form #signup-button-signup-page #signup-button-signup-page:hover {
   background-color: #524f42;
 }
 #signup-body #signup-form a {
@@ -1544,7 +2134,8 @@ footer {
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
-#signup-body #signup-form #guest-link #guest-link :hover {
+
+#signup-body #signup-form #guest-link #guest-link:hover {
   color: #393633;
   text-decoration: underline;
 }
@@ -1667,7 +2258,8 @@ footer {
   color: #ece9e2;
   transition: 0.3s ease;
 }
-.create-post-modal .create-exit-modal .exit-modal-icon .exit-modal-icon :hover {
+
+.create-post-modal .create-exit-modal .exit-modal-icon .exit-modal-icon:hover {
   font-size: 30px;
   color: #8c946f;
 }
@@ -1710,8 +2302,9 @@ footer {
   padding: 15px 20px;
   margin-top: 2rem;
 }
-.create-post-modal #add-post-form button:hover {
-  background: #393633;
+
+.create-post-modal #add-post-form button button:hover {
+  background: #5b7053;
 }
 
 .parsley-errors-list {

@@ -52,17 +52,17 @@
         column-rule: 100%;
         break-inside: avoid;
 
-        .grid-item :hover {
+        .grid-item:hover {
             cursor: pointer;
 
             .post-data-cont-top,
             .post-data-cont-bottom {
-                opacity: 0;
+                opacity: 1 !important;
                 // pointer-events: none;
             }
 
             .post-hover {
-                opacity: 0;
+                opacity: 1 !important;
                 cursor: pointer;
                 // pointer-events: none;
             }
@@ -125,6 +125,7 @@
                         border-radius: 50%;
                         border: solid 2px $White;
                         background: $PrimaryGreen;
+                        object-fit: cover;
                     }
                 }
 
@@ -235,6 +236,7 @@
             font-size: 24px;
             color: $White;
             -webkit-text-stroke: 1px $White;
+            cursor: pointer;
         }
     }
 
@@ -264,6 +266,8 @@
             background: $Black;
             border-bottom: solid 2px $Black;
             // aspect-ratio: 1.25/1;
+            overflow: hidden;
+            position: relative;
 
             img {
                 width: 100%;
@@ -272,18 +276,7 @@
             }
         }
 
-        .post-caption-cont {
-            width: 100%;
-            background: $White;
-            border-bottom: solid 2px $Black;
-            padding: 10px 20px;
 
-            p {
-                font-family: 'PP Neue Montreal Regular';
-                font-size: 16px;
-                margin: 0;
-            }
-        }
 
         .post-modal-content-cont {
             width: 100%;
@@ -300,6 +293,19 @@
             .post-comments-cont,
             .post-add-comment-cont {
                 width: 100%;
+            }
+
+            .post-caption-cont {
+                width: 100%;
+                background: $White;
+                border-bottom: solid 2px $Black;
+                padding: 10px 20px;
+
+                p {
+                    font-family: 'PP Neue Montreal Regular';
+                    font-size: 16px;
+                    margin: 0;
+                }
             }
 
             .post-user-cont {
@@ -485,6 +491,11 @@
                     // margin-right: 6px;
                 }
 
+                .not-logged-in {
+                    opacity: .5 !important;
+                    pointer-events: none;
+                }
+
                 .comment-input {
                     min-height: 20px;
                     height: 100%;
@@ -549,6 +560,13 @@
         }
     }
 
+    .active-post-modal {
+        // transform: translateX(0) !important;
+        opacity: 1 !important;
+        transition: opacity .25s ease-in-out 0s !important;
+
+    }
+
     .post-modal {
         // min-width: 300px;
         width: 100vw;
@@ -558,33 +576,40 @@
         top: 0;
         left: 0;
         z-index: 25;
-        background: rgba(57, 54, 51, 1);
-        visibility: hidden;
+        background: rgba(57, 54, 51, 0.65);
+        backdrop-filter: blur(1px);
+        visibility: visible;
         display: flex;
         align-items: center;
-        // justify-content: center;
+        justify-content: center;
         flex-direction: column;
-        transition: transform 0.25s ease-in-out, visibility 0.25s ease-in-out;
-        transform: translateX(100vw);
+        transition: opacity 2.25s ease-in-out 0s;
+        opacity: 0;
+        // transform: translateX(100vw);
+
 
         .exit-modal {
             width: 100%;
-            height: 45px;
-            position: fixed;
+            height: 75px;
+            position: absolute;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             top: 0;
             right: 0px;
+            // margin-bottom: 10px;
             // padding: 10px;
             z-index: 75;
-            background: red;
+            // background: red;
 
             .exit-modal-icon {
                 font-size: 24px;
                 color: $White;
                 -webkit-text-stroke: 1px $White;
+                text-shadow: 0px 0px 8px rgba(23, 23, 23, 0.35);
+                // margin-right: 0;
+                // background: blue;
             }
         }
 
@@ -594,45 +619,67 @@
 
         .post-modal-cont {
             position: relative;
-            top: 45px;
-            width: 100%;
-            min-height: calc(100vh - 50px);
-            height: auto;
-            background: red;
+            top: 25px;
+            width: 96%;
+            min-height: calc(100vh - 100px);
+            max-height: calc(100vh - 100px);
+            height: calc(100vh - 90px);
+            border: solid 2px $Black;
+            // background: red;
+            margin-top: 0;
             // background: blue;
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            flex-direction: column;
+            flex-direction: row;
             overflow: scroll;
             -ms-overflow-style: none;
             /* IE and Edge */
             scrollbar-width: none;
+            box-shadow: 0px 0px 8px 0px rgba(23, 23, 23, 0.35);
 
             .img-cont {
-                width: 100%;
+                height: 100%;
+                width: 55%;
                 // min-height: 25vh;
                 background: $Black;
-                border-bottom: solid 2px $Black;
+                border-right: none;
+                border-right: solid 2px $Black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                position: sticky;
+                top: 0;
+                left: 0;
                 // aspect-ratio: 1.25/1;
 
                 img {
+                    position: sticky;
+                    top: 0;
+                    max-width: 100%;
                     width: 100%;
-                    max-height: 45vh;
+                    height: 100%;
+                    max-height: 100%;
                     object-fit: contain;
                 }
             }
 
+
+
             .post-modal-content-cont {
-                width: 100%;
-                min-height: 54.5vh;
-                flex: 1;
+                width: 45%;
+                height: 100%;
+                // min-height: 54.5vh;
+                // flex: 1;
                 top: 0;
                 // background: green;
+                position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: stretch;
                 flex-direction: column;
+                // overflow: scroll;
 
                 .post-user-cont,
                 .post-comments-cont,
@@ -640,10 +687,24 @@
                     width: 100%;
                 }
 
+                .post-caption-cont {
+                    width: 100%;
+                    background: $White;
+                    border-bottom: solid 2px $Black;
+                    padding: 25px 20px;
+
+                    p {
+                        font-family: 'PP Neue Montreal Regular';
+                        font-size: 16px;
+                        margin: 0;
+                    }
+                }
+
                 .post-user-cont {
-                    height: 90px;
-                    max-height: 90px;
-                    // background: $White;
+                    height: 100px;
+                    min-height: 100px;
+                    max-height: 100px;
+                    // background: red;
                     border-bottom: solid 2px $Black;
                     display: flex;
                     align-items: center;
@@ -719,9 +780,10 @@
                 .post-comments-cont {
                     // min-height: 1700px;
                     width: 100%;
-                    padding-bottom: 75px;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
                     flex: 1;
-                    // background: $White;
+                    background: $White;
                     font-family: 'PP Neue Montreal Regular';
                     display: flex;
                     // align-items: center;
@@ -729,18 +791,44 @@
                     flex-direction: column;
                     // background: blue;
 
+                    .new-comment:last-child {
+                        animation: new-comment-highlight 3.25s ease;
+                        bottom: 0;
+                    }
+
+                    @keyframes new-comment-highlight {
+                        0% {
+                            background: rgba(57, 54, 51, 0.15);
+                        }
+
+                        80% {
+                            background: rgba(57, 54, 51, 0.15);
+                        }
+
+                        100% {
+                            background: rgba(57, 54, 51, 0);
+                        }
+                    }
+
+                    .comment:hover,
+                    .new-comment:hover {
+                        background: rgba(57, 54, 51, 0.15) !important;
+                        transition: background 0.15s ease;
+                    }
+
                     .comment {
                         width: 100%;
-                        // background: pink;
+                        background: $White;
                         display: flex;
                         height: auto;
                         // align-items: center;
                         justify-content: space-between;
                         flex-direction: row;
-                        padding: 10px 20px;
+                        padding: 12px 20px;
                         gap: 10px;
                         font-family: 'PP Neue Montreal Regular';
                         min-height: 50px;
+                        transition: background 0.15s ease;
 
                         .comment-user-img {
                             height: 48px;
@@ -772,19 +860,22 @@
                 }
 
                 .post-add-comment-cont {
-                    min-height: 75px;
-                    // background: $White;
+                    min-height: 80px;
+                    background: $White;
+                    width: 100%;
                     border-top: solid 2px $Black;
-                    position: fixed;
-                    bottom: 0;
+                    position: sticky;
+                    bottom: 0px;
+                    right: 100%;
                     z-index: 100;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     flex-direction: row;
-                    padding: 10px 20px;
+                    padding: 25px 20px;
                     gap: 10px;
                     font-family: 'PP Neue Montreal Regular';
+                    // opacity: 0;
 
                     .current-user-img {
                         height: 48px;
@@ -830,7 +921,6 @@
 }
 
 // DESKTOP 
-
 // @media screen and (min-width: 1440px) {
 
 //     .post-modal {
@@ -885,3 +975,380 @@
 //         }
 //     }
 // }
+
+@media screen and (min-width: 1440px) {
+
+    .feed-grid-section {
+        width: 100%;
+        background: $White;
+        padding: 50px 20px;
+
+        .feed-grid-cont {
+            // width: 98%;
+            max-width: 1420px;
+            margin: auto;
+            column-count: 3;
+            column-gap: 10px;
+        }
+    }
+
+    .active-post-modal {
+        // transform: translateX(0) !important;
+        opacity: 1 !important;
+        transition: opacity .25s ease-in-out 0s !important;
+
+    }
+
+    .post-modal {
+        // min-width: 300px;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        // overflow: scroll;
+        top: 0;
+        left: 0;
+        z-index: 25;
+        background: rgba(57, 54, 51, 0.65);
+        backdrop-filter: blur(1px);
+        visibility: visible;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: opacity 2.25s ease-in-out 0s;
+        opacity: 0;
+        // transform: translateX(100vw);
+
+
+        .exit-modal {
+            width: 100%;
+            height: 75px;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            top: 0;
+            right: 0px;
+            // margin-bottom: 10px;
+            // padding: 10px;
+            z-index: 75;
+            // background: red;
+
+            .exit-modal-icon {
+                font-size: 24px;
+                color: $White;
+                -webkit-text-stroke: 1px $White;
+                text-shadow: 0px 0px 8px rgba(23, 23, 23, 0.35);
+                margin-right: 25px;
+                // background: blue;
+            }
+        }
+
+        .post-modal-cont::-webkit-scrollbar {
+            display: none;
+        }
+
+        .post-modal-cont {
+            position: relative;
+            top: 0px;
+            width: 80%;
+            max-width: 1200px;
+            min-height: calc(100vh - 80px);
+            max-height: calc(100vh - 80px);
+            height: calc(100vh - 80px);
+            border: solid 2px $Black;
+            // background: red;
+            margin-top: 0;
+            // background: blue;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            overflow: scroll;
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            box-shadow: 0px 0px 8px 0px rgba(23, 23, 23, 0.35);
+
+            .img-cont {
+                height: 100%;
+                width: 55%;
+                // min-height: 25vh;
+                background: $Black;
+                border-right: none;
+                border-right: solid 2px $Black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                position: sticky;
+                top: 0;
+                left: 0;
+                // aspect-ratio: 1.25/1;
+
+                img {
+                    position: sticky;
+                    top: 0;
+                    max-width: 100%;
+                    width: 100%;
+                    height: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+
+
+            .post-modal-content-cont {
+                width: 45%;
+                height: 100%;
+                // min-height: 54.5vh;
+                // flex: 1;
+                top: 0;
+                // background: green;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: stretch;
+                flex-direction: column;
+                // overflow: scroll;
+
+                .post-user-cont,
+                .post-comments-cont,
+                .post-add-comment-cont {
+                    width: 100%;
+                }
+
+                .post-caption-cont {
+                    width: 100%;
+                    background: $White;
+                    border-bottom: solid 2px $Black;
+                    padding: 25px 20px;
+
+                    p {
+                        font-family: 'PP Neue Montreal Regular';
+                        font-size: 16px;
+                        margin: 0;
+                    }
+                }
+
+                .post-user-cont {
+                    height: 100px;
+                    min-height: 100px;
+                    max-height: 100px;
+                    // background: red;
+                    border-bottom: solid 2px $Black;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    position: relative;
+                    padding: 10px 20px;
+                    gap: 10px;
+
+                    .post-user-img {
+                        height: 60px;
+                        width: 60px;
+                        border-radius: 50%;
+                        border: solid 2px $Black;
+                        display: inline-block;
+                        object-fit: cover;
+                        // background-color: orange;
+                        margin: 0;
+                        // margin-right: 6px;
+                    }
+
+                    .post-user-details {
+                        margin-left: 0;
+                        position: relative;
+                        // background-color: red;
+                        max-width: 60%;
+                        display: inline-block;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        overflow: hidden;
+                        flex-shrink: 1;
+                        font-size: 16px;
+                        // background-color: green;
+
+                        .post-user-name {
+                            font-weight: 800;
+                            margin: 0;
+                            display: block;
+                            font-family: 'PP Neue Montreal Bold';
+                            font-size: 20px;
+                            // background-color: pink;
+
+                        }
+
+                        .post-location {
+                            text-align: left;
+                            margin: 0;
+                            display: block;
+                            font-family: 'PP Neue Montreal Regular';
+                            // background-color: yellow;
+                        }
+                    }
+
+                    .post-interactions-cont {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        position: relative;
+                        margin-right: 0;
+                        gap: 10px;
+
+                        i {
+                            font-size: 34px;
+                            // background: red;
+                            line-height: 34px;
+                            padding: 3px;
+                        }
+                    }
+                }
+
+                .post-comments-cont {
+                    // min-height: 1700px;
+                    width: 100%;
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                    flex: 1;
+                    background: $White;
+                    font-family: 'PP Neue Montreal Regular';
+                    display: flex;
+                    // align-items: center;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    // background: blue;
+
+                    .new-comment:last-child {
+                        animation: new-comment-highlight 3.25s ease;
+                        bottom: 0;
+                    }
+
+                    @keyframes new-comment-highlight {
+                        0% {
+                            background: rgba(57, 54, 51, 0.15);
+                        }
+
+                        80% {
+                            background: rgba(57, 54, 51, 0.15);
+                        }
+
+                        100% {
+                            background: rgba(57, 54, 51, 0);
+                        }
+                    }
+
+                    .comment:hover,
+                    .new-comment:hover {
+                        background: rgba(57, 54, 51, 0.15) !important;
+                        transition: background 0.15s ease;
+                    }
+
+                    .comment {
+                        width: 100%;
+                        background: $White;
+                        display: flex;
+                        height: auto;
+                        // align-items: center;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        padding: 12px 20px;
+                        gap: 10px;
+                        font-family: 'PP Neue Montreal Regular';
+                        min-height: 50px;
+                        transition: background 0.15s ease;
+
+                        .comment-user-img {
+                            height: 48px;
+                            width: 48px;
+                            border-radius: 50%;
+                            border: solid 2px $Black;
+                            display: inline-block;
+                            margin: 0;
+                            object-fit: cover;
+                        }
+
+                        .comment-content {
+                            width: 100%;
+                            flex: 1;
+                            height: auto;
+
+                            p {
+                                margin: 10px auto 0px;
+                                font-size: 16px;
+
+                                .comment-user-name {
+                                    font-family: 'PP Neue Montreal Bold';
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                .post-add-comment-cont {
+                    min-height: 80px;
+                    background: $White;
+                    width: 100%;
+                    border-top: solid 2px $Black;
+                    position: sticky;
+                    bottom: 0px;
+                    right: 100%;
+                    z-index: 100;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    padding: 25px 20px;
+                    gap: 10px;
+                    font-family: 'PP Neue Montreal Regular';
+                    // opacity: 0;
+
+                    .current-user-img {
+                        height: 48px;
+                        width: 48px;
+                        border-radius: 50%;
+                        border: solid 2px $Black;
+                        display: inline-block;
+                        // background-color: orange;
+                        margin: 0;
+                        object-fit: cover;
+                        // margin-right: 6px;
+                    }
+
+                    .comment-input {
+                        min-height: 20px;
+                        height: 100%;
+                        margin-left: 0;
+                        position: relative;
+                        flex: 1;
+                        outline: 0;
+                        border: none;
+                        background: none;
+                        height: 48px;
+                        padding: 3px 5px;
+                        color: $Black;
+                        resize: none;
+                        // overflow-y: hidden;
+                        font-size: 18px;
+
+                        // max-width: 60%;
+                    }
+
+                    .post-new-comment {
+                        font-size: 34px;
+                        // background: red;
+                        line-height: 34px;
+                        padding: 3px;
+                    }
+                }
+            }
+        }
+    }
+}

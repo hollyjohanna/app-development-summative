@@ -61,16 +61,13 @@ footer {
             margin-right: 1vw;
         }
 
-        button {
-            @include button-main;
-            width: 30%;
-            padding: 10px;
-            height: 4vh;
-            font-size: 12px;
-
-            button :hover {
-                background-color: $PrimaryGreen;
-            }
+      button {
+        @include button-main;
+        width: 43%;
+        margin-top: 10px;
+        padding: 10px;
+        button:hover {
+            background-color: $PrimaryGreen;
         }
     }
 }
@@ -114,7 +111,7 @@ footer {
     #subscribe-section {
 
         button {
-            width: 21%;
+            width: 23%;
         }
     }
 
